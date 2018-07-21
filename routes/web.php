@@ -21,7 +21,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/root','AdminController@index');
 
-
 Route::get('/root/products','AdminController@products');
 
 Route::post('/root/products','AdminController@insert_product');
@@ -29,3 +28,5 @@ Route::post('/root/products','AdminController@insert_product');
 Route::get('/root/feature','FeatureController@index');
 
 Route::post('/root/feature','FeatureController@insert_feature');
+
+Route::get('/root/listfeatures','FeatureController@list_features');

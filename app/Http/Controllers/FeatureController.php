@@ -10,24 +10,25 @@ class FeatureController extends Controller
 {
     public function index(){
 
-        return view('admin.feature_insert_form');
+        return view('admin.insert_features');
 
     }
     public function insert_feature(){
 
+        $this->validate(request(),[
+
+            'title'=>'required'
+        ]);
+
         $ft = new Feature();
         $ft->title = request()->title;
         $ft->save();
-        return "it's added";
-       /* DB::table('features')->insert([
-            ['title' => 'dsfsdfds'],
-        ]);*/
+        return redirect()->back()->with('message','با موفقیت درج شد');
+    }
 
-        /*$insert_feature = new insert_feature;
+    public function list_features(){
 
-        $insert_feature->title = $request->title;
-
-        $insert_feature->save();*/
 
     }
 }
+
