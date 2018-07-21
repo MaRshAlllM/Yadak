@@ -302,11 +302,11 @@
                   <li class="sub-menu">
                       <a href="javascript:;" class="">
                           <i class="icon-cogs"></i>
-                          <span>کامنت ها</span>
+                          <span>مشخصات کالا</span>
                           <span class="arrow"></span>
                       </a>
                       <ul class="sub">
-                          <li><a class="" href="grids.html">گرید</a></li>
+                          <li><a class="" href="/root/feature">درج مشخصه جدید</a></li>
                           <li><a class="" href="calendar.html">تقویم</a></li>
                           <li><a class="" href="charts.html">چارت</a></li>
                       </ul>
