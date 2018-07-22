@@ -38,7 +38,7 @@
                             @endif
 
                             <div class="panel-body">
-                                <form role="form" action="" method="POST" enctype="multipart/form-data">
+                                <form role="form" action="{{route('products.store')}}" method="POST" enctype="multipart/form-data">
 	                                @csrf
                                     <div class="form-group">
                                         <label for="title">عنوان</label>
@@ -55,7 +55,7 @@
                                        	 <label for="price">قیمت</label>
                                        	 <input name="price[]" type="text" class="form-control" id="price" placeholder="قیمت" v-if="!falseOrtrue">
 
-										<input name="feature[]" type="hidden" value="قیمت" class="form-control" id="price" placeholder="قیمت" v-if="!falseOrtrue">
+										<input name="feature[]" type="hidden" value="" class="form-control" id="price" placeholder="" v-if="!falseOrtrue">
 
                                     	</div>
                                     	<div class="clearfix"></div>
@@ -64,12 +64,17 @@
 
                                         <div v-if="falseOrtrue">
 
-                                        	<ul v-for="(input,index) in inputs">
+                                        	<ul v-for="(input,index) in inputs" track-by="$index">
 
                                         	<div class="form-row">
                                         			
-												<li class="form-group col-md-6"><input type="text" class="form-control" name="feature[]"></li>
-                                        		<li class="form-group col-md-6"><input type="text" class="form-control" name="price[]"></li>
+												<li class="form-group col-md-6"><input type="text" class="form-control" name="feature[]" placeholder="متغییر"></li>
+                                        		<li class="form-group col-md-4"><input type="text" placeholder="قیمت" class="form-control" name="price[]"></li>
+                                                <li class="form-group col-md-2">
+                                                    
+                                                    <a @click="deleteRow(index)" class="btn btn-danger">حذف</a>
+
+                                                </li>
 
                                         	</div>
 
@@ -77,7 +82,7 @@
                                         </ul>	
 
                                         <br>
-                                        <a href="#" class="btn" @click="addRow">اضافه کردن محصول متغییر</a>
+                                        <a class="btn" @click="addRow">اضافه کردن محصول متغییر</a>
                                	
 
                                         </div>
@@ -127,6 +132,11 @@
 
 
 			},
+            deleteRow:function(index){
+
+                this.inputs.splice(index,1)
+
+            },
 			hideAndshow:function(){
 
 				this.falseOrtrue = !this.falseOrtrue;
