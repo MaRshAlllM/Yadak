@@ -25,8 +25,10 @@ Route::get('/root/products','AdminController@products');
 
 Route::post('/root/products','AdminController@insert_product');
 
-Route::get('/root/feature','FeatureController@index');
+//Route::get('/root/feature','FeatureController@index');
+//
+//Route::post('/root/feature','FeatureController@insert_feature');
+//
+//Route::get('/root/listfeatures','FeatureController@list_features');
 
-Route::post('/root/feature','FeatureController@insert_feature');
-
-Route::get('/root/listfeatures','FeatureController@list_features');
+Route::resource('/root/feature','FeatureController');

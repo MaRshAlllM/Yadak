@@ -20,7 +20,7 @@
                     ایجاد مشخصه جدید
                 </header>
                 <div class="panel-body">
-                    <form action="" method="post" role="form">
+                    <form action="{{Route('feature.store')}}" method="post" role="form">
                         <div class="form-group">
                             <label for="exampleInputEmail1">مشخصه جدید</label>
                             <input type="text" name="title" class="form-control" id="exampleInputEmail1" placeholder="مشخصه کالا">
