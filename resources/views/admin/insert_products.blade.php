@@ -28,19 +28,31 @@
                                 درج محصول
                          
                             </header>
-
-                            @if(!is_null(Session::get('Message')))
-                            <div class="alert alert-success">
-                            		
-                            		{{Session::get('Message')}}
-
-                            </div>
-                            @endif
-
                             <div class="panel-body">
                                 <form role="form" action="{{route('products.store')}}" method="POST" enctype="multipart/form-data">
 	                                @csrf
                                     <div class="form-group">
+                                        @if(!is_null(Session::get('Message')))
+                                        <div class="alert alert-success">
+                                                
+                                                {{Session::get('Message')}}
+
+                                        </div>
+                                        @endif 
+                                        @if($errors->all())
+                                        <ul class="alert alert-danger">   
+                                        @foreach($errors->all() as $error)
+
+                                            <li class="list-group-itemr">{{$error}}</li>
+
+                                        @endforeach
+                                        @endif
+                                        </ul>
+
+
+                                 <!--        @if($errors->has('title'))
+                                            <div class="alert alert-danger">{{$errors->first('title')}}</div>
+                                        @endif -->
                                         <label for="title">عنوان</label>
                                         <input name="title" type="text" class="form-control" id="title" placeholder="عنوان">
                                     </div>
