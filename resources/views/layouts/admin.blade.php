@@ -306,8 +306,8 @@
                           <span class="arrow"></span>
                       </a>
                       <ul class="sub">
-                          <li><a class="" href="/root/feature">درج مشخصه جدید</a></li>
-                          <li><a class="" href="/root/listfeatures">مدیریت مشخصه ها</a></li>
+                          <li><a class="" href="{{route('feature.create')}}">درج مشخصه جدید</a></li>
+                          <li><a class="" href="{{route('feature.index')}}">مدیریت مشخصه ها</a></li>
                           <li><a class="" href="charts.html">چارت</a></li>
                       </ul>
                   </li>
