@@ -131,6 +131,8 @@ return array(
         "image" => 'عکس',
         'body' => 'متن',
         'describt' => 'توضیحات جزئی',
-        'cellphone' => 'تلفن همراه'
+        'cellphone' => 'تلفن همراه',
+        'slug' => 'پیوند یکتا',
+        'number' => 'تعداد',
     ),
 );
