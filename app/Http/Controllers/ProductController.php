@@ -38,13 +38,13 @@ class ProductController extends Controller
         
         $this->validate($request,[
 
-            'title':'required',
-            'body':'required',
-            'price':'required',
-            'feature':'required',
-            'number':'required|numeric',
-            'slug':'required',
-            'image':'required|image',
+            'title'=>'required',
+            'body'=>'required',
+            'price'=>'required',
+            'feature'=>'required',
+            'number'=>'required|numeric',
+            'slug'=>'required',
+            'image'=>'required|image',
 
 
         ]);
