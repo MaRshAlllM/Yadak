@@ -88,6 +88,8 @@ class FeatureController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $f=Feature::find($id);
+        $f->delete();
+        return redirect()->back()->with('message','حذف با موفقیت انجام شد');
     }
 }

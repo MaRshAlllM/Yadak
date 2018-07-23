@@ -1,8 +1,15 @@
 @extends('layouts.admin')
 
 @section('content')
+
+@if(!is_null(Session::get('message')))
+    <div class="alert alert-success">
+        {{Session::get('message')}}
+    </div>
+@endif
+
 @if($features->count() == 0)
-    فعلا هیج مشخصه ای ثبت نشده است
+    هیج مشخصه ای یافت نشد.
 @else
     <div class="col-sm-6">
         <section class="panel">
@@ -24,7 +31,13 @@
                 <tr>
                     <td>{{$i}}</td>
                     <td>{{$feature->title}}</td>
-                    <td><a href="#"><i class="icon-remove"></i></a></td>
+                    <td>
+                        <form action="{{route('feature.destroy',$feature->id)}}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button><i class="icon-remove"></i></button>
+                        </form>
+                        </td>
                     <td><a href="#"><i class="icon-edit"></i></a></td>
                 </tr>
                 <?php @$i++ ?>
