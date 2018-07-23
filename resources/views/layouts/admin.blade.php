@@ -288,15 +288,12 @@
                   <li class="sub-menu">
                       <a href="javascript:;" class="">
                           <i class="icon-book"></i>
-                          <span>عناصر صفحه</span>
+                          <span>مدیریت محصولات</span>
                           <span class="arrow"></span>
                       </a>
                       <ul class="sub">
-                          <li><a class="" href="general.html">عمومی</a></li>
-                          <li><a class="" href="buttons.html">دکمه ها</a></li>
-                          <li><a class="" href="widget.html">ویجت ها</a></li>
-                          <li><a class="" href="slider.html">اسلایدر ها</a></li>
-                          <li><a class="" href="font_awesome.html">فونت های شکل دار</a></li>
+                          <li><a class="" href="{{route('products.index')}}">مشاهده محصولات</a></li>
+                          <li><a class="" href="{{route('products.create')}}">درج محصول</a></li>
                       </ul>
                   </li>
                   <li class="sub-menu">
