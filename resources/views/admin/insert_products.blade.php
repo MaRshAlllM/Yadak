@@ -46,8 +46,9 @@
                                             <li class="list-group-itemr">{{$error}}</li>
 
                                         @endforeach
-                                        @endif
                                         </ul>
+                                        @endif
+                                        
 
 
                                  <!--        @if($errors->has('title'))

@@ -23,4 +23,6 @@ Route::get('/root','AdminController@index');
 
 Route::resource('/root/products','ProductController');
 
+Route::resource('/root/categories','CategoryController');
+
 Route::resource('/root/feature','FeatureController');
