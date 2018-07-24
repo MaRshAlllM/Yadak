@@ -19,6 +19,7 @@
                     <div class="form-group">
                         <label for="exampleInputEmail1">ویرایش</label>
                         <input type="text" name="title" class="form-control" value="{{$feature->title}}">
+                        {{ $errors->first('title') }}
                         @method('put')
                         @csrf
                     </div>

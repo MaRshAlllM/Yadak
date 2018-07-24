@@ -80,6 +80,11 @@ class FeatureController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate(request(),[
+
+            'title'=>'required'
+        ]);
+
         $up = Feature::find($id);
 
         $up->title = $request->title;
