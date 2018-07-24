@@ -65,7 +65,10 @@ class FeatureController extends Controller
      */
     public function edit($id)
     {
-        //
+        $f = Feature::find($id);
+
+        return view('admin.edit_feature')->with('feature',$f);
+
     }
 
     /**
@@ -77,7 +80,19 @@ class FeatureController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate(request(),[
+
+            'title'=>'required'
+        ]);
+
+        $up = Feature::find($id);
+
+        $up->title = $request->title;
+
+        $up->save();
+
+        return redirect()->route('feature.index')->with('message','ویرایش با موفقیت انجام شد');
+
     }
 
     /**

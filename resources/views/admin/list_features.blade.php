@@ -35,10 +35,12 @@
                         <form action="{{route('feature.destroy',$feature->id)}}" method="POST">
                             @method('DELETE')
                             @csrf
-                            <button><i class="icon-remove"></i></button>
+                            <button onclick="return confirm('آیا مطمئن هستید؟');"><i class="icon-remove"></i></button>
                         </form>
-                        </td>
-                    <td><a href="#"><i class="icon-edit"></i></a></td>
+                    </td>
+                    <td>
+                        <a href="{{route('feature.edit',$feature->id)}}"><i class="icon-edit"></i></a>
+                    </td>
                 </tr>
                 <?php @$i++ ?>
                 @endforeach
