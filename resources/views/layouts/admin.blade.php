@@ -311,13 +311,13 @@
                   <li class="sub-menu">
                       <a href="javascript:;" class="">
                           <i class="icon-tasks"></i>
-                          <span>ابزارهای فرم</span>
+                          <span>دسته بندی ها</span>
                           <span class="arrow"></span>
                       </a>
                       <ul class="sub">
-                          <li><a class="" href="form_component.html">کامنت فرم</a></li>
-                          <li><a class="" href="form_wizard.html">فرم Wizard</a></li>
-                          <li><a class="" href="form_validation.html">ارزیابی فرم</a></li>
+                         <li><a class="" href="{{route('categories.index')}}">مشاهده دسته بندی ها</a></li>
+                          <li><a class="" href="{{route('categories.create')}}">ساخت دسته بندی جدید</a></li>
+               
                       </ul>
                   </li>
                   <li class="sub-menu">
