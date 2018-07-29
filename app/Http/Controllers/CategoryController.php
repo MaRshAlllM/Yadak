@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Category;
 
 class CategoryController extends Controller
 {
@@ -11,9 +12,10 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Category $category)
     {
-        //
+        $categories = $category->get();
+        return view('admin.list_categories')->with('categories',$categories);
     }
 
     /**
@@ -39,7 +41,7 @@ class CategoryController extends Controller
 
             'name' => 'required',
             'slug' => 'required',
-            'p_id' => 'integer',
+            //'p_id' => 'required',
             'description' => 'required'
 
         ]);
@@ -48,7 +50,7 @@ class CategoryController extends Controller
         \App\Category::create([
 
             'name' => $request->name,
-            'slug' => $request->slug,
+            'slug' => str_slug($request->slug,'-'),
             'p_id' => $request->p_id,
             'description' => $request->description
 
