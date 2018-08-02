@@ -102,6 +102,14 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pp = Category::where('p_id',$id)->get();
+       if(count($pp) > 0){
+            return redirect()->back()->with('message','این دسته دارای زیر منو می باشد جهت پاک کردن ابتدا باید زیر منو ها را حذف نمایید');
+       }else{
+            $del = Category::find($id);
+            $del->delete();
+            return redirect()->back()->with('message','حذف با موفقیت انجام شد');
+       }
+
     }
 }
