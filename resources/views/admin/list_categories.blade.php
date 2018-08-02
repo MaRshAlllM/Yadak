@@ -32,7 +32,7 @@
                             <td>{{$i}}</td>
                             <td>{{$category->name}}</td>
                             <td>
-                                <form action="{{route('feature.destroy',$category->id)}}" method="POST">
+                                <form action="{{route('categories.destroy',$category->id)}}" method="POST">
                                     @method('DELETE')
                                     @csrf
                                     <button onclick="return confirm('آیا مطمئن هستید؟');"><i class="icon-remove"></i></button>
