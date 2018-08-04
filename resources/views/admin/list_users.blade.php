@@ -43,7 +43,7 @@
                             <td>{{$user->job}}</td>
                             <td>{{$user->phone}}</td>
                             <td>{{$user->cellphone}}</td>
-                            <td>{{$user->created_at}}</td>
+                            <td>{{jDate::forge($user->created_at)->format('%d %B %Y')}}</td>
                         </tr>
                         <?php @$i++ ?>
                     @endforeach
