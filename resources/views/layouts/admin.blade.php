@@ -327,7 +327,7 @@
                           <span class="arrow"></span>
                       </a>
                       <ul class="sub">
-                          <li><a class="" href="basic_table.html">مشاهده و مدیریت کاربران</a></li>
+                          <li><a class="" href="/root/userlist">مشاهده و مدیریت کاربران</a></li>
                           <li><a class="" href="dynamic_table.html">جدول داینامیک</a></li>
                       </ul>
                   </li>
