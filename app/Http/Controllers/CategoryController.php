@@ -79,7 +79,10 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $toupdate = Category::find($id);
+        $categoryInfact = Category::get();
+        return view('admin.edit_category')->with(['toupdate'=>$toupdate,'categoryInfact'=>$categoryInfact]);
+
     }
 
     /**
@@ -91,7 +94,24 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+
+            'name' => 'required',
+            'slug' => 'required',
+            //'p_id' => 'required',
+            'description' => 'required'
+
+        ]);
+
+        $up = Category::find($id);
+        $up->name = $request->name;
+        $up->slug = $request->slug;
+        $up->p_id = $request->p_id;
+        $up->description = $request->description;
+
+        $up->save();
+
+        return redirect()->route('categories.index')->with('message','ویرایش با موفقیت انجام شد');
     }
 
     /**

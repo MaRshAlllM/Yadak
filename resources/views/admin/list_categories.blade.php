@@ -39,7 +39,7 @@
                                 </form>
                             </td>
                             <td>
-                                <a href="{{route('feature.edit',$category->id)}}"><i class="icon-edit"></i></a>
+                                <a href="{{route('categories.edit',$category->id)}}"><i class="icon-edit"></i></a>
                             </td>
                         </tr>
                         <?php @$i++ ?>
