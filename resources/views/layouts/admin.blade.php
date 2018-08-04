@@ -323,11 +323,11 @@
                   <li class="sub-menu">
                       <a href="javascript:;" class="">
                           <i class="icon-th"></i>
-                          <span>اطلاعات جدول</span>
+                          <span>کاربران</span>
                           <span class="arrow"></span>
                       </a>
                       <ul class="sub">
-                          <li><a class="" href="basic_table.html">جدول ساده</a></li>
+                          <li><a class="" href="basic_table.html">مشاهده و مدیریت کاربران</a></li>
                           <li><a class="" href="dynamic_table.html">جدول داینامیک</a></li>
                       </ul>
                   </li>
