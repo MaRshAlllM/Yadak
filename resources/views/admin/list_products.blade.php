@@ -28,10 +28,10 @@
                         </thead>
                         <tbody>
                         <?php $i=1 ?>
-                        @foreach($products as $user)
+                        @foreach($products as $prod)
                             <tr>
                                 <td>{{$i}}</td>
-                                <td>{{$products->title}}</td>
+                                <td>{{$prod->title}}</td>
                                 <td></td>
                             </tr>
                             <?php @$i++ ?>
