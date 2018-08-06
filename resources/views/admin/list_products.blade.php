@@ -21,29 +21,18 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>نام و نام خانوادگی</th>
-                            <th>ایمیل</th>
-                            <th>شماره عضویت</th>
-                            <th>آدرس</th>
-                            <th>شغل</th>
-                            <th>تلفن</th>
-                            <th>موبایل</th>
-                            <th>تاریخ عضویت</th>
+                            <th>نام محصول</th>
+                            <th>عملیات</th>
+
                         </tr>
                         </thead>
                         <tbody>
                         <?php $i=1 ?>
-                        @foreach($users as $user)
+                        @foreach($products as $user)
                             <tr>
                                 <td>{{$i}}</td>
-                                <td>{{$user->name}}</td>
-                                <td>{{$user->email}}</td>
-                                <td>{{$user->subscription}}</td>
-                                <td>{{$user->address}}</td>
-                                <td>{{$user->job}}</td>
-                                <td>{{$user->phone}}</td>
-                                <td>{{$user->cellphone}}</td>
-                                <td>{{jDate::forge($user->created_at)->format('%d %B %Y')}}</td>
+                                <td>{{$products->title}}</td>
+                                <td></td>
                             </tr>
                             <?php @$i++ ?>
                         @endforeach
