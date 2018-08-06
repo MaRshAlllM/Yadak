@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 class ProductController extends Controller
 {
     /**
@@ -11,9 +12,10 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Product $product)
     {
-
+        $p = $product->get();
+        return view('admin.list_products')->with('products',$p);
     }
 
     /**
