@@ -30,3 +30,5 @@ Route::resource('/root/feature','FeatureController');
 Route::get('/root/userlist','UserController@index');
 
 Route::get('/root/image_gallery/{id}','ImageController@index');
+
+Route::post('/root/image_gallery_upload','ImageController@gallery_upload');
