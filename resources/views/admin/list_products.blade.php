@@ -14,7 +14,7 @@
         <div class="col-sm-12">
             <section class="panel">
                 <header class="panel-heading">
-                    لیست کاربران
+                    لیست محصولات
                 </header>
                 <div class="table-responsive">
                     <table class="table table-striped">
@@ -22,8 +22,8 @@
                         <tr>
                             <th>#</th>
                             <th>نام محصول</th>
+                            <th>تصویر</th>
                             <th>عملیات</th>
-
                         </tr>
                         </thead>
                         <tbody>
@@ -32,7 +32,8 @@
                             <tr>
                                 <td>{{$i}}</td>
                                 <td>{{$prod->title}}</td>
-                                <td></td>
+                                <td><img src="{{URL::to('/')}}/uploads/{{$prod->image}}" width="150"></td>
+                                <td><a href="/root/image_gallery/{{$prod->id}}"><i class="icon-picture"></i></a></td>
                             </tr>
                             <?php @$i++ ?>
                         @endforeach
