@@ -27,6 +27,8 @@ Route::resource('/root/categories','CategoryController');
 
 Route::resource('/root/feature','FeatureController');
 
+Route::resource('/root/roles','UserRolesController');
+
 Route::get('/root/userlist','UserController@index');
 
 Route::get('/root/image_gallery/{id}','ImageController@index');
