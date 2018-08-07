@@ -23,6 +23,7 @@
                         <th>#</th>
                         <th>نام و نام خانوادگی</th>
                         <th>ایمیل</th>
+                        <th>سمت کاربری</th>
                         <th>شماره عضویت</th>
                         <th>آدرس</th>
                         <th>شغل</th>
@@ -38,6 +39,7 @@
                             <td>{{$i}}</td>
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
+                            <td>@if($user->roles == '[]')کاربر عادی @else {{$user->roles->name}} @endif</td>
                             <td>{{$user->subscription}}</td>
                             <td>{{$user->address}}</td>
                             <td>{{$user->job}}</td>
