@@ -111,18 +111,22 @@
 
                 <div class="row py-3" id="main-content">
 
+
+                    @foreach($products as $product)
                     <div class="col-4 box">
                         <div class="inner-box">
-                            <img src="img/a.jpg" class="img-fluid">
+                            <img src="uploads/{{$product->image}}" class="img-fluid">
                             <div class="hidden-details"></div>
                             <div class="body">
-                                <h4>عنوان محصول</h4>
-                                <span class="price">قیمت : 20,000 تومان</span>
+                                <h4><a href="{{$product->slug}}">{{$product->title}}</a></h4>
+                                <span class="price">قیمت : <?php $price = unserialize($product->price); ?> {{$price[""]}} تومان</span>
 
                             </div>
                         </div>
+                    @endforeach
+
                     </div>
-                    <div class="col-4 box">
+                    <!-- <div class="col-4 box">
                         <div class="inner-box">
                             <img src="img/b.jpg" class="img-fluid">
                             <div class="body">
@@ -141,7 +145,7 @@
 
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
                 
