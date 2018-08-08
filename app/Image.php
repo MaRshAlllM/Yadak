@@ -9,6 +9,6 @@ class Image extends Model
     protected $table = 'image_gallery';
 
     protected $fillable = [
-        'prod_id','image_name'
+        'id','prod_id','image_name'
     ];
 }

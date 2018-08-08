@@ -11,7 +11,7 @@
         <div class="col-md-12">
             @foreach($gl as $g)
                 <div class="col-md-2" style="margin-bottom: 10px"><img src="{{URL::to('/')}}/uploads/{{$g->image_name}}" width="100" height="100">
-                <a href=""> <i class="icon icon-remove"></i> حذف</a></div>
+                <a href="/root/delete_image/{{$g->id}}"> <i class="icon icon-remove"></i> حذف</a></div>
             @endforeach
         </div>
         </div>

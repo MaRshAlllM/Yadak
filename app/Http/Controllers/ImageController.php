@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Storage;
 use App\Image;
 use App\Product;
 
@@ -42,6 +42,19 @@ class ImageController extends Controller
            // }
 
             return redirect()->back()->with('message','گالری با موفقیت ایجاد شد');
+        }
+
+
+    }
+
+    public function delete_image($id){
+
+        $image_delete = Image::find($id);
+        $im_name = $image_delete->image_name;
+        if(unlink("uploads/$im_name")){
+
+            $image_delete->delete();
+            return redirect()->back()->with('message','تصویر با موفقیت حذف شد');
         }
 
 
