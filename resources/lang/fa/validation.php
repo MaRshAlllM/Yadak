@@ -136,6 +136,7 @@ return array(
         'number' => 'تعداد',
         'label' => 'برچسب',
         'permission' => 'دسترسی',
-        'permissions' => 'دسترسی ها'
+        'permissions' => 'دسترسی ها',
+        'discount' => 'تخفیف'
     ),
 );
