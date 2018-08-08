@@ -280,7 +280,7 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu">
                   <li class="active">
-                      <a class="" href="index.html">
+                      <a class="" href="/root">
                           <i class="icon-dashboard"></i>
                           <span>صفحه اصلی</span>
                       </a>
@@ -288,7 +288,7 @@
                   <li class="sub-menu">
                       <a href="javascript:;" class="">
                           <i class="icon-book"></i>
-                          <span>مدیریت محصولات</span>
+                          <span>محصولات</span>
                           <span class="arrow"></span>
                       </a>
                       <ul class="sub">
@@ -305,7 +305,6 @@
                       <ul class="sub">
                           <li><a class="" href="{{route('feature.create')}}">درج مشخصه جدید</a></li>
                           <li><a class="" href="{{route('feature.index')}}">مدیریت مشخصه ها</a></li>
-                          <li><a class="" href="charts.html">چارت</a></li>
                       </ul>
                   </li>
                   <li class="sub-menu">
@@ -328,7 +327,8 @@
                       </a>
                       <ul class="sub">
                           <li><a class="" href="/root/userlist">مشاهده و مدیریت کاربران</a></li>
-                          <li><a class="" href="dynamic_table.html">جدول داینامیک</a></li>
+                          <li><a class="" href="{{route('roles.index')}}">مدیریت گروه های کاربری</a></li>
+                          <li><a class="" href="{{route('roles.create')}}">ایجاد گروه کاربری</a></li>
                       </ul>
                   </li>
                   <li>
