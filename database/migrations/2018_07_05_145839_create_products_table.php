@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->bigInteger('number');
             $table->text('price');
             $table->string('slug');
-            $table->string('image');
+            $table->integer('discount');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
         });

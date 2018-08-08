@@ -110,7 +110,10 @@
                                         <label for="slug">پیوند یکتا</label>
                                         <input name="slug" type="text" class="form-control" id="slug" placeholder="پیوند یکتا">
                                     </div>
-
+                                    <div class="form-group">
+                                        <label for="slug">تخفیف (درصد)</label>
+                                        <input name="discount" type="text" class="form-control" id="slug" placeholder="تخفیف">
+                                    </div>
                                     <div class="form-group">
                                         <label for="exampleInputFile">آپلود عکس</label>
                                         <input type="file" id="exampleInputFile" name="image">

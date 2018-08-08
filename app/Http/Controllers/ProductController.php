@@ -46,6 +46,7 @@ class ProductController extends Controller
             'feature'=>'required',
             'number'=>'required|numeric',
             'slug'=>'required',
+            'discount' => 'required|integer',
             'image'=>'required|image',
 
 
