@@ -13,4 +13,9 @@ class MainContentController extends Controller
     	return view('index',compact('products'));
 
     }
+    public function single(){
+
+    	return view('single');
+
+    }
 }

@@ -1,6 +1,6 @@
 @import url(css/fontiran.css); 
 body{
-	font-family: IRANSans,Tahoma !important;
+	font-family: IRANSans !important;
 	font-weight: 300;
 	direction: rtl;
     color: #282828;
@@ -11,6 +11,10 @@ h1, h2, h3, h4, h5, h6,input, textarea {
 }
 h1 {
 	font-weight: bold;
+}
+.btn-custom{
+	border-radius:0.25em 0 0 0.25em !important;
+
 }
 .btn-custom-red{
 	background-color: red;
@@ -158,7 +162,6 @@ h1 {
 	margin: 10px 0 ;
 	box-shadow: 0px 0px 20px 5px #ddd;
 
-
 }
 
 #main-contents .left-col #main-content .box{
@@ -171,7 +174,7 @@ h1 {
 	background-color: #fff;
 	border: 1px solid #ddd;
     box-shadow: 0px 3px 0px 0px #e2e2e2;
-    padding: 0.5em 1em;
+    padding: 0px 1em;
     padding-bottom: 1.5em;
     font-size: 14px;
 }
@@ -179,6 +182,81 @@ h1 {
 
 	font-size: 1.05rem;
 	padding:1em 0;
+}
+#main-contents #single-box{
+
+	padding: 30px 15px;
+    background: #fff;
+    border: 1px solid #ddd;
+
+
+
+}
+#main-contents #single-box h1{
+
+	font-size:20px;
+	color: #282828;
+
+}
+#main-contents #single-box .asimplerow{
+
+	border-bottom: 1px solid #ddd;
+}
+#main-contents #single-box .asimplerow:last-child{
+	border-bottom: none;
+}
+#main-contents #single-box .add-comment{
+
+	font-size: 14px;
+
+}
+#main-contents #single-box .add-comment span{
+
+	color: #797979;
+}
+#main-contents #single-box .add-comment a{
+	color: red;
+}
+#main-contents #single-box .mojodi{
+
+
+} 
+#main-contents #single-box .mojodi .price{
+	color: red;
+	font-size: 16px;
+    font-weight: 600;
+}
+#main-contents #single-box .mojodi .discount{
+
+	color: #aaa;
+	text-decoration: line-through;
+	font-weight: 600;
+	font-size: 14px;
+
+
+}
+#main-contents #single-box .mojodi b{
+
+	color: #aaa;
+	font-size: 18px;
+
+
+}
+#main-contents #single-box .variable{
+	font-size: 14px;
+}
+#main-contents #single-box .description{
+	font-size: 14px;
+    color: #252525;
+    line-height: 1.8;
+}
+#main-contents #single-box select{
+	font-size: 14px;
+}
+#main-contents #single-box img{
+
+	border:1px solid #eaeaea;
+	width: 100%;
 }
 #footer #brands{
 

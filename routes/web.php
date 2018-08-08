@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'MainContentController@index');
+Route::get('/single', 'MainContentController@single');
 
 Auth::routes();
 
