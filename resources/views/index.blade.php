@@ -119,7 +119,7 @@
                             <div class="hidden-details"></div>
                             <div class="body">
                                 <h4><a href="{{$product->slug}}">{{$product->title}}</a></h4>
-                                <span class="price">قیمت : <?php $price = unserialize($product->price); ?> {{$price[""]}} تومان</span>
+                                <span class="price">قیمت : {{unserialize($product->price)[""]}} تومان</span>
 
                             </div>
                         </div>
