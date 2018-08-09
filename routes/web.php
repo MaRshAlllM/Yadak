@@ -19,7 +19,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/root','AdminController@index');
-
 Route::resource('/root/products','ProductController');
 
 Route::resource('/root/categories','CategoryController');
@@ -29,6 +28,10 @@ Route::resource('/root/feature','FeatureController');
 Route::resource('/root/roles','UserRolesController');
 
 Route::get('/root/userlist','UserController@index');
+
+Route::get('/root/userlist/{id}','UserController@show');
+
+Route::patch('/root/userlist/{id}','UserController@update')->name('userlist.update');
 
 Route::get('/root/image_gallery/{id}','ImageController@index');
 
