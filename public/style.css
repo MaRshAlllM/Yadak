@@ -21,6 +21,13 @@ h1 {
 	color: #fff;
 	border-radius:0.25em 0 0 0.25em !important;
 }
+.btn-custom-green{
+	color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+    border-radius:0.25em 0 0 0.25em !important;
+
+}
 .btn-custom-red-wr{
 	background-color: red;
 	color: #fff;

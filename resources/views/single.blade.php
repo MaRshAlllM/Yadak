@@ -105,7 +105,7 @@
                                     <div class="input-group">
                                           <input type="number" class="form-control col-4" value="1" min="1" max="10">
                                           <div class="input-group-prepend">
-                                            <button class="btn btn-custom-red">افزودن به سبد خرید</button>
+                                            <button class="btn btn-custom-green">افزودن به سبد خرید</button>
                                         </div>
                                     </div>  
                                             
