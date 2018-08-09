@@ -114,19 +114,31 @@
 
                     @foreach($products as $product)
                     <div class="col-4 box">
-                        <div class="inner-box">
+                        <div class="inner-box py-3">
                             <img src="uploads/{{$product->image}}" class="img-fluid">
                             <div class="hidden-details"></div>
                             <div class="body">
-                                <h4><a href="/single">{{$product->title}}</a></h4>
-                                <span class="price">قیمت : {{unserialize($product->price)[""]}} تومان</span>
+                                <h4><a href="/single/{{$product->id}}">{{$product->title}}</a></h4>
+                                <span class="price">
+                                        <?php $first = true; ?>
+                                        @foreach(unserialize($product->price) as $var)
+                                            <?php
+                                            if ( $first == true )
+                                                {
+                                                echo $var;
+                                                $first = false;
+                                                }
+                                            ?>
+                                        @endforeach
+                                </span>
 
                             </div>
                         </div>
-                    @endforeach
 
                     </div>
-                    <!-- <div class="col-4 box">
+                @endforeach
+
+                <!-- <div class="col-4 box">
                         <div class="inner-box">
                             <img src="img/b.jpg" class="img-fluid">
                             <div class="body">

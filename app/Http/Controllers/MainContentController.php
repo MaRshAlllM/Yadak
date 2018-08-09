@@ -8,14 +8,16 @@ class MainContentController extends Controller
 {
     public function index(){
 
-    	$products = Product::get(['title','image','price','slug']);
+    	$products = Product::get();
 
     	return view('index',compact('products'));
 
     }
-    public function single(){
+    public function single($id){
 
-    	return view('single');
+        $pr = Product::find($id);
+
+    	return view('single')->with('product',$pr);
 
     }
 }
