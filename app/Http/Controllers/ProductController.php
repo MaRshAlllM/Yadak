@@ -64,6 +64,7 @@ class ProductController extends Controller
             'number' => request()->number,
             'slug' => request()->slug,
             'image' => $path,
+            'discount' => request()->discount,
 
         ]);
 

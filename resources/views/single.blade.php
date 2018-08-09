@@ -75,7 +75,7 @@
                             </div>
                             <div class="col-7">
                                 
-                                <h1>عنوان محصول</h1>
+                                <h1>{{$product->title}}</h1>
 
                                 <div class="asimplerow add-comment py-1">
                                     <span>یک نظر</span> 
@@ -83,21 +83,33 @@
                                 </div>
                                 <div class="asimplerow py-2 mojodi">
                                     <!-- <b>ناموجود</b> -->
-                                        <div class="price">قیمت : 200 هزار تومان
-                                            <span class="discount mx-3">300 هزار تومان</span>
-                                        </div>
+                                        <!--<div class="price">قیمت : 200 هزار تومان
+                                            <span class="discount mx-3">5555تومان</span>
+                                        </div>-->
 
-                                    <!--    <div class="variable py-2">محصول متغییر است</div>
+                                    <div class="variable py-2">قیمت</div>
                                         <select class="form-control">
-                                            <option>رنگ قرمز - 1000 تومان</option>
-                                            <option>رنگ سیاه - 1000 تومان</option>
-                                            <option>رنگ سفید - 1000 تومان</option>
-                                            <option>رنگ صورتی - 1000 تومان</option>
-                                        </select> -->
+
+                                            @foreach(unserialize($product->price) as $key=>$var)
+                                                    <option><?php
+                                                        if($product->discount == null){
+                                                        echo "$key"." "."$var";
+                                                        }else{
+                                                            $d = $product->discount;
+                                                            $dis = $var - ($var*$d/100);
+                                                            echo "$key"." "."$var". " تومان - " . " قیمت با تخفیف:  $dis" ;
+                                                        }
+                                                        ?> تومان
+
+
+                                                    </option>
+                                            @endforeach
+
+                                        </select>
                                         
                                 </div>
                                 <div class="asimplerow description py-2">
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+                                    {!!$product->body!!}
                                 </div>
 
                                 <div class="asimplerow py-2">
