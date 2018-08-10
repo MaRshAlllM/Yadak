@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Product;
+use App\Image;
 use Illuminate\Http\Request;
 
 class MainContentController extends Controller
@@ -16,8 +17,9 @@ class MainContentController extends Controller
     public function single($id){
 
         $pr = Product::find($id);
+        $gallery = Image::where('prod_id',$id)->get();
 
-    	return view('single')->with('product',$pr);
+    	return view('single')->with(['product'=>$pr,'gallery'=>$gallery]);
 
     }
 }
