@@ -48,7 +48,7 @@ class ProductController extends Controller
             'slug'=>'required',
             'discount' => 'required|integer',
             'image'=>'required|image',
-
+            'full_body'=>'required',
 
         ]);
 
@@ -65,7 +65,7 @@ class ProductController extends Controller
             'slug' => request()->slug,
             'image' => $path,
             'discount' => request()->discount,
-
+            'full_body' => request()->full_body,
         ]);
 
         return redirect()->back()->with('Message','محصول با موفقیت درج شد');

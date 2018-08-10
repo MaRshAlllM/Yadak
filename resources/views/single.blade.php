@@ -116,7 +116,7 @@
                             </div>  
 
                             </div>
-
+                            {!!$product->full_body!!}
                         </div>                      
 
                      </div>

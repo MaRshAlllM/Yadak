@@ -58,8 +58,12 @@
                                         <input name="title" type="text" class="form-control" id="title" placeholder="عنوان">
                                     </div>
                                      <div class="form-group body">
-                                        <label for="body">توضیحات</label>
+                                        <label for="body">توضیحات مختصر</label>
                                         <textarea name="body" class="form-control" id="body"></textarea>
+                                    </div>
+                                    <div class="form-group body">
+                                        <label for="body">توضیحات کامل</label>
+                                        <textarea name="full_body" class="form-control" id="body"></textarea>
                                     </div>
                                     <div class="form-row" id="app">
                                     	
