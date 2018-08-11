@@ -12,7 +12,8 @@ class FeatureController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Feature $feature)
-    {
+    {   
+        
         $features = $feature->get();
         return view('admin.list_features')->with('features',$features);
     }
