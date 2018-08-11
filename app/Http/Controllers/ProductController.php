@@ -77,7 +77,7 @@ class ProductController extends Controller
             'full_body' => request()->full_body,
         ]);
 
-        $product->categories()->sync($request->c_ids);
+        $product->categories()->attach($request->c_ids);
 
 
         return redirect()->back()->with('Message','محصول با موفقیت درج شد');
