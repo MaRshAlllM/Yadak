@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
+use App\Feature;
 class ProductController extends Controller
 {
     /**
@@ -32,8 +33,12 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('admin.insert_products');
+    {   
+
+        $features = Feature::all();
+
+
+        return view('admin.insert_products',compact('features'));
 
     }
 
@@ -46,7 +51,6 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         
-
         $this->validate($request,[
 
             'title'=>'required',
@@ -80,6 +84,17 @@ class ProductController extends Controller
         $product->categories()->attach($request->c_ids);
 
 
+        $ftvalues =  array_combine(request()->fts, request()->values);
+
+        foreach ($ftvalues as $feature => $value) {
+            
+                $product->features()->attach(
+                    [
+                        $feature => ['value' => $value],
+
+                    ]
+                 );
+        }
         return redirect()->back()->with('Message','محصول با موفقیت درج شد');
 
     }

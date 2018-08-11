@@ -145,6 +145,39 @@
                                             </div>        
 
                                         </section>
+                                        <section class="panel">
+                                            <header class="panel-heading">
+                                                مشخصات محصول
+                                            </header>
+                                            <div class="panel-body" id="ft">
+                                                 <ul v-for="(input,index) in inputs" track-by="$index">
+
+                                            <div class="form-row">
+                                                    
+                                                <li class="form-group col-md-6">
+
+                                                    <select class="form-control" name="fts[]">
+                                                        @foreach($features as $feature)      
+                                                        <option value="{{$feature->id}}">{{$feature->title}}</option>
+                                                        @endforeach
+                                                    </select>
+
+                                                </li>
+                                                <li class="form-group col-md-4"><input type="text" placeholder="مقدار" class="form-control" name="values[]"></li>
+                                                <li class="form-group col-md-2">
+                                                    
+                                                    <a @click="deleteRow(index)" class="btn btn-danger">حذف</a>
+
+                                                </li>
+
+                                            </div>
+
+
+                                        </ul>   
+                                        <a class="btn" @click="addRow">اضافه کردن ویژگی</a>
+                                            </div>        
+
+                                        </section>
 
                                     </div>
                                  </div>
@@ -193,7 +226,36 @@
 
 	});
 
+    const ft = new Vue({
 
+        el:'#ft',
+        data:{
+
+            inputs:[],
+
+        },
+        methods:{
+
+            addRow:function(){
+
+                this.inputs.push({})
+
+            },
+            deleteRow:function(index){
+
+                this.inputs.splice(index,1)
+
+            }
+
+
+
+        },
+
+
+
+
+
+    });
 
 
 </script>

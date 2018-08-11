@@ -4,9 +4,7 @@ function sortMyCatInHtml($p_id=null){
 
         
     $categories = App\Category::where('p_id','=',$p_id)->get();
-
     echo "<ul>";
-
         foreach ($categories as $category) {
                 
             echo "<div class=\"checkbox\"><li>
@@ -25,7 +23,6 @@ function sortMyCatInHtml($p_id=null){
             echo "</li></div>";
 
         }
-
     echo "</ul>";
 
     }
