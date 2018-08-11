@@ -54,22 +54,13 @@
                             <div class="row">
                                 
                             <div class="col-5">
-                                <a href="#"><img src="img/a.jpg" class="img-fluid"></a>
+                                <a href="#"><img src="/uploads/{{$product->image}}" class="img-fluid"></a>
                                 <div class="row  py-1">
-
+                                    @foreach($gallery as $g)
                                     <div class="col-3 my-1">
-                                        <a href="#"><img src="img/b.jpg" class="img-fluid"></a>
+                                        <a href="/uploads/{{$g->image_name}}" target="_blank"><img src="/uploads/{{$g->image_name}}" class="img-fluid"></a>
                                     </div>
-                                    <div class="col-3 my-1">
-                                        <a href="#"><img src="img/c.jpg" class="img-fluid"></a>
-                                    </div>
-                                    <div class="col-3 my-1">
-                                        <a href="#"><img src="img/d.jpg" class="img-fluid"></a>
-                                    </div>
-                                    <div class="col-3 my-1">
-                                        <a href="#"><img src="img/a.jpg" class="img-fluid"></a>
-                                    </div>
-
+                                    @endforeach
 
                                 </div>
                             </div>
@@ -100,8 +91,6 @@
                                                             echo "$key"." "."$var". " تومان - " . " قیمت با تخفیف:  $dis" ;
                                                         }
                                                         ?> تومان
-
-
                                                     </option>
                                             @endforeach
 
@@ -127,7 +116,7 @@
                             </div>  
 
                             </div>
-
+                            {!!$product->full_body!!}
                         </div>                      
 
                      </div>
