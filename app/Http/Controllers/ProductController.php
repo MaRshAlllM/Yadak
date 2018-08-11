@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
-
+use App\Category;
 class ProductController extends Controller
 {
     /**
@@ -12,8 +12,16 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+//    <div class="checkbox">
+//   <label>
+//     <input type="checkbox" value="">
+//     Option one is this and that&mdash;be sure to include why it's great
+//   </label>
+// </div>
     public function index(Product $product)
     {
+
         $p = $product->get();
         return view('admin.list_products')->with('products',$p);
     }
@@ -38,6 +46,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         
+
         $this->validate($request,[
 
             'title'=>'required',
@@ -56,7 +65,7 @@ class ProductController extends Controller
 
         $path = request()->file('image')->store('/','uploads');
 
-        auth()->user()->products()->create([
+        $product = auth()->user()->products()->create([
 
             'title' => request()->title,
             'body' => request()->body,
@@ -67,6 +76,9 @@ class ProductController extends Controller
             'discount' => request()->discount,
             'full_body' => request()->full_body,
         ]);
+
+        $product->categories()->sync($request->c_ids);
+
 
         return redirect()->back()->with('Message','محصول با موفقیت درج شد');
 

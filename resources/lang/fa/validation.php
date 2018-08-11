@@ -138,6 +138,7 @@ return array(
         'label' => 'برچسب',
         'permission' => 'دسترسی',
         'permissions' => 'دسترسی ها',
-        'discount' => 'تخفیف'
+        'discount' => 'تخفیف',
+        'full body' => 'توضیحات کامل'
     ),
 );

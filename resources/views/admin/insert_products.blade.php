@@ -20,16 +20,15 @@
 
 	</script>
 
-
-	<div class="row">
-                    <div class="col-lg-6">
+          <form role="form" action="{{route('products.store')}}" method="POST" enctype="multipart/form-data">
+            <div class="row">
+                    <div class="col-lg-8">
                         <section class="panel">
                             <header class="panel-heading">
                                 درج محصول
                          
                             </header>
                             <div class="panel-body">
-                                <form role="form" action="{{route('products.store')}}" method="POST" enctype="multipart/form-data">
 	                                @csrf
                                     <div class="form-group">
                                         @if(!is_null(Session::get('Message')))
@@ -118,19 +117,42 @@
                                         <label for="slug">تخفیف (درصد)</label>
                                         <input name="discount" type="text" class="form-control" id="slug" placeholder="تخفیف">
                                     </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputFile">آپلود عکس</label>
-                                        <input type="file" id="exampleInputFile" name="image">
-                                        <p class="help-block">پسوند های قابل قبول : .jpg , .png</p>
-                                    </div>
-
                                     <button type="submit" class="btn btn-info">ارسال محصول</button>
+                                                    </div>
+                                        </section>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <section class="panel">
+                                            <header class="panel-heading">
+                                                انتخاب دسته بندی
+                                            </header>
+                                            <div class="panel-body">
+                                                    <div class="form-group" style="height: 150px;overflow: auto;">
+                                                        {{sortMyCatInHtml()}}
+                                                    </div>
+                                            </div>
+                                        </section>
+                                        <section class="panel">
+                                            <header class="panel-heading">
+                                                تصویر شاخص
+                                            </header>
+                                            <div class="panel-body">
+                                                 <div class="form-group">
+                                                    <label for="exampleInputFile">آپلود عکس</label>
+                                                    <input type="file" id="exampleInputFile" name="image">
+                                                    <p class="help-block">پسوند های قابل قبول : .jpg , .png</p>
+                                                </div>
+                                            </div>        
+
+                                        </section>
+
+                                    </div>
+                                 </div>
                                 </form>
 
-                            </div>
-                        </section>
-                    </div>
-                </div>
+                  
+
+
 <script type="text/javascript" src="{{asset('js/vue.min.js')}}"></script>
 <script type="text/javascript">
 	
