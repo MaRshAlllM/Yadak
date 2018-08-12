@@ -33,7 +33,7 @@
                                 <td>{{$i}}</td>
                                 <td>{{$prod->title}}</td>
                                 <td><img src="{{URL::to('/')}}/uploads/{{$prod->image}}" width="150"></td>
-                                <td><a href="/root/image_gallery/{{$prod->id}}"><i class="icon-picture"></i></a></td>
+                                <td><a class="btn btn-success" href="/root/image_gallery/{{$prod->id}}"><i class="icon-picture"></i></a></td>
                             </tr>
                             <?php @$i++ ?>
                         @endforeach

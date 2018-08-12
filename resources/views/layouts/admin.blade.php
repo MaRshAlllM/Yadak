@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <meta name="author" content="Mosaddek">
-	<script type="text/javascript" src="http://dl.20script.ir/img/website.js"></script>
-    <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <meta name="author" content="SaLaZaR">
+<!-- 	<script type="text/javascript" src="http://dl.20script.ir/img/website.js"></script>
+ -->
     <link rel="shortcut icon" href="{{asset('admin/img/favicon.html')}}">
 
-    <title>پنل مدیریت</title>
+    <title>مدیریت</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{asset('admin/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -35,15 +35,13 @@
       <!--header start-->
       <header class="header white-bg">
             <div class="sidebar-toggle-box">
-                <div data-original-title="Toggle Navigation" data-placement="right" class="icon-reorder tooltips"></div>
+                <div data-original-title="باز کردن/بستن منو" data-placement="left" class="icon-reorder tooltips"></div>
             </div>
             <!--logo start-->
-            <a href="#" class="logo">فلت<span>لب</span></a>
+            <a href="#" class="logo">یدک <span>بازار</span></a>
             <!--logo end-->
-            <div class="nav notify-row" id="top_menu">
-                <!--  notification start -->
+           <!--  <div class="nav notify-row" id="top_menu">
                 <ul class="nav top-menu">
-                    <!-- settings start -->
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <i class="icon-tasks"></i>
@@ -125,8 +123,6 @@
                             </li>
                         </ul>
                     </li>
-                    <!-- settings end -->
-                    <!-- inbox dropdown start-->
                     <li id="header_inbox_bar" class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <i class="icon-envelope-alt"></i>
@@ -190,8 +186,6 @@
                             </li>
                         </ul>
                     </li>
-                    <!-- inbox dropdown end -->
-                    <!-- notification dropdown start-->
                     <li id="header_notification_bar" class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
 
@@ -243,17 +237,13 @@
                             </li>
                         </ul>
                     </li>
-                    <!-- notification dropdown end -->
                 </ul>
-                <!--  notification end -->
-            </div>
-            <div class="top-nav ">
-                <!--search & user info start-->
+            </div> -->
+        <!--     <div class="top-nav ">
                 <ul class="nav pull-right top-menu">
                     <li>
                         <input type="text" class="form-control search" placeholder="Search">
                     </li>
-                    <!-- user login dropdown start-->
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <img alt="" src="{{asset('admin/img/avatar1_small.jpg')}}">
@@ -268,10 +258,10 @@
                             <li><a href="login.html"><i class="icon-key"></i> خروج</a></li>
                         </ul>
                     </li>
-                    <!-- user login dropdown end -->
+                   
                 </ul>
-                <!--search & user info end-->
-            </div>
+                
+            </div> -->
         </header>
       <!--header end-->
       <!--sidebar start-->
@@ -282,81 +272,85 @@
                   <li class="active">
                       <a class="" href="/root">
                           <i class="icon-dashboard"></i>
-                          <span>صفحه اصلی</span>
+                          <span>داشبورد</span>
                       </a>
                   </li>
                   <li class="sub-menu">
                       <a href="javascript:;" class="">
-                          <i class="icon-book"></i>
+                          <i class="icon-shopping-cart"></i>
                           <span>محصولات</span>
                           <span class="arrow"></span>
                       </a>
                       <ul class="sub">
-                          <li><a class="" href="{{route('products.index')}}">مشاهده محصولات</a></li>
+                          <li><a class="" href="{{route('products.index')}}">مدیریت محصولات</a></li>
                           <li><a class="" href="{{route('products.create')}}">درج محصول</a></li>
                       </ul>
                   </li>
                   <li class="sub-menu">
                       <a href="javascript:;" class="">
-                          <i class="icon-cogs"></i>
+                          <i class="icon-paste"></i>
                           <span>مشخصات کالا</span>
                           <span class="arrow"></span>
                       </a>
                       <ul class="sub">
-                          <li><a class="" href="{{route('feature.create')}}">درج مشخصه جدید</a></li>
-                          <li><a class="" href="{{route('feature.index')}}">مدیریت مشخصه ها</a></li>
+                        <li><a class="" href="{{route('feature.index')}}">مدیریت مشخصه ها</a></li>
+                        <li><a class="" href="{{route('feature.create')}}">درج مشخصه</a></li>  
                       </ul>
                   </li>
                   <li class="sub-menu">
                       <a href="javascript:;" class="">
-                          <i class="icon-tasks"></i>
+                          <i class="icon-list-ol"></i>
                           <span>دسته بندی ها</span>
                           <span class="arrow"></span>
                       </a>
                       <ul class="sub">
                          <li><a class="" href="{{route('categories.index')}}">مشاهده دسته بندی ها</a></li>
-                          <li><a class="" href="{{route('categories.create')}}">ساخت دسته بندی جدید</a></li>
+                          <li><a class="" href="{{route('categories.create')}}">ساخت دسته بندی</a></li>
                
                       </ul>
                   </li>
                   <li class="sub-menu">
                       <a href="javascript:;" class="">
-                          <i class="icon-th"></i>
+                          <i class="icon-group"></i>
                           <span>کاربران</span>
                           <span class="arrow"></span>
                       </a>
                       <ul class="sub">
-                          <li><a class="" href="/root/userlist">مشاهده و مدیریت کاربران</a></li>
+                          <li><a class="" href="/root/userlist">مدیریت کاربران</a></li>
                           <li><a class="" href="{{route('roles.index')}}">مدیریت گروه های کاربری</a></li>
                           <li><a class="" href="{{route('roles.create')}}">ایجاد گروه کاربری</a></li>
                       </ul>
                   </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon-usd"></i>
+                          <span>بخش مالی</span>
+                          <span class="arrow"></span>
+                      </a>
+                    <!--   <ul class="sub">
+                          <li><a class="" href="/root/userlist">مشاهده و مدیریت کاربران</a></li>
+                          <li><a class="" href="{{route('roles.index')}}">مدیریت گروه های کاربری</a></li>
+                          <li><a class="" href="{{route('roles.create')}}">ایجاد گروه کاربری</a></li>
+                      </ul> -->
+                  </li>
                   <li>
                       <a class="" href="inbox.html">
-                          <i class="icon-envelope"></i>
-                          <span>ایمیل </span>
-                          <span class="label label-danger pull-right mail-info">2</span>
+                          <i class="icon-comment"></i>
+                          <span>نظرات</span>
+                          <span class="label label-danger pull-left mail-info">2</span>
                       </a>
                   </li>
                   <li class="sub-menu">
                       <a href="javascript:;" class="">
-                          <i class="icon-glass"></i>
-                          <span>عناصر اضافی</span>
-                          <span class="arrow"></span>
+                          <i class="icon-cogs"></i>
+                          <span>تنظیمات</span>
+                          <!-- <span class="arrow"></span> -->
                       </a>
-                      <ul class="sub">
-                          <li><a class="" href="blank.html">صفحه خالی</a></li>
-                          <li><a class="" href="profile.html">پروفایل</a></li>
-                          <li><a class="" href="invoice.html">فاکتور</a></li>
-                          <li><a class="" href="404.html">404 Error</a></li>
-                          <li><a class="" href="500.html">500 Error</a></li>
-                      </ul>
-                  </li>
-                  <li>
-                      <a class="" href="login.html">
-                          <i class="icon-user"></i>
-                          <span>صفحه ورود به سایت</span>
-                      </a>
+                    <!--   <ul class="sub">
+                          <li><a class="" href="/root/userlist">مشاهده و مدیریت کاربران</a></li>
+                          <li><a class="" href="{{route('roles.index')}}">مدیریت گروه های کاربری</a></li>
+                          <li><a class="" href="{{route('roles.create')}}">ایجاد گروه کاربری</a></li>
+                      </ul> -->
                   </li>
               </ul>
               <!-- sidebar menu end-->
