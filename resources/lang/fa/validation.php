@@ -139,6 +139,8 @@ return array(
         'permission' => 'دسترسی',
         'permissions' => 'دسترسی ها',
         'discount' => 'تخفیف',
-        'full body' => 'توضیحات کامل'
+        'full_body' => 'توضیحات کامل',
+        'price' => 'قیمت',
+        'feature' => 'ویژگی'
     ),
 );
