@@ -65,7 +65,7 @@
                                 </div>
                             </div>
                             <div class="col-7">
-                               <form action="/root/addcart/{{$product->id}}" method="post">
+                               <form action="/addcart/{{$product->id}}" method="post">
                                 <h1>{{$product->title}}</h1>
                                 <input type="hidden" name="title" value="{{$product->title}}">
                                 <div class="asimplerow add-comment py-1">

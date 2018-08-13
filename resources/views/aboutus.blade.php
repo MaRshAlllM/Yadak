@@ -50,45 +50,8 @@
                     <div class="col-12">
 
                         <div id="single-box">
-                            @if(!is_null(Session::get('Message')))
-                                <div class="alert alert-success">
-
-                                    {{Session::get('Message')}}
-
-                                </div>
-                            @endif
-
-                            <table class="table table-striped">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">نام محصول</th>
-                                        <th scope="col">تعداد</th>
-                                        <th scope="col">قیمت</th>
-                                        <th scope="col">مجموع</th>
-                                        <th scope="col">مشخصه</th>
-                                        <th scope="col">عملیات</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <?php $i = 1; ?>
-                                    @foreach(Cart::content() as $row)
-                                    <tr>
-                                        <th scope="row"><?php echo $i; ?></th>
-                                        <td>{{$row->name}}</td>
-                                        <td>{{$row->qty}}</td>
-                                        <td>{{$row->price}}</td>
-                                        <td>{{$row->subtotal}}</td>
-                                        <td><?php echo ($row->options->has('feature') ? $row->options->feature : ''); ?></td>
-                                        <td><a href="/remove_shop_row/{{$row->rowId}}"><i class="fas fa-times"></i></a></td>
-                                    </tr>
-                                        <?php $i++; ?>
-                                    @endforeach
-                                    </tbody>
-                                </table>
-                            <a href="/root/pay" class="btn btn-success">پرداخت</a>
-                            مجموع: {{Cart::subtotal()}}
-
+                            <h1>درباره فروشگاه</h1>
+                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
 
                         </div>
 
