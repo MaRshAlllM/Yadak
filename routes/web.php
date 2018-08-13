@@ -52,3 +52,9 @@ Route::get('/aboutus','PageController@aboutus');
 
 Route::get('/contactus','PageController@contactus');
 
+Route::get('/addcompare/{id?}','CompareController@add');
+
+Route::get('/compare/','CompareController@index');
+
+Route::get('/delcompare/','CompareController@delete');
+

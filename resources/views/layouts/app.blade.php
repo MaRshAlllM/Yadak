@@ -37,7 +37,7 @@
 					    <a class="nav-link" href="/contactus">تماس با ما</a>
 					  </li>
 					  <li class="nav-item">
-					    <a class="nav-link" href="#">مقایسه محصول</a>
+					    <a class="nav-link" href="/compare">مقایسه محصول</a>
 					  </li>
 					  <li class="nav-item">
 					    <a class="nav-link disabled" href="#">آموزش</a>
