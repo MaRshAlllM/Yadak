@@ -42,3 +42,7 @@ Route::get('/root/delete_image/{id}','ImageController@delete_image');
 Route::post('/root/addcart/{id}','CartController@add');
 
 Route::get('/root/pay','CartController@pay');
+
+Route::get('/root/remove_shop_row/{id}','CartController@remove_row');
+
+Route::get('/root/shoppingcart','CartController@index')->name('shoppingcart');

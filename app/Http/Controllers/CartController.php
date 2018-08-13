@@ -7,6 +7,12 @@ use App\Cart;
 
 class CartController extends Controller
 {
+
+    public function index(){
+
+        return view('list_shoppingcart');
+    }
+
     public function add(Request $request,$id){
 
             $f_p = (explode('-',$request->price));
@@ -15,14 +21,23 @@ class CartController extends Controller
             $title = $request->title;
             $number = $request->number;
 
-            \Cart::instance(auth()->user()->email)->add("$id", "$title", $number, $price,['feature'=>$feature]);
+            \Cart::add("$id", "$title", $number, $price,['feature'=>$feature]);
             return view('shoppingcart');
 
     }
 
     function pay(){
-
+        $identifier = str_random(20);
+        \Cart::instance(auth()->user()->email)->store($identifier);
         //\Cart::store(auth()->user()->email);
-        return \Cart::instance('default')->content();
+        return \Cart::instance('auth()->user()->email')->content();
+    }
+
+    function remove_row($id){
+
+        \Cart::remove($id);
+
+        return redirect()->route('shoppingcart')->with('Message','حذف با موفقیت انجام شد');
+
     }
 }
