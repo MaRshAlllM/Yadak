@@ -35,7 +35,7 @@
                         دسته بندی های محصولات
                     </div>
                     <div class="body">
-                        <ul class="list-group list-group-flush">
+                        <!-- <ul class="list-group list-group-flush">
                         
                             <li class="list-group-item"><a href="#"><strong>تخفیف خورده</strong></a></li>
                             <li class="list-group-item"><a href="#"><strong>ویژه این هفته</strong></a></li>
@@ -48,7 +48,8 @@
                             <li class="list-group-item"><a href="#"> تیلور سویفت <span class="badge"><i class="fas fa-angle-left"></i></span></a></li>
 
                     
-                        </ul>
+                        </ul> -->
+                        {{sortMyCatInHtmlMenu()}}
                     </div>
 
                 </div>

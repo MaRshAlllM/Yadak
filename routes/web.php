@@ -14,6 +14,7 @@
 Route::get('/', 'MainContentController@index');
 Route::get('/single/{id}', 'MainContentController@single');
 
+Route::get('/category/{slug}','MainContentCategoriesController@index')->where('slug','/(.*)/(.*)/');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -46,3 +47,4 @@ Route::get('/root/pay','CartController@pay');
 Route::get('/root/remove_shop_row/{id}','CartController@remove_row');
 
 Route::get('/root/shoppingcart','CartController@index')->name('shoppingcart');
+

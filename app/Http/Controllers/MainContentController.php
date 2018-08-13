@@ -18,7 +18,6 @@ class MainContentController extends Controller
 
         $pr = Product::find($id);
         $gallery = Image::where('prod_id',$id)->get();
-
     	return view('single')->with(['product'=>$pr,'gallery'=>$gallery]);
 
     }

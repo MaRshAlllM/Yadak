@@ -50,7 +50,7 @@ class CategoryController extends Controller
         \App\Category::create([
 
             'name' => $request->name,
-            'slug' => str_slug($request->slug,'-'),
+            'slug' => fa_slug($request->slug),
             'p_id' => $request->p_id,
             'description' => $request->description
 
@@ -58,17 +58,6 @@ class CategoryController extends Controller
 
         return redirect()->back()->with('message','با موفقیت درج شد');
 
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -105,7 +94,7 @@ class CategoryController extends Controller
 
         $up = Category::find($id);
         $up->name = $request->name;
-        $up->slug = $request->slug;
+        $up->slug = fa_slug($request->slug);
         $up->p_id = $request->p_id;
         $up->description = $request->description;
 

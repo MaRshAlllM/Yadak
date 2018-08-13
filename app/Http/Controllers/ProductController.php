@@ -69,7 +69,7 @@ class ProductController extends Controller
             'body' => request()->body,
             'price' => serialize(array_combine(request()->feature, request()->price)),
             'number' => request()->number,
-            'slug' => request()->slug,
+            'slug' => fa_slug(request()->slug),
             'image' => $path,
             'discount' => request()->discount,
             'full_body' => request()->full_body,
