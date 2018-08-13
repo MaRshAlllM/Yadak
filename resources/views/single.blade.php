@@ -65,9 +65,9 @@
                                 </div>
                             </div>
                             <div class="col-7">
-                                
+                               <form action="/root/addcart/{{$product->id}}" method="post">
                                 <h1>{{$product->title}}</h1>
-
+                                <input type="hidden" name="title" value="{{$product->title}}">
                                 <div class="asimplerow add-comment py-1">
                                     <span>یک نظر</span> 
                                     <a href="#" class="mx-3">نظر خود را اضافه کنید</a>
@@ -79,10 +79,22 @@
                                         </div>-->
 
                                     <div class="variable py-2">قیمت</div>
-                                        <select class="form-control">
+                                        <select class="form-control" name="price">
 
                                             @foreach(unserialize($product->price) as $key=>$var)
-                                                    <option><?php
+                                                    <option value="<?php
+                                                    if($product->discount == null){
+                                                        if(empty($key)){$key="ندارد";}
+                                                        echo "$key"."-"."$var";
+                                                    }else{
+                                                        if(empty($key)){$key="ندارد";}
+                                                        $d = $product->discount;
+                                                        $dis = $var - ($var*$d/100);
+                                                        echo "$key"."-"."$dis" ;
+                                                    }
+                                                    ?>">
+
+                                                        <?php
                                                         if($product->discount == null){
                                                         echo "$key"." "."$var";
                                                         }else{
@@ -91,6 +103,8 @@
                                                             echo "$key"." "."$var". " تومان - " . " قیمت با تخفیف:  $dis" ;
                                                         }
                                                         ?> تومان
+
+
                                                     </option>
                                             @endforeach
 
@@ -104,15 +118,16 @@
                                 <div class="asimplerow py-2">
                                     
                                     <div class="input-group">
-                                          <input type="number" class="form-control col-4" value="1" min="1" max="10">
+                                          <input type="number" name="number" class="form-control col-4" value="1" min="1" max="10">
                                           <div class="input-group-prepend">
-                                            <button class="btn btn-custom-green">افزودن به سبد خرید</button>
+                                              @csrf
+                                            <button type="submit" class="btn btn-custom-green">افزودن به سبد خرید</button>
                                         </div>
                                     </div>  
                                             
                                 </div>  
-                                            
 
+                                </form>
                             </div>  
 
                             </div>

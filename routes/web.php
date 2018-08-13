@@ -40,3 +40,6 @@ Route::post('/root/image_gallery_upload','ImageController@gallery_upload');
 
 Route::get('/root/delete_image/{id}','ImageController@delete_image');
 
+Route::post('/root/addcart/{id}','CartController@add');
+
+Route::get('/root/pay','CartController@pay');
