@@ -35,11 +35,11 @@
                                 <form action="{{route('categories.destroy',$category->id)}}" method="POST">
                                     @method('DELETE')
                                     @csrf
-                                    <button onclick="return confirm('آیا مطمئن هستید؟');"><i class="icon-remove"></i></button>
+                                    <button class="btn btn-danger" onclick="return confirm('آیا مطمئن هستید؟');"><i class="icon-remove"></i></button>
                                 </form>
                             </td>
                             <td>
-                                <a href="{{route('categories.edit',$category->id)}}"><i class="icon-edit"></i></a>
+                                <a class="btn btn-info" href="{{route('categories.edit',$category->id)}}"><i class="icon-edit"></i></a>
                             </td>
                         </tr>
                         <?php @$i++ ?>

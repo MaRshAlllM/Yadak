@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
-
+use App\Category;
+use App\Feature;
 class ProductController extends Controller
 {
     /**
@@ -12,8 +13,10 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index(Product $product)
     {
+
         $p = $product->get();
         return view('admin.list_products')->with('products',$p);
     }
@@ -24,8 +27,12 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('admin.insert_products');
+    {   
+
+        $features = Feature::all();
+
+
+        return view('admin.insert_products',compact('features'));
 
     }
 
@@ -56,7 +63,7 @@ class ProductController extends Controller
 
         $path = request()->file('image')->store('/','uploads');
 
-        auth()->user()->products()->create([
+        $product = auth()->user()->products()->create([
 
             'title' => request()->title,
             'body' => request()->body,
@@ -68,6 +75,20 @@ class ProductController extends Controller
             'full_body' => request()->full_body,
         ]);
 
+        $product->categories()->attach($request->c_ids);
+
+
+        $ftvalues =  array_combine(request()->fts, request()->values);
+
+        foreach ($ftvalues as $feature => $value) {
+            
+                $product->features()->attach(
+                    [
+                        $feature => ['value' => $value],
+
+                    ]
+                 );
+        }
         return redirect()->back()->with('Message','محصول با موفقیت درج شد');
 
     }

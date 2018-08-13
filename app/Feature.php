@@ -12,5 +12,6 @@ class Feature extends Model
         'title'
     ];
 
+    
 
 }

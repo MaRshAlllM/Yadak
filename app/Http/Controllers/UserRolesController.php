@@ -15,7 +15,8 @@ class UserRolesController extends Controller
      */
     public function index()
     {
-        //
+        $roles = Role::all();
+        return view('admin.user_roles.index',compact('roles'));
     }
 
     /**
@@ -79,7 +80,12 @@ class UserRolesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $role = Role::find($id);
+
+        $permissions = Permission::all();
+
+        return view('admin.user_roles.edit',compact('permissions'))->with('role',$role);
+
     }
 
     /**
@@ -91,7 +97,21 @@ class UserRolesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate(request(),[
+
+            'name'=>'required',
+            'label'=>'required',
+        ]);
+
+        $role = Role::find($id);
+
+        $role->name = $request->name;
+        $role->label = $request->label;
+        $role->save();
+
+        $role->permissions()->sync($request->permission);
+
+        return redirect()->route('roles.index')->with('message','ویرایش با موفقیت انجام شد');
     }
 
     /**
@@ -102,6 +122,8 @@ class UserRolesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $role=Role::find($id);
+        $role->delete();
+        return redirect()->back()->with('message','حذف با موفقیت انجام شد');
     }
 }
