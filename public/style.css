@@ -160,6 +160,20 @@ h1 {
 	top: 50%;
 	transform: translateY(-50%);
 }
+#main-contents .right-col .box .body ul li ul{
+
+	position: absolute;
+	width: 100%;
+	z-index: 9999;
+	right: 100%;
+	top: -10%;
+	display: none;
+	box-shadow: rgb(100, 100, 100) 0px 0px 10px 0px;
+	background-color: #fff;
+}
+#main-contents .right-col .box .body ul li:hover>ul{
+	display: flex;
+}
 #main-contents .left-col #special-offers img:first-child{
 	margin: 0 0 ;
 	margin-bottom: 10px

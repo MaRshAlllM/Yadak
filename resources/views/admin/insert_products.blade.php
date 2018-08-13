@@ -128,7 +128,7 @@
                                             </header>
                                             <div class="panel-body">
                                                     <div class="form-group" style="height: 150px;overflow: auto;">
-                                                        {{sortMyCatInHtml()}}
+                                                        {{sortMyCatInHtmlForm()}}
                                                     </div>
                                             </div>
                                         </section>
