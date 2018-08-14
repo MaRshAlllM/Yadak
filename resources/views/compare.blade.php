@@ -52,7 +52,80 @@
                         <div id="single-box">
                          @if(isset($product))
                             @foreach($product as $row)
-                                <div>{{$row->title}}</div>
+
+
+
+                                    <div class="row">
+
+                                        <div class="col-5">
+                                            <a href="#"><img src="/uploads/{{$row->image}}" class="img-fluid"></a>
+
+                                        </div>
+                                        <div class="col-7">
+                                            <form action="/addcart/{{$row->id}}" method="post">
+                                                <h1>{{$row->title}}</h1>
+                                                <input type="hidden" name="title" value="{{$row->title}}">
+
+                                                <div class="asimplerow py-2 mojodi">
+                                                    <!-- <b>ناموجود</b> -->
+                                                    <!--<div class="price">قیمت : 200 هزار تومان
+                                                        <span class="discount mx-3">5555تومان</span>
+                                                    </div>-->
+
+                                                    <div class="variable py-2">قیمت</div>
+                                                    <select class="form-control" name="price">
+
+                                                        @foreach(unserialize($row->price) as $key=>$var)
+                                                            <option value="<?php
+                                                            if($row->discount == null){
+                                                                if(empty($key)){$key="ندارد";}
+                                                                echo "$key"."-"."$var";
+                                                            }else{
+                                                                if(empty($key)){$key="ندارد";}
+                                                                $d = $row->discount;
+                                                                $dis = $var - ($var*$d/100);
+                                                                echo "$key"."-"."$dis" ;
+                                                            }
+                                                            ?>">
+
+                                                                <?php
+                                                                if($row->discount == null){
+                                                                    echo "$key"." "."$var";
+                                                                }else{
+                                                                    $d = $row->discount;
+                                                                    $dis = $var - ($var*$d/100);
+                                                                    echo "$key"." "."$var". " تومان - " . " قیمت با تخفیف:  $dis" ;
+                                                                }
+                                                                ?> تومان
+
+
+                                                            </option>
+                                                        @endforeach
+
+                                                    </select>
+
+                                                </div>
+                                                <div class="asimplerow description py-2">
+                                                    {!!$row->body!!}
+                                                </div>
+
+                                                <div class="asimplerow py-2">
+
+                                                    <div class="input-group">
+                                                        <input type="number" name="number" class="form-control col-4" value="1" min="1" max="10">
+                                                        <div class="input-group-prepend">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-custom-green">افزودن به سبد خرید</button>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                <hr>
                             @endforeach
                                 <div><a href="/delcompare" class="btn btn-info btn-sm">حذف تمامی محصولات مقایسه شده</a></div>
                          @else
