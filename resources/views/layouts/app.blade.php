@@ -31,13 +31,13 @@
 					
 					<ul class="nav justify-content-end">
 					  <li class="nav-item">
-					    <a class="nav-link active" href="#">درباره ما</a>
+					    <a class="nav-link active" href="/aboutus">درباره ما</a>
 					  </li>
 					  <li class="nav-item">
-					    <a class="nav-link" href="#">تماس با ما</a>
+					    <a class="nav-link" href="/contactus">تماس با ما</a>
 					  </li>
 					  <li class="nav-item">
-					    <a class="nav-link" href="#">مقایسه محصول</a>
+					    <a class="nav-link" href="/compare">مقایسه محصول</a>
 					  </li>
 					  <li class="nav-item">
 					    <a class="nav-link disabled" href="#">آموزش</a>
@@ -54,7 +54,7 @@
 			<div class="row align-items-center py-3">
 				
 				<div class="col-3">
-					<a href="#"><img src="{{asset('img/logo.png')}}" class="img-fluid"></a>
+					<a href="{{URL::to('/')}}"><img src="{{asset('img/logo.png')}}" class="img-fluid"></a>
 				</div>
 				<div class="col-5">
 					<form action="{{route('index')}}/search" method="get">
@@ -77,10 +77,15 @@
 				<div class="col middle-nav">
 					<ul class="nav justify-content-end">
 					  <li class="nav-item">
-					    <a class="nav-link active" href="#"><img src="{{asset('img/shopping.svg')}}">سبد خرید</a>
+					    <a class="nav-link active" href="/shoppingcart"><img src="{{asset('img/shopping.svg')}}">سبد خرید</a>
 					  </li>
 					  <li class="nav-item">
-					    <a class="nav-link" href="#"><img src="{{asset('img/user.svg')}}"> ورود/عضویت</a>
+						  <div class="navbar-link">
+					    <img src="{{asset('img/user.svg')}}">
+						  <a href="/login">ورود</a>
+						  /
+						  <a href="/register">عضویت</a>
+						  </div>
 					  </li>
 		
 					</ul>

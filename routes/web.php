@@ -45,6 +45,21 @@ Route::post('/root/image_gallery_upload','ImageController@gallery_upload');
 
 Route::get('/root/delete_image/{id}','ImageController@delete_image');
 
-Route::post('/root/addcart/{id}','CartController@add');
+Route::post('/addcart/{id}','CartController@add');
 
-Route::get('/root/pay','CartController@pay');
+Route::get('/pay','CartController@pay');
+
+Route::get('/remove_shop_row/{id}','CartController@remove_row');
+
+Route::get('/shoppingcart','CartController@index')->name('shoppingcart');
+
+Route::get('/aboutus','PageController@aboutus');
+
+Route::get('/contactus','PageController@contactus');
+
+Route::get('/addcompare/{id?}','CompareController@add');
+
+Route::get('/compare/','CompareController@index');
+
+Route::get('/delcompare/','CompareController@delete');
+

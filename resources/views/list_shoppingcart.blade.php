@@ -57,22 +57,26 @@
 
                                 </div>
                             @endif
-
+                            @if(Cart::count() == 0)
+                                <div class="alert alert-info">
+                                <?php echo"سبد خرید شما خالی است."; ?>
+                                </div>
+                            @endif
                             <table class="table table-striped">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">نام محصول</th>
-                                        <th scope="col">تعداد</th>
-                                        <th scope="col">قیمت</th>
-                                        <th scope="col">مجموع</th>
-                                        <th scope="col">مشخصه</th>
-                                        <th scope="col">عملیات</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <?php $i = 1; ?>
-                                    @foreach(Cart::content() as $row)
+                                <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">نام محصول</th>
+                                    <th scope="col">تعداد</th>
+                                    <th scope="col">قیمت</th>
+                                    <th scope="col">مجموع</th>
+                                    <th scope="col">مشخصه</th>
+                                    <th scope="col">عملیات</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php $i = 1; ?>
+                                @foreach(Cart::content() as $row)
                                     <tr>
                                         <th scope="row"><?php echo $i; ?></th>
                                         <td>{{$row->name}}</td>
@@ -80,15 +84,14 @@
                                         <td>{{$row->price}}</td>
                                         <td>{{$row->subtotal}}</td>
                                         <td><?php echo ($row->options->has('feature') ? $row->options->feature : ''); ?></td>
-                                        <td><a href="/remove_shop_row/{{$row->rowId}}"><i class="fas fa-times"></i></a></td>
+                                        <td><a href="/root/remove_shop_row/{{$row->rowId}}"><i class="fas fa-times"></i></a></td>
                                     </tr>
-                                        <?php $i++; ?>
-                                    @endforeach
-                                    </tbody>
-                                </table>
+                                    <?php $i++; ?>
+                                @endforeach
+                                </tbody>
+                            </table>
                             <a href="/root/pay" class="btn btn-success">پرداخت</a>
                             مجموع: {{Cart::subtotal()}}
-
 
                         </div>
 

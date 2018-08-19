@@ -61,11 +61,11 @@
                                         <a href="/uploads/{{$g->image_name}}" target="_blank"><img src="/uploads/{{$g->image_name}}" class="img-fluid"></a>
                                     </div>
                                     @endforeach
-
                                 </div>
+                                <a href="/addcompare/{{$product->id}}" class="btn btn-danger btn-sm"><i class="fas fa-plus"></i> افرودن به مقایسه محصول</a>
                             </div>
                             <div class="col-7">
-                               <form action="/root/addcart/{{$product->id}}" method="post">
+                               <form action="/addcart/{{$product->id}}" method="post">
                                 <h1>{{$product->title}}</h1>
                                 <input type="hidden" name="title" value="{{$product->title}}">
                                 <div class="asimplerow add-comment py-1">
