@@ -15,19 +15,36 @@ function sortMyCatInHtmlForm($p_id=null){
             echo "</li></div>";
         }
     echo "</ul>";
-
 }
+// function findParents($p_id,$data){
+
+//     $category_pid = App\Category::where('id','=',$p_id)->get();
+    
+//     $url = $category_pid->slug;
+
+//     foreach ($category_pid as $values) {
+        
+//         $url = $values->slug.'/'.$url;
+
+//         return $data;
+//     }
+    
+
+// }
 function sortMyCatInHtmlMenu($p_id=null){ 
     $categories = App\Category::where('p_id','=',$p_id)->get();
     echo "<ul class=\"list-group list-group-flush\">";
         foreach ($categories as $category) { 
 
-            $category_pid = App\Category::where('id','=',$category->p_id)->get();
+            // findParents($category->p_id);
+
+            // $category_pid = App\Category::where('id','=',$category->p_id)->get();
             $url = $category->slug;
-            foreach ($category_pid as $values) {
-                $url = $values->slug.'/'.$url;
-            }
-            echo "<li class=\"list-group-item\"><a href=\"category/{$url}\">{$category->name}</a>";
+            // foreach ($category_pid as $values) {
+            //     $url = $values->slug.'/'.$url;
+            // }
+
+            echo "<li class=\"list-group-item\"><a href=\"category/{$category->id}/{$url}\">{$category->name}</a>";
             if(App\Category::where('p_id','=',$category->id)->get()->isNotEmpty()){
                  sortMyCatInHtmlMenu($category->id);
             }

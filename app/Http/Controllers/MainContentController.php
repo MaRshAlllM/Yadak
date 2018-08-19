@@ -21,4 +21,9 @@ class MainContentController extends Controller
     	return view('single')->with(['product'=>$pr,'gallery'=>$gallery]);
 
     }
+    public function search(){
+
+    	$product = Product
+
+    }
 }

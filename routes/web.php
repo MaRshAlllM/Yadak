@@ -11,10 +11,15 @@
 |
 */
 
-Route::get('/', 'MainContentController@index');
+Route::get('/', 'MainContentController@index')->name('index');
 Route::get('/single/{id}', 'MainContentController@single');
 
-Route::get('/category/{slug}','MainContentCategoriesController@index')->where('slug','/(.*)/(.*)/');
+Route::get('/category/{slug}','MainContentCategoriesController@index')->where('slug','(.*)');
+
+Route::get('/search', 'MainContentController@search');
+
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -77,10 +77,11 @@ class ProductController extends Controller
 
         $product->categories()->attach($request->c_ids);
 
+        if(request()->values){
 
-        $ftvalues =  array_combine(request()->fts, request()->values);
+            $ftvalues =  array_combine(request()->fts, request()->values);
 
-        foreach ($ftvalues as $feature => $value) {
+            foreach ($ftvalues as $feature => $value) {
             
                 $product->features()->attach(
                     [
@@ -88,7 +89,9 @@ class ProductController extends Controller
 
                     ]
                  );
+            }
         }
+        
         return redirect()->back()->with('Message','محصول با موفقیت درج شد');
 
     }
