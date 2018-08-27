@@ -11,50 +11,36 @@
 |
 */
 
-Route::get('/', 'MainContentController@index');
+Route::get('/', 'MainContentController@index')->name('index');
 Route::get('/single/{id}', 'MainContentController@single');
+Route::post('/single/{id}/comment','MainContentController@insertComment')->name('insertcomment')->middleware('auth');
+Route::get('/search', 'MainContentController@search');
 
-Route::get('/category/{slug}','MainContentCategoriesController@index')->where('slug','/(.*)/(.*)/');
-Auth::routes();
+Route::get('/category/{slug}','MainContentCategoriesController@index')->where('slug','(.*)');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Auth::routes();
+
 Route::get('/root','AdminController@index');
 Route::resource('/root/products','ProductController');
-
 Route::resource('/root/categories','CategoryController');
-
 Route::resource('/root/feature','FeatureController');
-
 Route::resource('/root/roles','UserRolesController');
-
 Route::get('/root/userlist','UserController@index');
-
 Route::get('/root/userlist/{id}','UserController@show');
-
 Route::patch('/root/userlist/{id}','UserController@update')->name('userlist.update');
-
 Route::get('/root/image_gallery/{id}','ImageController@index');
-
 Route::post('/root/image_gallery_upload','ImageController@gallery_upload');
-
 Route::get('/root/delete_image/{id}','ImageController@delete_image');
 
 Route::post('/addcart/{id}','CartController@add');
-
 Route::get('/pay','CartController@pay');
-
 Route::get('/remove_shop_row/{id}','CartController@remove_row');
-
 Route::get('/shoppingcart','CartController@index')->name('shoppingcart');
-
 Route::get('/aboutus','PageController@aboutus');
-
 Route::get('/contactus','PageController@contactus');
-
 Route::get('/addcompare/{id?}','CompareController@add');
-
 Route::get('/compare/','CompareController@index');
-
 Route::get('/delcompare/','CompareController@delete');
 

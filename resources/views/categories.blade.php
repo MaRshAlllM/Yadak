@@ -66,63 +66,17 @@
             </div>
 
             <div class="col-9 left-col">
-
-                <div class="row">
-
-                    <div class="col-9">
-                        
-                       <div id="carouselExampleFade" class="carousel slide carousel-slide" data-ride="carousel">
-
-                      <div class="carousel-inner">
-                        <div class="carousel-item active">
-                          <img class="d-block w-100" src="img/car.jpeg" alt="First slide">
-                          <div class="carousel-caption d-none d-md-block">
-                            <!-- <h5>عنوان</h5> -->
-                            <!-- <p>توضیحات اسلاید</p> -->
-                            <!-- <a href="" class="btn btn-custom-red-wr">بیشتر</a> -->
-                          </div>
-                        </div>
-                        <div class="carousel-item">
-                          <img class="d-block w-100" src="img/car2.jpg" alt="Second slide">
-                          <div class="carousel-caption d-none d-md-block">
-                            <!-- <h5>عنوان</h5> -->
-                            <!-- <p>توضیحات اسلاید</p> -->
-                          </div>
-                        </div>
-                      </div>
-                      </div>
-                      <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">بعدی</span>
-                      </a>
-                      <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">قبلی</span>
-                      </a>
-                    </div>
-
-                    <div class="col-3" id="special-offers">
-                        <img src="img/0.jpg" class="img-fluid">
-                        <img src="img/2.jpg" class="img-fluid">
-                        <img src="img/3.jpg" class="img-fluid">
-                    </div>
-
-
-                    </div>
-
                 <div class="row py-3" id="main-content">
-
-
-                    @foreach($products as $product)
-                    <div class="col-4 box my-1">
+                    @foreach($categories->slice($categories->toArray()["from"] - 1,$categories->toArray()["per_page"] ) as $category)
+                    <div class="col-4 box">
                         <div class="inner-box py-3">
-                            <img src="uploads/{{$product->image}}" class="img-fluid">
+                            <img src="{{route('index')}}/uploads/{{$category->image}}" class="img-fluid">
                             <div class="hidden-details"></div>
                             <div class="body">
-                                <h4><a href="/single/{{$product->id}}">{{$product->title}}</a></h4>
+                                <h4><a href="/single/{{$category->id}}">{{$category->title}}</a></h4>
                                 <span class="price">
                                         <?php $first = true; ?>
-                                        @foreach(unserialize($product->price) as $var)
+                                        @foreach(unserialize($category->price) as $var)
                                             <?php
                                             if ( $first == true )
                                                 {
@@ -132,12 +86,12 @@
                                             ?>
                                         @endforeach
                                 </span>
-
                             </div>
                         </div>
 
                     </div>
                 @endforeach
+
 
                 <!-- <div class="col-4 box">
                         <div class="inner-box">
@@ -161,7 +115,8 @@
                     </div> -->
 
                 </div>
-                
+                {{$categories->links()}}
+
                 <div class="row" id="slide-products">
 
         <!--            <div class="slide-products owl-theme">

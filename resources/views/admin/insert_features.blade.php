@@ -4,8 +4,11 @@
     <div class="row">
         <div class="col-lg-6">
             <section class="panel">
-
-                    @if(!is_null(Session::get('message')))
+                <header class="panel-heading">
+                    ایجاد مشخصه جدید
+                </header>
+                <div class="panel-body">
+                      @if(!is_null(Session::get('message')))
                     <div class="alert alert-success">
                         {{Session::get('message')}}
                     </div>
@@ -15,11 +18,6 @@
                                      {{ $errors->first('title') }}
                             </div>
                         @endif
-
-                <header class="panel-heading">
-                    ایجاد مشخصه جدید
-                </header>
-                <div class="panel-body">
                     <form action="{{Route('feature.store')}}" method="post" role="form">
                         <div class="form-group">
                             <label for="exampleInputEmail1">مشخصه جدید</label>

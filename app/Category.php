@@ -19,4 +19,9 @@ class Category extends Model
     	return 'slug';
 
     }
+    public function getChild(){
+
+    	return $this->hasMany(Category::class,'p_id','id');
+
+    }
 }

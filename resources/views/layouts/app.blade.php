@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -57,19 +58,22 @@
 					<a href="{{URL::to('/')}}"><img src="{{asset('img/logo.png')}}" class="img-fluid"></a>
 				</div>
 				<div class="col-5">
-					<div class="input-group">
-					  <input type="text" class="form-control" placeholder="کلید واژه مورد نظر را وارد نمایید" aria-label="" aria-describedby="basic-addon1">
-					    <select class="custom-select col-4" id="inputGroupSelect01">
-						    <option selected>دسته ها</option>
-							@foreach(\App\Category::all() as $category)
-								<option value="{{$category->id}}">{{$category->name}}</option>
-							@endforeach
-						  </select>
-					  <div class="input-group-prepend">
-						    <button class="btn btn-custom-red" type="button"><i class="fas fa-search"></i></button>
-					  </div>
-					  
-					</div>
+
+					<form action="{{route('index')}}/search" method="get">
+						<div class="input-group">
+						  <input type="text" name="keyword" class="form-control" placeholder="کلید واژه مورد نظر را وارد نمایید" aria-label="" aria-describedby="basic-addon1">
+						    <select name="category" class="custom-select col-4" id="inputGroupSelect01">
+						    	<option selected>همه دسته ها</option>
+						    	@foreach(\App\Category::all() as $category)
+							    <option value="{{$category->id}}">{{$category->name}}</option>
+								@endforeach
+							  </select>
+						  <div class="input-group-prepend">
+							    <button class="btn btn-custom-red" type="submit"><i class="fas fa-search"></i></button>
+						  </div>
+						  
+						</div>
+					</form>
 
 				</div>
 				<div class="col middle-nav">
@@ -78,7 +82,7 @@
 					    <a class="nav-link active" href="/shoppingcart"><img src="{{asset('img/shopping.svg')}}">سبد خرید</a>
 					  </li>
 					  <li class="nav-item">
-						  <div class="navbar-link">
+						  <div class="nav-link">
 					    <img src="{{asset('img/user.svg')}}">
 						  <a href="/login">ورود</a>
 						  /

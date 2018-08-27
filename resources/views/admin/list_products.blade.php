@@ -24,6 +24,8 @@
                             <th>نام محصول</th>
                             <th>تصویر</th>
                             <th>عملیات</th>
+                            <th>ویرایش</th>
+                            <th>حذف</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -34,6 +36,16 @@
                                 <td>{{$prod->title}}</td>
                                 <td><img src="{{URL::to('/')}}/uploads/{{$prod->image}}" width="150"></td>
                                 <td><a class="btn btn-success" href="/root/image_gallery/{{$prod->id}}"><i class="icon-picture"></i></a></td>
+                                  <td>
+                                    <a class="btn btn-info"href="{{route('products.edit',$prod->id)}}"><i class="icon-edit"></i></a>
+                                </td>
+                                <td>
+                                    <form action="{{route('products.destroy',$prod->id)}}" method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button class="btn btn-danger" onclick="return confirm('آیا مطمئن هستید؟');"><i class="icon-remove"></i></button>
+                                    </form>
+                                </td>
                             </tr>
                             <?php @$i++ ?>
                         @endforeach
