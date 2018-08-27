@@ -22,17 +22,21 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
-Route::get('/root','AdminController@index');
-Route::resource('/root/products','ProductController');
-Route::resource('/root/categories','CategoryController');
-Route::resource('/root/feature','FeatureController');
-Route::resource('/root/roles','UserRolesController');
-Route::get('/root/userlist','UserController@index');
-Route::get('/root/userlist/{id}','UserController@show');
-Route::patch('/root/userlist/{id}','UserController@update')->name('userlist.update');
-Route::get('/root/image_gallery/{id}','ImageController@index');
-Route::post('/root/image_gallery_upload','ImageController@gallery_upload');
-Route::get('/root/delete_image/{id}','ImageController@delete_image');
+
+Route::group(['middleware' => ['auth','has_role']],function(){
+	Route::get('/root','AdminController@index');
+	Route::resource('/root/products','ProductController');
+	Route::resource('/root/categories','CategoryController');
+	Route::resource('/root/feature','FeatureController');
+	Route::resource('/root/roles','UserRolesController');
+	Route::get('/root/userlist','UserController@index');
+	Route::get('/root/userlist/{id}','UserController@show');
+	Route::patch('/root/userlist/{id}','UserController@update')->name('userlist.update');
+	Route::get('/root/image_gallery/{id}','ImageController@index');
+	Route::post('/root/image_gallery_upload','ImageController@gallery_upload');
+	Route::get('/root/delete_image/{id}','ImageController@delete_image');
+});
+
 
 Route::post('/addcart/{id}','CartController@add');
 Route::get('/pay','CartController@pay');

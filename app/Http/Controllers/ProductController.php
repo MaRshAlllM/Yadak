@@ -16,7 +16,6 @@ class ProductController extends Controller
 
     public function index(Product $product)
     {
-
         $p = $product->get();
         return view('admin.list_products')->with('products',$p);
     }
