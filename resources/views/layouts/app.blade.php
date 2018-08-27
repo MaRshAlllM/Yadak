@@ -58,6 +58,7 @@
 					<a href="{{URL::to('/')}}"><img src="{{asset('img/logo.png')}}" class="img-fluid"></a>
 				</div>
 				<div class="col-5">
+
 					<form action="{{route('index')}}/search" method="get">
 						<div class="input-group">
 						  <input type="text" name="keyword" class="form-control" placeholder="کلید واژه مورد نظر را وارد نمایید" aria-label="" aria-describedby="basic-addon1">
