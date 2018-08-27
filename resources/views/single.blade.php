@@ -32,14 +32,11 @@
 
                 </div>
 
-                <div class="box">
-            <div class="list-group">
-              <a href="#" class="list-group-item list-group-item-action">لینک های تستی</a>
-            </div>
-
+            <div class="box">
+                <div class="list-group">
+                  <a href="#" class="list-group-item list-group-item-action">لینک های تستی</a>
                 </div>
-
-
+            </div>
 
             </div>
 
@@ -132,11 +129,90 @@
 
                             </div>
                             {!!$product->full_body!!}
-                        </div>                      
+                        </div>                   
 
                      </div>
 
                 </div>
+                <div class="row py-3">
+                    <div class="col-12">
+
+                        <div id="single-box">
+
+                            <table class="table table-bordered">
+                              <thead>
+                                <tr>
+                             
+                                  <th scope="col">ویژگی</th>
+                                  <th scope="col">توضیحات</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                @foreach($product->features as $feature)
+                                <tr>
+                                  <td>{{$feature->title}}</td>
+                                  <td>{{$feature->pivot->value}}</td>
+                                </tr>
+                                @endforeach
+                              </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                <div class="col-12">
+                    <div id="single-box">
+                        @foreach($product->comments as $comment)
+                            <div class="card w-100 my-2">
+                              <div class="card-body">
+                                <strong class="card-title">{{$comment->user()->get()->first()->name}}</strong>
+                                <p class="card-text">{{$comment->content}}</p>
+                              </div>
+                              <div class="card-footer text-muted">
+                                {{jDate::forge($comment->created_at)->format(' %d %B %Y')}}
+                              </div>
+                            </div>
+                        @endforeach
+
+                        @if($errors->first('content'))
+                            <div class="alert alert-danger py-3">
+                                    {{$errors->first('content')}}
+                            </div>
+                        @endif
+
+
+                        @if(Session::get('message'))
+                            <div class="alert alert-success py-3">
+                                    {{Session::get('message')}}
+                            </div>
+                        @endif
+
+                        @if(auth()->check())
+                        <form action="{{route('insertcomment',$product->id)}}" method="post" class="py-3">
+                            @csrf
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text">متن کامنت</span>
+                              </div>
+                              <textarea name="content" class="form-control" aria-label="With textarea"></textarea>
+                              <div class="input-group-prepend">                           <button class="btn btn-primary">ارسال</button>
+</div>
+                            </div>
+                        </form>
+                        @else
+
+                            <div class="alert alert-info">
+                                    برای درج نظر <a href="/login">وارد</a> شوید یا <a href="/register">ثبت نام</a> کنید.
+                            </div>
+
+                        @endif
+
+                    </div>                   
+
+                </div>
+
+            </div>
 
                 <div class="row py-3" id="main-content">
 

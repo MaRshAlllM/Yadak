@@ -67,9 +67,7 @@
 
             <div class="col-9 left-col">
                 <div class="row py-3" id="main-content">
-
-
-                    @foreach($categories as $category)
+                    @foreach($categories->slice($categories->toArray()["from"] - 1,$categories->toArray()["per_page"] ) as $category)
                     <div class="col-4 box">
                         <div class="inner-box py-3">
                             <img src="{{route('index')}}/uploads/{{$category->image}}" class="img-fluid">
@@ -94,6 +92,7 @@
                     </div>
                 @endforeach
 
+
                 <!-- <div class="col-4 box">
                         <div class="inner-box">
                             <img src="img/b.jpg" class="img-fluid">
@@ -116,7 +115,8 @@
                     </div> -->
 
                 </div>
-                
+                {{$categories->links()}}
+
                 <div class="row" id="slide-products">
 
         <!--            <div class="slide-products owl-theme">

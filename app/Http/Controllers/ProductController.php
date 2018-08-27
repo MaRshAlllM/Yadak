@@ -115,7 +115,10 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $toupdate = new Product();
+        $product = $toupdate->with(['features','categories'])->find($id);
+        // return $product->categories()->get();
+        return view('admin.edit_products')->with('product',$product);
     }
 
     /**
@@ -127,7 +130,61 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $this->validate($request,[
+
+            'title'=>'required',
+            'body'=>'required',
+            'price'=>'required',
+            'feature'=>'required',
+            'number'=>'required|numeric',
+            'slug'=>'required',
+            'discount' => 'required|integer',
+            'image'=>'image',
+            'full_body'=>'required',
+
+        ]);
+
+        $product = Product::find($id);
+
+            if(request()->has('image')){
+                unlink("uploads/{$product->image}");
+                $path = request()->file('image')->store('/','uploads');
+                $product->image = $path;
+
+            }
+
+            $product->title = request()->title;
+            $product->body = request()->body;
+            $product->price = serialize(array_combine(request()->feature, request()->price));
+            $product->number = request()->number;
+            $product->slug = fa_slug(request()->slug);
+            $product->discount = request()->discount;
+            $product->full_body = request()->full_body;
+            $product->save();
+
+        $product->categories()->sync($request->c_ids);
+
+            if($request->values){
+
+                $ftvalues =  array_combine(request()->fts, request()->values);
+
+                foreach ($ftvalues as $feature => $value) {
+                
+                    $product->features()->sync(
+                        [
+                            $feature => ['value' => $value],
+
+                        ]
+                     );
+                }     
+            }else{
+
+                $product->features()->sync();
+
+            }
+
+             
+        return redirect()->back()->with('Message','محصول با موفقیت بروزرسانی شد');
     }
 
     /**
@@ -138,6 +195,9 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product=Product::find($id);
+        unlink("uploads/{$product->image}");
+        $product->delete();
+        return redirect()->back()->with('message','حذف با موفقیت انجام شد');
     }
 }

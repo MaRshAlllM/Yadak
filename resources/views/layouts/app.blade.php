@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -61,10 +62,10 @@
 						<div class="input-group">
 						  <input type="text" name="keyword" class="form-control" placeholder="کلید واژه مورد نظر را وارد نمایید" aria-label="" aria-describedby="basic-addon1">
 						    <select name="category" class="custom-select col-4" id="inputGroupSelect01">
-							    <option selected>دسته ها</option>
-							    <option value="1">یک</option>
-							    <option value="2">دو</option>
-							    <option value="3">سه</option>
+						    	<option selected>همه دسته ها</option>
+						    	@foreach(\App\Category::all() as $category)
+							    <option value="{{$category->id}}">{{$category->name}}</option>
+								@endforeach
 							  </select>
 						  <div class="input-group-prepend">
 							    <button class="btn btn-custom-red" type="submit"><i class="fas fa-search"></i></button>
@@ -80,7 +81,7 @@
 					    <a class="nav-link active" href="/shoppingcart"><img src="{{asset('img/shopping.svg')}}">سبد خرید</a>
 					  </li>
 					  <li class="nav-item">
-						  <div class="navbar-link">
+						  <div class="nav-link">
 					    <img src="{{asset('img/user.svg')}}">
 						  <a href="/login">ورود</a>
 						  /

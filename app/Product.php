@@ -20,6 +20,9 @@ class Product extends Model
 
     }
     public function features(){
-    	return $this->belongsToMany(Feature::class);
+    	return $this->belongsToMany(Feature::class)->withPivot('value');
+    }
+    public function comments(){
+        return $this->hasMany(Comment::class);
     }
 }
