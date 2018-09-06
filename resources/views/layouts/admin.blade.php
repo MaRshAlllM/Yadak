@@ -334,10 +334,10 @@
                       </ul> -->
                   </li>
                   <li>
-                      <a class="" href="inbox.html">
+                      <a class="" href="/root/comments">
                           <i class="icon-comment"></i>
                           <span>نظرات</span>
-                          <span class="label label-danger pull-left mail-info">2</span>
+                          <!--<span class="label label-danger pull-left mail-info">2</span>-->
                       </a>
                   </li>
                   <li class="sub-menu">
