@@ -38,7 +38,7 @@
                 <div data-original-title="باز کردن/بستن منو" data-placement="left" class="icon-reorder tooltips"></div>
             </div>
             <!--logo start-->
-            <a href="#" class="logo">یدک <span>بازار</span></a>
+            <a href="#" class="logo">پاساژ <span>اردبیل</span></a>
             <!--logo end-->
            <!--  <div class="nav notify-row" id="top_menu">
                 <ul class="nav top-menu">

@@ -13,10 +13,10 @@
                         </div>
                     @endif
 
-  <button type="button" class="btn btn-secondary"><i class="fas fa-shopping-cart"></i>خرید های انجام شده</button>
-  <button type="button" class="btn btn-secondary"><i class="fas fa-user"></i>
+  <a href="#" class="btn btn-secondary"><i class="fas fa-shopping-cart"></i>خرید های انجام شده</a>
+  <a href="#" class="btn btn-secondary"><i class="fas fa-user"></i>
 
-ویرایش پروفایل</button>
+ویرایش پروفایل</a>
 
     @if(auth()->user()->roles()->get()->isNotEmpty())
         <a href="{{URL('root')}}" class="btn btn-secondary"><i class="fas fa-star"></i>صفحه مدیریت</a>
