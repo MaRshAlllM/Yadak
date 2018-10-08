@@ -116,21 +116,29 @@
                     @foreach($products as $product)
                     <div class="col-4 box my-1">
                         <div class="inner-box py-3">
-                            <img src="uploads/{{$product->image}}" class="img-fluid">
+                            <img src="application/public/uploads/{{$product->image}}" class="img-fluid">
                             <div class="hidden-details"></div>
                             <div class="body">
                                 <h4><a href="/single/{{$product->id}}">{{$product->title}}</a></h4>
                                 <span class="price">
-                                        <?php $first = true; ?>
-                                        @foreach(unserialize($product->price) as $var)
-                                            <?php
-                                            if ( $first == true )
-                                                {
-                                                echo $var;
-                                                $first = false;
-                                                }
-                                            ?>
-                                        @endforeach
+                                        
+                                        
+
+                                        @foreach(unserialize($product->price) as $key=>$var)
+                                                    
+                                                        <?php
+                                                        if($product->discount == null){
+                                                        echo "$key"." "."$var";
+                                                        }else{
+                                                            $d = $product->discount;
+                                                            $dis = $var - ($var*$d/100);
+                                                            echo "<strike>"."$key"." "."$var". "تومان"."</strike> " . "    $dis " ;
+                                                        }
+                                                        ?> تومان
+
+
+                                                    
+                                       @endforeach
                                 </span>
 
                             </div>

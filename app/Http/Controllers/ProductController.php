@@ -178,7 +178,7 @@ class ProductController extends Controller
                 }     
             }else{
 
-                $product->features()->sync();
+                // $product->features()->sync();
 
             }
 
