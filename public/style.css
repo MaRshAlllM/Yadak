@@ -3,8 +3,10 @@ body{
 	font-family: IRANSans !important;
 	font-weight: 300;
 	direction: rtl;
-    color: #282828;
-    background: #f1f1f2;
+	color: #282828;
+	background: #fff;
+	/* background: url(https://main.cdn.wish.com/2356833d3a21/dist/cozy/85719bd….png); */
+	/* background-size: contain; */
 }
 h1, h2, h3, h4, h5, h6,input, textarea {
 	font-family: IRANSans !important;
@@ -12,13 +14,33 @@ h1, h2, h3, h4, h5, h6,input, textarea {
 h1 {
 	font-weight: bold;
 }
+#main-form{
+
+
+
+
+}
+#main-form input,#main-form select{
+
+	background-color: #f3f3f9 !important;
+}
+#main-form select{
+
+	border-left:0px solid;
+	border-right:0px solid ;
+	font-size:14px;
+	color: #999;
+
+
+}
 .btn-custom{
 	border-radius:0.25em 0 0 0.25em !important;
 
 }
 .btn-custom-red{
-	background-color: red;
-	color: #fff;
+	background-color: #f3f3f9 !important;
+	color: #888;
+	border: 1px solid #ced4da;
 	border-radius:0.25em 0 0 0.25em !important;
 }
 .btn-custom-green{
@@ -29,44 +51,47 @@ h1 {
 
 }
 .btn-custom-red-wr{
-	background-color: red;
+	background-color: #4ea1d3;
 	color: #fff;
 	border-radius:0.25em !important;
 }
 .yellow{
-	color:yellow;
+	color: #333;
 }
 #main-header{
-	background-color: #252c41;
-	color: #fff;
+	background-color: #fff;
+	color: #333;
 	font-size: 15px;
+	border-bottom: 1px solid #dddfe6;
+	background: url(img/header.png);
+	background-size: contain;
 }
 #main-header .top-nav .nav-item{
-	border-left: 1px solid #777;
+	border-left: 1px solid #e4e4e5;
+}
+#main-header .navbar{
+	padding: 0px;
 }
 #main-header .middle-nav .nav-item img{
 	width: 35px;
 }
 #main-header a{
-	color: #fff;
+	color: #454552;
 }
 #main-header ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: #999;
     opacity: 1; 
     font-size: 13px;
-    font-weight: 300;
 }
 
 #main-header :-ms-input-placeholder { /* Internet Explorer 10-11 */
     color: #999;
     font-size: 13px;
-    font-weight: 300;
 }
 
 #main-header ::-ms-input-placeholder { /* Microsoft Edge */
     color: #999;
     font-size: 13px;
-    font-weight: 300;
 }
 .form-box{
 
@@ -89,21 +114,16 @@ h1 {
 	font-weight: bold;
 	color:#282828;
 }
-#threecol-offer div{
-
-	text-align: center;
-	border-left:1px solid #8c8c8c;
-
-}
+#threecol-offer div{text-align: center;border-left: 1px solid #454552;color: #454552;}
 #threecol-offer div:last-child{
 
 	border-left:none;
 
 }
 #threecol-offer i{
-	color: #8c8c8c;
+	color: #454552;
 	vertical-align: middle;
-	padding-left:5px 
+	padding-left:5px;
 }
 
 #main-contents .right-col {
@@ -114,24 +134,11 @@ h1 {
 
 
 }
-#main-contents .right-col .box{
-
-	background: #fff;
-    margin-top: 30px;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-}
+#main-contents .right-col .box{background: #fff;margin-top: 30px;border: 1px solid #4ea1d3;border-radius: 3px;}
 #main-contents .right-col .box:first-child{
 	margin-top: 0;
 }
-#main-contents .right-col .box .title{
-
-    font-weight: bold;
-    padding: 6px 20px;
-    border-bottom: 1px solid #ddd;
-    background: #f8f8f8;
-
-}
+#main-contents .right-col .box .title{font-weight: bold;padding: 6px 20px;/* border-bottom: 1px solid #ddd; */background: #4ea1d3;color: #fff;}
 #main-contents .right-col .box .body ul{
 
     padding: 5px 0;
@@ -290,14 +297,10 @@ h1 {
 	border:1px solid #eaeaea;
 	width: 100%;
 }
-#footer #brands{
-
-	background-color: #fff;
-
-}
+#footer #brands{background-color: #f1f1f2;}
 #footer #brands img{
 
-	filter: grayscale(100%);
+	/*filter: grayscale(100%);*/
 	transition:all 0.3s;
 	cursor: pointer;
 }
