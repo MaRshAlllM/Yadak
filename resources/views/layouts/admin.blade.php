@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -269,13 +272,13 @@
           <div id="sidebar"  class="nav-collapse ">
               <!-- sidebar menu start-->
               <ul class="sidebar-menu">
-                  <li class="active">
+                  <li class="">
                       <a class="" href="/root">
                           <i class="icon-dashboard"></i>
                           <span>داشبورد</span>
                       </a>
                   </li>
-                  <li class="sub-menu">
+            <li class="sub-menu <?php if(strpos(\URL::current(),'products')){ echo "actvie"; } ?>">
                       <a href="javascript:;" class="">
                           <i class="icon-shopping-cart"></i>
                           <span>محصولات</span>
