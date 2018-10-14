@@ -20,7 +20,9 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>متن نظر</th>
+                        <th>کاربر</th>
+                        <th>محصول</th>
+                        <th>متن </th>
                         <th>حذف</th>
                         <th>تایید/رد</th>
                         <th>ویرایش</th>
@@ -31,15 +33,30 @@
                     @foreach($comments as $comment)
                         <tr>
                             <td>{{$i}}</td>
+                            <td>{{$comment->user->name}}</td>
+                            <td>{{$comment->product->title}}</td>
                             <td>{{$comment->content}}</td>
                             <td>
-                                <button class="btn btn-danger" onclick="return confirm('آیا مطمئن هستید؟');"><i class="icon-remove"></i></button>
+
+                                <form action="{{URL("root/comments/{$comment->id}/delete")}}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-danger" onclick="return confirm('آیا مطمئن هستید؟');"><i class="icon-remove"></i></button>
+                                </form>
                             </td>
                             <td>
-                                <a class="btn btn-info"href="#"><i class="icon-edit"></i></a>
+                                <form action="{{URL("root/comments/{$comment->id}/aord")}}" method="post">
+                                    @csrf
+                                    @method('patch')
+                                    @if($comment->status == 0)
+                                        <button class="btn btn-info"><i class="icon-edit"></i></button>
+                                    @else
+                                        <button class="btn btn-danger"><i class="icon-edit"></i></button>
+                                    @endif
+                                </form>
                             </td>
                             <td>
-                                <a class="btn btn-info"href="#"><i class="icon-edit"></i></a>
+                                <a class="btn btn-info"href="comments/{{$comment->id}}/edit"><i class="icon-edit"></i></a>
                             </td>
                         </tr>
                         <?php @$i++ ?>

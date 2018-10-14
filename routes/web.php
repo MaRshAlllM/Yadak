@@ -36,6 +36,10 @@ Route::group(['middleware' => ['auth','has_role']],function(){
 	Route::post('/root/image_gallery_upload','ImageController@gallery_upload');
 	Route::get('/root/delete_image/{id}','ImageController@delete_image');
 	Route::get('/root/comments','CommentController@index');
+    Route::patch('/root/comments/{id}/aord','CommentController@aord');
+    Route::delete('/root/comments/{id}/delete','CommentController@delete');
+    Route::get('/root/comments/{id}/edit','CommentController@show');
+    Route::put('/root/comments/{id}/edit','CommentController@edit')->name('edit_comment');
 });
 
 

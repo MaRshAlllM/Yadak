@@ -120,12 +120,22 @@
 					<h4>برند ها</h4>
 					<div class="w-100"></div>
  					<div class="owl-carousel owl-theme">
-					    <div class="item"><img src="{{asset('img/photo.jpg')}}" class="img-fluid"></div>
-					    <div class="item"><img src="{{asset('img/photo (1).jpg')}}" class="img-fluid"></div>
-					    <div class="item"><img src="{{asset('img/photo (2).jpg')}}" class="img-fluid"></div>
-					    <div class="item"><img src="{{asset('img/photo (3).jpg')}}" class="img-fluid"></div>
+					    <div class="item"><img src="{{asset('img/b1.png')}}" class="img-fluid"></div>
+					    <div class="item"><img src="{{asset('img/b2.png')}}" class="img-fluid"></div>
+					    <div class="item"><img src="{{asset('img/b3.png')}}" class="img-fluid"></div>
+					    <div class="item"><img src="{{asset('img/b4.png')}}" class="img-fluid"></div>
+						<div class="item"><img src="{{asset('img/b5.png')}}" class="img-fluid"></div>
+						<div class="item"><img src="{{asset('img/b6.png')}}" class="img-fluid"></div>
+						<div class="item"><img src="{{asset('img/b7.png')}}" class="img-fluid"></div>
+						<div class="item"><img src="{{asset('img/b8.png')}}" class="img-fluid"></div>
+						<div class="item"><img src="{{asset('img/b8.png')}}" class="img-fluid"></div>
+						<div class="item"><img src="{{asset('img/b9.png')}}" class="img-fluid"></div>
+						<div class="item"><img src="{{asset('img/b10.png')}}" class="img-fluid"></div>
+						<div class="item"><img src="{{asset('img/b11.png')}}" class="img-fluid"></div>
+						<div class="item"><img src="{{asset('img/b12.png')}}" class="img-fluid"></div>
 
-	
+
+
 					</div>
 
 				</div>
@@ -207,13 +217,13 @@
 		    nav:true,
 		    responsive:{
 		        0:{
-		            items:1
-		        },
-		        600:{
 		            items:2
 		        },
+		        600:{
+		            items:5
+		        },
 		        1000:{
-		            items:4
+		            items:10
 		        }
 		    }
 		});

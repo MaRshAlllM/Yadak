@@ -298,7 +298,7 @@ h1 {
 #footer #brands{background-color: #fff;}
 #footer #brands img{
 
-	/*filter: grayscale(100%);*/
+	filter: grayscale(100%);
 	transition:all 0.3s;
 	cursor: pointer;
 }
