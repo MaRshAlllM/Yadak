@@ -35,6 +35,7 @@ Route::group(['middleware' => ['auth','has_role']],function(){
 	Route::get('/root/image_gallery/{id}','ImageController@index');
 	Route::post('/root/image_gallery_upload','ImageController@gallery_upload');
 	Route::get('/root/delete_image/{id}','ImageController@delete_image');
+	Route::get('/root/comments','CommentController@index');
 });
 
 

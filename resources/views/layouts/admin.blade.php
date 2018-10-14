@@ -41,7 +41,7 @@
                 <div data-original-title="باز کردن/بستن منو" data-placement="left" class="icon-reorder tooltips"></div>
             </div>
             <!--logo start-->
-            <a href="#" class="logo">یدک <span>بازار</span></a>
+            <a href="#" class="logo">پاساژ <span>اردبیل</span></a>
             <!--logo end-->
            <!--  <div class="nav notify-row" id="top_menu">
                 <ul class="nav top-menu">
@@ -337,10 +337,10 @@
                       </ul> -->
                   </li>
                   <li>
-                      <a class="" href="inbox.html">
+                      <a class="" href="/root/comments">
                           <i class="icon-comment"></i>
                           <span>نظرات</span>
-                          <span class="label label-danger pull-left mail-info">2</span>
+                          <!--<span class="label label-danger pull-left mail-info">2</span>-->
                       </a>
                   </li>
                   <li class="sub-menu">

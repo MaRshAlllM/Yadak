@@ -14,20 +14,7 @@
                         دسته بندی های محصولات
                     </div>
                     <div class="body">
-                        <ul class="list-group list-group-flush">
-                        
-                            <li class="list-group-item"><a href="#"><strong>تخفیف خورده</strong></a></li>
-                            <li class="list-group-item"><a href="#"><strong>ویژه این هفته</strong></a></li>
-                            <li class="list-group-item"><a href="#">قطعه ی تست</a></li>
-                            <li class="list-group-item"><a href="#"> قطعه ی دو</a></li>
-                            <li class="list-group-item"><a href="#"> ماشین یک</a></li>
-                            <li class="list-group-item"><a href="#"> حضرت راکیم</a></li>
-                            <li class="list-group-item"><a href="#"> امام جکسون <span class="badge"><i class="fas fa-angle-left"></i></span></a></li>
-                            <li class="list-group-item"><a href="#"> خدای رپ <span class="badge"><i class="fas fa-angle-left"></i></span></a></li>
-                            <li class="list-group-item"><a href="#"> تیلور سویفت <span class="badge"><i class="fas fa-angle-left"></i></span></a></li>
-
-                    
-                        </ul>
+                       {{sortMyCatInHtmlMenu()}}
                     </div>
 
                 </div>
@@ -51,11 +38,11 @@
                             <div class="row">
                                 
                             <div class="col-5">
-                                <a href="#"><img src="/uploads/{{$product->image}}" class="img-fluid"></a>
+                                <a href="#"><img src="/application/public/uploads/{{$product->image}}" class="img-fluid"></a>
                                 <div class="row  py-1">
                                     @foreach($gallery as $g)
                                     <div class="col-3 my-1">
-                                        <a href="/uploads/{{$g->image_name}}" target="_blank"><img src="/uploads/{{$g->image_name}}" class="img-fluid"></a>
+                                        <a href="/application/public/uploads/{{$g->image_name}}" target="_blank"><img src="/application/public/uploads/{{$g->image_name}}" class="img-fluid"></a>
                                     </div>
                                     @endforeach
                                 </div>
