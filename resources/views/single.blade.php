@@ -201,41 +201,41 @@
 
             </div>
 
-                <div class="row py-3" id="main-content">
+                {{--<div class="row py-3" id="main-content">--}}
 
-                    <div class="col-4 box">
-                        <div class="inner-box">
-                            <img src="img/a.jpg" class="img-fluid">
-                            <div class="hidden-details"></div>
-                            <div class="body">
-                                <h4>عنوان محصول</h4>
-                                <span class="price">قیمت : 20,000 تومان</span>
+                    {{--<div class="col-4 box">--}}
+                        {{--<div class="inner-box">--}}
+                            {{--<img src="img/a.jpg" class="img-fluid">--}}
+                            {{--<div class="hidden-details"></div>--}}
+                            {{--<div class="body">--}}
+                                {{--<h4>عنوان محصول</h4>--}}
+                                {{--<span class="price">قیمت : 20,000 تومان</span>--}}
 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4 box">
-                        <div class="inner-box">
-                            <img src="img/b.jpg" class="img-fluid">
-                            <div class="body">
-                                <h4>عنوان محصول</h4>
-                                <span class="price">قیمت : 20,000 تومان</span>
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                    {{--<div class="col-4 box">--}}
+                        {{--<div class="inner-box">--}}
+                            {{--<img src="img/b.jpg" class="img-fluid">--}}
+                            {{--<div class="body">--}}
+                                {{--<h4>عنوان محصول</h4>--}}
+                                {{--<span class="price">قیمت : 20,000 تومان</span>--}}
 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4 box">
-                        <div class="inner-box">
-                            <img src="img/c.jpg" class="img-fluid">
-                            <div class="body">
-                                <h4>عنوان محصول</h4>
-                                <span class="price">قیمت : 20,000 تومان</span>
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                    {{--<div class="col-4 box">--}}
+                        {{--<div class="inner-box">--}}
+                            {{--<img src="img/c.jpg" class="img-fluid">--}}
+                            {{--<div class="body">--}}
+                                {{--<h4>عنوان محصول</h4>--}}
+                                {{--<span class="price">قیمت : 20,000 تومان</span>--}}
 
-                            </div>
-                        </div>
-                    </div>
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
 
-                </div>
+                {{--</div>--}}
                 
                 <div class="row" id="slide-products">
 

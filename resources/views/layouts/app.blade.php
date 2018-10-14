@@ -9,7 +9,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'یدک بازار') }}</title>
 
 
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
@@ -59,7 +59,7 @@
 			<div class="row align-items-center py-3">
 				
 				<div class="col-lg-3 col-md-12">
-					<a href="{{URL::to('/')}}"><h1 style="font-size:25px">پاساژ آنلاین</h1></a>
+					<a href="{{URL::to('/')}}"><img src="{{asset('img/logo.png')}}" class="img-fluid"></a>
 				</div>
 				<div class="col-lg-5">
 

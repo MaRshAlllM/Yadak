@@ -69,7 +69,7 @@
 
                       <div class="carousel-inner">
                         <div class="carousel-item active">
-                          <img class="d-block w-100" src="img/banner.jpg" alt="First slide">
+                          <img class="d-block w-100" src="img/car.jpeg" alt="First slide">
                           <div class="carousel-caption d-none d-md-block">
                             <!-- <h5>عنوان</h5> -->
                             <!-- <p>توضیحات اسلاید</p> -->
@@ -77,7 +77,7 @@
                           </div>
                         </div>
                         <div class="carousel-item">
-                          <img class="d-block w-100" src="img/banner.jpg" alt="Second slide">
+                          <img class="d-block w-100" src="img/car2.jpg" alt="Second slide">
                           <div class="carousel-caption d-none d-md-block">
                             <!-- <h5>عنوان</h5> -->
                             <!-- <p>توضیحات اسلاید</p> -->
@@ -96,9 +96,9 @@
                     </div>
 
                     <div class="col-3" id="special-offers">
-                        <img src="img/13.jpg" class="img-fluid">
-                        <img src="img/14.jpg" class="img-fluid">
-                        <img src="img/16.jpg" class="img-fluid">
+                        <img src="img/1.jpg" class="img-fluid">
+                        <img src="img/2.jpg" class="img-fluid">
+                        <img src="img/3.jpg" class="img-fluid">
                     </div>
 
 
