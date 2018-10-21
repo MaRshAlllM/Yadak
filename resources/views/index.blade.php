@@ -121,7 +121,29 @@
                             <div class="body">
                                 <h4><a href="/single/{{$product->id}}">{{$product->title}}</a></h4>
                                 <span class="price">
-                                        <?php $first = true; ?>
+
+
+                                    @foreach(unserialize($product->price) as $key=>$var)
+                                        <?php
+
+                                        if($product->discount == null){
+
+                                            echo "$key"." "."$var";
+
+                                        }else{
+
+                                            $d = $product->discount;
+
+                                            $dis = $var - ($var*$d/100);
+
+                                            echo "<strike>"."$key"." "."$var". "تومان"."</strike> " . "    $dis " ;
+
+                                        }
+
+                                        ?> تومان
+                                    @endforeach
+
+                                        <?php /* $first = true; ?>
                                         @foreach(unserialize($product->price) as $var)
                                             <?php
                                             if ( $first == true )
@@ -129,8 +151,10 @@
                                                 echo $var;
                                                 $first = false;
                                                 }
-                                            ?>
-                                        @endforeach
+
+                                        @endforeach */?>
+
+
                                 </span>
 
                             </div>
