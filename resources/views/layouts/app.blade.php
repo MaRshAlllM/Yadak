@@ -9,7 +9,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'یدک بازار') }}</title>
 
 
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
@@ -22,31 +22,35 @@
 </head>
 <body>
 
-	<div class="hiddens" style="width: 100%;height: 132px;display: none;"></div>
-	<header id="main-header">
+	<!-- <div class="hiddens" style="width: 100%;height: 132px;display: none;"></div> -->
+	<header id="main-header" class="sticky-top">
 		<div class="container">
 			<div class="row align-items-center">
 
-				<div class="col">بهترین محصولات با <span class="yellow">بالاترین تخفیفات</span> در فروشگاه یدک بازار</div>
-				<div class="col top-nav">
-					
-					<ul class="nav justify-content-end">
-					  <li class="nav-item">
-					    <a class="nav-link active" href="/aboutus">درباره ما</a>
-					  </li>
-					  <li class="nav-item">
-					    <a class="nav-link" href="/contactus">تماس با ما</a>
-					  </li>
-					  <li class="nav-item">
-					    <a class="nav-link" href="/compare">مقایسه محصول</a>
-					  </li>
-					  <li class="nav-item">
-					    <a class="nav-link disabled" href="#">آموزش</a>
-					  </li>
-					  <li class="nav-item">
-					    <a class="nav-link" href="#">اپ اندروید</a>
-					  </li>
-					</ul>
+				<div class="col-lg-6 col-md-12 d-none d-lg-block">بهترین محصولات با <span class="yellow">بالاترین تخفیفات</span> در پاساژ آنلاین</div>
+				<div class="col-lg-6 col-md-12 top-nav navbar navbar-expand-lg">
+					  <button class="navbar-toggler btn btn-light" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+					    <span class="fas fa-align-justify"></span>
+					  </button>
+					 <div class="collapse navbar-collapse justify-content-end" id="navbarToggler">
+						<ul class="navbar-nav">
+						  <li class="nav-item">
+						    <a class="nav-link active" href="/aboutus">درباره ما</a>
+						  </li>
+						  <li class="nav-item">
+						    <a class="nav-link" href="/contactus">تماس با ما</a>
+						  </li>
+						  <li class="nav-item">
+						    <a class="nav-link" href="/compare">مقایسه محصول</a>
+						  </li>
+						  <li class="nav-item">
+						    <a class="nav-link disabled" href="#">آموزش</a>
+						  </li>
+						  <li class="nav-item">
+						    <a class="nav-link" href="#">اپ اندروید</a>
+						  </li>
+						</ul>
+					</div>
 
 				</div>
 
@@ -54,12 +58,12 @@
 
 			<div class="row align-items-center py-3">
 				
-				<div class="col-3">
+				<div class="col-lg-3 col-md-12">
 					<a href="{{URL::to('/')}}"><img src="{{asset('img/logo.png')}}" class="img-fluid"></a>
 				</div>
-				<div class="col-5">
+				<div class="col-lg-5">
 
-					<form action="{{route('index')}}/search" method="get">
+					<form action="{{route('index')}}/search" method="get" id="main-form">
 						<div class="input-group">
 						  <input type="text" name="keyword" class="form-control" placeholder="کلید واژه مورد نظر را وارد نمایید" aria-label="" aria-describedby="basic-addon1">
 						    <select name="category" class="custom-select col-4" id="inputGroupSelect01">
@@ -76,7 +80,7 @@
 					</form>
 
 				</div>
-				<div class="col middle-nav">
+				<div class="col-lg-4 middle-nav">
 					<ul class="nav justify-content-end">
 					  <li class="nav-item">
 					    <a class="nav-link active" href="/shoppingcart"><img src="{{asset('img/shopping.svg')}}">سبد خرید</a>
@@ -120,14 +124,18 @@
 					    <div class="item"><img src="{{asset('img/b2.png')}}" class="img-fluid"></div>
 					    <div class="item"><img src="{{asset('img/b3.png')}}" class="img-fluid"></div>
 					    <div class="item"><img src="{{asset('img/b4.png')}}" class="img-fluid"></div>
-					    <div class="item"><img src="{{asset('img/b5.png')}}" class="img-fluid"></div>
-					    <div class="item"><img src="{{asset('img/b6.png')}}" class="img-fluid"></div>
-					    <div class="item"><img src="{{asset('img/b7.png')}}" class="img-fluid"></div>
-					    <div class="item"><img src="{{asset('img/b8.png')}}" class="img-fluid"></div>
-					    <div class="item"><img src="{{asset('img/b9.png')}}" class="img-fluid"></div>
-					    <div class="item"><img src="{{asset('img/b10.png')}}" class="img-fluid"></div>
-					    <div class="item"><img src="{{asset('img/b11.png')}}" class="img-fluid"></div>
-					    <div class="item"><img src="{{asset('img/b12.png')}}" class="img-fluid"></div>
+						<div class="item"><img src="{{asset('img/b5.png')}}" class="img-fluid"></div>
+						<div class="item"><img src="{{asset('img/b6.png')}}" class="img-fluid"></div>
+						<div class="item"><img src="{{asset('img/b7.png')}}" class="img-fluid"></div>
+						<div class="item"><img src="{{asset('img/b8.png')}}" class="img-fluid"></div>
+						<div class="item"><img src="{{asset('img/b8.png')}}" class="img-fluid"></div>
+						<div class="item"><img src="{{asset('img/b9.png')}}" class="img-fluid"></div>
+						<div class="item"><img src="{{asset('img/b10.png')}}" class="img-fluid"></div>
+						<div class="item"><img src="{{asset('img/b11.png')}}" class="img-fluid"></div>
+						<div class="item"><img src="{{asset('img/b12.png')}}" class="img-fluid"></div>
+
+
+
 					</div>
 
 				</div>
@@ -143,10 +151,7 @@
 									<div class="w-100"></div>
 									<ul class="list-group list-group-flush">
 									  <li class="list-group-item">سایر لینک ها </li>
-									  <li class="list-group-item">سایر لینک ها </li>
-									  <li class="list-group-item">سایر لینک ها </li>
-									  <li class="list-group-item">سایر لینک ها </li>
-									  <li class="list-group-item">سایر لینک ها </li>
+						
 									</ul>
 								</div>		
 
@@ -159,10 +164,7 @@
 									<div class="w-100"></div>
 									<ul class="list-group list-group-flush">
 									  <li class="list-group-item">سایر لینک ها </li>
-									  <li class="list-group-item">سایر لینک ها </li>
-									  <li class="list-group-item">سایر لینک ها </li>
-									  <li class="list-group-item">سایر لینک ها </li>
-									  <li class="list-group-item">سایر لینک ها </li>
+							
 									</ul>
 
 								</div>
@@ -176,10 +178,7 @@
 									<div class="w-100"></div>
 									<ul class="list-group list-group-flush">
 									  <li class="list-group-item">سایر لینک ها </li>
-									  <li class="list-group-item">سایر لینک ها </li>
-									  <li class="list-group-item">سایر لینک ها </li>
-									  <li class="list-group-item">سایر لینک ها </li>
-									  <li class="list-group-item">سایر لینک ها </li>
+							
 									</ul>
 
 								</div>
@@ -192,10 +191,6 @@
 									<h4>درباره ما</h4>
 									<div class="w-100"></div>
 									<ul class="list-group list-group-flush">
-									  <li class="list-group-item">سایر لینک ها </li>
-									  <li class="list-group-item">سایر لینک ها </li>
-									  <li class="list-group-item">سایر لینک ها </li>
-									  <li class="list-group-item">سایر لینک ها </li>
 									  <li class="list-group-item">سایر لینک ها </li>
 									</ul>
 
@@ -249,26 +244,26 @@
 		        }
 		    }
 		});
-		$(window).scroll (function(){
+		// $(window).scroll (function(){
 
-			var $a = $(window).scrollTop();
-			var $b = 200;
+		// 	var $a = $(window).scrollTop();
+		// 	var $b = 200;
 
-			if ( $a < $b )
-				{
-					$(".hiddens").hide();
-					$("#main-header").removeClass ("scroll")
-					$("#main-header").css({"margin-top":"0px","box-shadow":"0px 0px 0px 0px"})
+		// 	if ( $a < $b )
+		// 		{
+		// 			$(".hiddens").hide();
+		// 			$("#main-header").removeClass ("scroll")
+		// 			$("#main-header").css({"margin-top":"0px","box-shadow":"0px 0px 0px 0px"})
 
-				}
-			else {
-				$(".hiddens").show();
-				$("#main-header").css({"margin-top":"-200px","width":"100%","box-shadow":"0px 0px 10px 0px #000"})
-				$("#main-header").addClass ("scroll")
-				$("#main-header").css({"margin-top":"0px","width":"100%","box-shadow":"0px 0px 10px 0px #000","top":"0"})
+		// 		}
+		// 	else {
+		// 		$(".hiddens").show();
+		// 		$("#main-header").css({"margin-top":"-200px","width":"100%","box-shadow":"0px 0px 10px 0px #000"})
+		// 		$("#main-header").addClass ("scroll")
+		// 		$("#main-header").css({"margin-top":"0px","width":"100%","box-shadow":"0px 0px 10px 0px #000","top":"0"})
 
-			}
-		});
+		// 	}
+		// });
     </script>
 </body>
 </html>

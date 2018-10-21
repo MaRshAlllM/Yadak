@@ -5,15 +5,15 @@
 
         <div class="row">
 
-            <div class="col-4">
+            <div class="col-lg-4 col-md-12">
                 <i class="fas fa-shuttle-van fa-2x"></i>
                 حمل و نقل محصولات بصورت رایگان
             </div>
-            <div class="col-4">
+            <div class="col-lg-4 col-md-12">
                 <i class="fas fa-users fa-2x"></i>
                 تخفیفات ویژه ی سایت
             </div>
-            <div class="col-4">
+            <div class="col-lg-4 col-md-12">
                 <i class="fas fa-clock fa-2x"></i>
                 پشتیبانی 24 ساعته در 7 روز هفته
             </div>
@@ -28,7 +28,7 @@
 
         <div class="row">
 
-            <div class="col-3 right-col">
+            <div class="col-lg-3 col-md-12 right-col">
 
                 <div class="box">
                     <div class="title">
@@ -54,18 +54,12 @@
 
                 </div>
 
-                <div class="box">
-            <div class="list-group">
-              <a href="#" class="list-group-item list-group-item-action">لینک های تستی</a>
-            </div>
-
-                </div>
-
+          
 
 
             </div>
 
-            <div class="col-9 left-col">
+            <div class="col-lg-9 col-md-12 left-col">
 
                 <div class="row">
 
@@ -102,7 +96,7 @@
                     </div>
 
                     <div class="col-3" id="special-offers">
-                        <img src="img/0.jpg" class="img-fluid">
+                        <img src="img/1.jpg" class="img-fluid">
                         <img src="img/2.jpg" class="img-fluid">
                         <img src="img/3.jpg" class="img-fluid">
                     </div>
@@ -114,9 +108,9 @@
 
 
                     @foreach($products as $product)
-                    <div class="col-4 box my-1">
+                    <div class="col-lg-4 col-md-8 col-sm-12  box my-1">
                         <div class="inner-box py-3">
-                            <img src="uploads/{{$product->image}}" class="img-fluid">
+                            <img src="application/public/uploads/{{$product->image}}" class="img-fluid">
                             <div class="hidden-details"></div>
                             <div class="body">
                                 <h4><a href="/single/{{$product->id}}">{{$product->title}}</a></h4>

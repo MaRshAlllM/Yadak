@@ -15,7 +15,8 @@ class ProductController extends Controller
      */
 
     public function index(Product $product)
-    {
+    {   
+
         $p = $product->get();
         return view('admin.list_products')->with('products',$p);
     }
@@ -43,7 +44,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $this->validate($request,[
 
             'title'=>'required',
@@ -90,6 +91,8 @@ class ProductController extends Controller
                  );
             }
         }
+
+        // file_get_contents("https://api.telegram.org/bot602355703:AAHUkoWXmR7z4j0xDVBklM8ndFfVZAZygos/sendPhoto?chat_id=-1001213027815&photo=log6^2");
         
         return redirect()->back()->with('Message','محصول با موفقیت درج شد');
 
@@ -177,9 +180,7 @@ class ProductController extends Controller
                      );
                 }     
             }else{
-
-                $product->features()->sync();
-
+                // $product->features()->sync();
             }
 
              

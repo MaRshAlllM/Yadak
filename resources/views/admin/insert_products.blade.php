@@ -54,15 +54,15 @@
                                             <div class="alert alert-danger">{{$errors->first('title')}}</div>
                                         @endif -->
                                         <label for="title">عنوان</label>
-                                        <input name="title" type="text" class="form-control" id="title" placeholder="عنوان">
+                                        <input name="title" type="text" value="{{ old('title') }}" class="form-control" id="title" placeholder="عنوان">
                                     </div>
                                      <div class="form-group body">
                                         <label for="body">توضیحات مختصر</label>
-                                        <textarea name="body" class="form-control" id="body"></textarea>
+                                        <textarea name="body"  class="form-control" id="body">{{ old('body') }}</textarea>
                                     </div>
                                     <div class="form-group body">
                                         <label for="body">توضیحات کامل</label>
-                                        <textarea name="full_body" class="form-control" id="body"></textarea>
+                                        <textarea name="full_body" class="form-control" id="body">{{ old('full_body') }}</textarea>
                                     </div>
                                     <div class="form-row" id="app">
                                     	
@@ -107,15 +107,15 @@
                                     </div>	
                                     <div class="form-group">
                                         <label for="number">تعداد محصول موجود</label>
-                                        <input name="number" type="text" class="form-control" id="number" placeholder="تعداد محصول موجود">
+                                        <input name="number" value="{{ old('number') }}" type="text" class="form-control" id="number" placeholder="تعداد محصول موجود">
                                     </div>
                                     <div class="form-group">
                                         <label for="slug">پیوند یکتا</label>
-                                        <input name="slug" type="text" class="form-control" id="slug" placeholder="پیوند یکتا">
+                                        <input name="slug" value="{{ old('slug') }}" type="text" class="form-control" id="slug" placeholder="پیوند یکتا">
                                     </div>
                                     <div class="form-group">
                                         <label for="slug">تخفیف (درصد)</label>
-                                        <input name="discount" type="text" class="form-control" id="slug" placeholder="تخفیف">
+                                        <input name="discount" value="{{ old('discount') }}" type="text" class="form-control" id="slug" placeholder="تخفیف">
                                     </div>
                                     <button type="submit" class="btn btn-info">ارسال محصول</button>
                                                     </div>
@@ -139,7 +139,7 @@
                                             <div class="panel-body">
                                                  <div class="form-group">
                                                     <label for="exampleInputFile">آپلود عکس</label>
-                                                    <input type="file" id="exampleInputFile" name="image">
+                                                    <input type="file" id="exampleInputFile" name="image" value="{{ old('image') }}">
                                                     <p class="help-block">پسوند های قابل قبول : .jpg , .png</p>
                                                 </div>
                                             </div>        
