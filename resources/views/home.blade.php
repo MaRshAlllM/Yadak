@@ -13,7 +13,7 @@
                         </div>
                     @endif
 
-  <a href="#" class="btn btn-secondary"><i class="fas fa-shopping-cart"></i>خرید های انجام شده</a>
+  <a href="mypurchase" class="btn btn-secondary"><i class="fas fa-shopping-cart"></i>خرید های انجام شده</a>
   <a href="#" class="btn btn-secondary"><i class="fas fa-user"></i>
 
 ویرایش پروفایل</a>

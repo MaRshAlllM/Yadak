@@ -84,13 +84,13 @@
                                         <td>{{$row->price}}</td>
                                         <td>{{$row->subtotal}}</td>
                                         <td><?php echo ($row->options->has('feature') ? $row->options->feature : ''); ?></td>
-                                        <td><a href="/root/remove_shop_row/{{$row->rowId}}"><i class="fas fa-times"></i></a></td>
+                                        <td><a href="/remove_shop_row/{{$row->rowId}}"><i class="fas fa-times"></i></a></td>
                                     </tr>
                                     <?php $i++; ?>
                                 @endforeach
                                 </tbody>
                             </table>
-                            <a href="/root/pay" class="btn btn-success">پرداخت</a>
+                            <a href="/pay" class="btn btn-success">پرداخت</a>
                             مجموع: {{Cart::subtotal()}}
 
                         </div>

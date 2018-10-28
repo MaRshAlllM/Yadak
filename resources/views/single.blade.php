@@ -53,7 +53,7 @@
                                 <h1>{{$product->title}}</h1>
                                 <input type="hidden" name="title" value="{{$product->title}}">
                                 <div class="asimplerow add-comment py-1">
-                                    <span>یک نظر</span> 
+                                    <span>یک نظر</span>
                                     <a href="#" class="mx-3">نظر خود را اضافه کنید</a>
                                 </div>
                                 <div class="asimplerow py-2 mojodi">
