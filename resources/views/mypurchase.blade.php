@@ -35,7 +35,7 @@
                             <br>
 
                             @if(!is_null(Session::get('message')))
-                                <div class="alert alert-success">
+                                <div class="alert alert-success" style="margin-top: 10px;">
                                     {{Session::get('message')}}
                                 </div>
                             @endif

@@ -52,7 +52,7 @@ class CartController extends Controller
 
         $_session['factor'] = $identifier;
 
-        $MerchantID = '06da4c26-d439-11e8-ad89-000c295eb8fc-100';  //Required
+        $MerchantID = '06da4c26-d439-11e8-ad89-000c295eb8fc';  //Required
         $Amount = $tprice; //Amount will be based on Toman  - Required
         $Description = " شماره فاکتور:$identifier";  // Required
         $Email = auth()->user()->email; // Optional
@@ -81,7 +81,7 @@ class CartController extends Controller
             header('Location: https://www.zarinpal.com/pg/StartPay/'.$result->Authority);
 
         } else {
-           $var = $result->Status;
+           $var = 'سیستم با خطا مواجه شده است: '. $result->Status;
            $u = Cart::where('identifier',$_session['factor']);
            $u->update(['status'=>$var]);
            return redirect()->route('mypurchase')->with('message','سیستم با خطا مواجه شد');
@@ -111,20 +111,22 @@ class CartController extends Controller
                 $refid = $result->RefID;
                 $rf = Cart::where('auth',$Authority);
                 $rf->update(['refid'=>$refid]);
-                echo 'Transation success. RefID:'.$result->RefID;
+                return redirect()->route('mypurchase')->with('message'," پرداخت با موفقیت انجام شد. شماره پرداخت: $result->RefID");
+                //echo 'Transation success. RefID:'.$result->RefID;
 
             } else {
-                $st = $result->Status;
+                $st = 'در هنگام پرداخت سیستم با خطا مواجه شد: '. $result->Status;
                 $rf = Cart::where('auth',$Authority);
                 $rf->update(['status'=>$st]);
 
-                echo 'Transation failed. Status:'.$result->Status;
+                return redirect()->route('mypurchase')->with('message','در هنگام پرداخت سیستم با خطا مواجه شد');
+
             }
         } else {
             $st = "پرداخت توسط کاربر لغو شد.";
             $rf = Cart::where('auth',$Authority);
             $rf->update(['status'=>$st]);
-            echo 'Transaction canceled by user';
+            return redirect()->route('mypurchase')->with('message','پرداخت توسط کاربر لغو شد.');
         }
 
 
