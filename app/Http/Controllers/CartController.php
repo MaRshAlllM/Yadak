@@ -27,10 +27,7 @@ class CartController extends Controller
     }
 
     function pay(){
-        $identifier = str_random(20);
-        \Cart::instance(auth()->user()->email)->store($identifier);
-        //\Cart::store(auth()->user()->email);
-        return \Cart::instance('auth()->user()->email')->content();
+
     }
 
     function remove_row($id){
