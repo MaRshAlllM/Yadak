@@ -110,7 +110,7 @@ class CartController extends Controller
 
                 $refid = $result->RefID;
                 $rf = Cart::where('auth',$Authority);
-                $rf->update(['refid'=>$refid]);
+                $rf->update(['refid'=>$refid,'status'=>'پرداخت شده است.']);
                 return redirect()->route('mypurchase')->with('message'," پرداخت با موفقیت انجام شد. شماره پرداخت: $result->RefID");
                 //echo 'Transation success. RefID:'.$result->RefID;
 
@@ -143,6 +143,13 @@ class CartController extends Controller
     function mypurchase(){
         $factor = DB::table('shoppingcart')->groupBy('identifier')->where('instance',auth()->user()->email)->get();
         return view('mypurchase')->with('factor',$factor);
+
+    }
+
+    function pdetail($id){
+
+        $pd = Cart::where('identifier',$id)->get();
+        return view('payment_detail')->with('pd',$pd);
 
     }
 }

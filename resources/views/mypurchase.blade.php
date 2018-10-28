@@ -8,12 +8,12 @@
                     <div class="card-header">{{auth()->user()->name}} به پنل کاربری خوش آمدید.</div>
                     <div class="card-body">
                         @if (session('status'))
-                            <div class="alert alert-success" role="alert">
+                            <div class="alert alert-info" role="alert">
                                 {{ session('status') }}
                             </div>
                         @endif
 
-                        <a href="mypurchase" class="btn btn-secondary"><i class="fas fa-shopping-cart"></i>خرید های انجام شده</a>
+                        <a href="/mypurchase" class="btn btn-secondary"><i class="fas fa-shopping-cart"></i>خرید های انجام شده</a>
                         <a href="#" class="btn btn-secondary"><i class="fas fa-user"></i>
 
                             ویرایش پروفایل</a>
@@ -47,6 +47,7 @@
                                     <th scope="col">شناسه فاکتور</th>
                                     <th scope="col">تاریخ</th>
                                     <th scope="col">وضعیت</th>
+                                    <th scope="col">جزئیات</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -60,6 +61,7 @@
                                     <td><?php echo $row->identifier; ?></td>
                                     <td><?php echo $row->updated_at ?></td>
                                     <td><?php echo $row->status; ?></td>
+                                    <td><a href="pdetail/<?php echo $row->identifier; ?>">مشاهده</a></td>
                                 </tr>
                                 <?php
                                 }
