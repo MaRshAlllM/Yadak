@@ -24,7 +24,7 @@ class AddAuthRefidStatusShoppingcart extends Migration
             $table->string('total')->nullable();
             $table->increments('id');
 
-            $table->primary(['id']);
+            //$table->primary(['id']);
         });
     }
 
