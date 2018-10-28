@@ -45,6 +45,8 @@ Route::group(['middleware' => ['auth','has_role']],function(){
 
 Route::post('/addcart/{id}','CartController@add');
 Route::get('/pay','CartController@pay');
+Route::get('/mypurchase','CartController@mypurchase')->name('mypurchase');
+Route::get('/verify','CartController@verify');
 Route::get('/remove_shop_row/{id}','CartController@remove_row');
 Route::get('/shoppingcart','CartController@index')->name('shoppingcart');
 Route::get('/aboutus','PageController@aboutus');

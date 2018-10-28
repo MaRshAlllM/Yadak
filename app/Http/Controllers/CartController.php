@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Cart;
+use SoapClient;
+use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
@@ -28,6 +30,104 @@ class CartController extends Controller
 
     function pay(){
 
+
+        $tprice = \Cart::subtotal();
+        $identifier = str_random(20);
+        //\Cart::instance(auth()->user()->email)->store($identifier);
+        $cc = array();
+        $i = 0;
+        foreach(\Cart::content() as $row){
+            $i++;
+            $cc['identifier'] = $identifier;
+            $cc['instance'] = auth()->user()->email;
+            $cc['content'] = $row->name;
+            $cc['content'] = $row->name;
+            $cc['qty'] = $row->qty;
+            $cc['price'] = $row->price;
+            $cc['subtotal'] = $row->subtotal;
+            $cc['feature'] = $row->options->feature;
+            $cc['total'] = $tprice;
+            Cart::insert($cc);
+        }
+
+        $_session['factor'] = $identifier;
+
+        $MerchantID = '06da4c26-d439-11e8-ad89-000c295eb8fc-100';  //Required
+        $Amount = $tprice; //Amount will be based on Toman  - Required
+        $Description = " شماره فاکتور:$identifier";  // Required
+        $Email = auth()->user()->email; // Optional
+        $Mobile = ''; // Optional
+        $CallbackURL = 'http://www.yadakbazzar.ir/verify';  // Required
+
+        // URL also can be ir.zarinpal.com or de.zarinpal.com
+        $client = new SoapClient('https://www.zarinpal.com/pg/services/WebGate/wsdl', ['encoding' => 'UTF-8']);
+
+        $result = $client->PaymentRequest([
+            'MerchantID'     => $MerchantID,
+            'Amount'         => $Amount,
+            'Description'    => $Description,
+            'Email'          => $Email,
+            'Mobile'         => $Mobile,
+            'CallbackURL'    => $CallbackURL,
+        ]);
+
+        //Redirect to URL You can do it also by creating a form
+        if ($result->Status == 100) {
+            $au = $result->Authority;
+            $u = Cart::where('identifier',$_session['factor']);
+            $u->auth = "$au";
+            $u->update(['auth'=>$u->auth]);
+
+            header('Location: https://www.zarinpal.com/pg/StartPay/'.$result->Authority);
+
+        } else {
+           $var = $result->Status;
+           $u = Cart::where('identifier',$_session['factor']);
+           $u->update(['status'=>$var]);
+           return redirect()->route('mypurchase')->with('message','سیستم با خطا مواجه شد');
+        }
+
+
+    }
+
+    function verify(){
+        $tprice = \Cart::subtotal();
+        $MerchantID = '06da4c26-d439-11e8-ad89-000c295eb8fc';
+        $Amount = $tprice; //Amount will be based on Toman
+        $Authority = $_GET['Authority'];
+
+        if ($_GET['Status'] == 'OK') {
+            // URL also can be ir.zarinpal.com or de.zarinpal.com
+            $client = new SoapClient('https://www.zarinpal.com/pg/services/WebGate/wsdl', ['encoding' => 'UTF-8']);
+
+            $result = $client->PaymentVerification([
+                'MerchantID'     => $MerchantID,
+                'Authority'      => $Authority,
+                'Amount'         => $Amount,
+            ]);
+
+            if ($result->Status == 100) {
+
+                $refid = $result->RefID;
+                $rf = Cart::where('auth',$Authority);
+                $rf->update(['refid'=>$refid]);
+                echo 'Transation success. RefID:'.$result->RefID;
+
+            } else {
+                $st = $result->Status;
+                $rf = Cart::where('auth',$Authority);
+                $rf->update(['status'=>$st]);
+
+                echo 'Transation failed. Status:'.$result->Status;
+            }
+        } else {
+            $st = "پرداخت توسط کاربر لغو شد.";
+            $rf = Cart::where('auth',$Authority);
+            $rf->update(['status'=>$st]);
+            echo 'Transaction canceled by user';
+        }
+
+
     }
 
     function remove_row($id){
@@ -35,6 +135,12 @@ class CartController extends Controller
         \Cart::remove($id);
 
         return redirect()->route('shoppingcart')->with('Message','حذف با موفقیت انجام شد');
+
+    }
+
+    function mypurchase(){
+        $factor = DB::table('shoppingcart')->groupBy('identifier')->where('instance',auth()->user()->email)->get();
+        return view('mypurchase')->with('factor',$factor);
 
     }
 }

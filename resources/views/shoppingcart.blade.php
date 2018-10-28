@@ -86,7 +86,7 @@
                                     @endforeach
                                     </tbody>
                                 </table>
-                            <a href="/root/pay" class="btn btn-success">پرداخت</a>
+                            <a href="/pay" class="btn btn-success">پرداخت</a>
                             مجموع: {{Cart::subtotal()}}
 
 
