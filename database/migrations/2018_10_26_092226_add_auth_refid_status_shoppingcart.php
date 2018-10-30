@@ -22,6 +22,7 @@ class AddAuthRefidStatusShoppingcart extends Migration
             $table->string('subtotal')->nullable();
             $table->string('feature')->nullable();
             $table->string('total')->nullable();
+            $table->string('sms')->nullable();
             $table->increments('id');
 
             //$table->primary(['id']);

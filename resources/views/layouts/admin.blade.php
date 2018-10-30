@@ -330,11 +330,11 @@
                           <span>بخش مالی</span>
                           <span class="arrow"></span>
                       </a>
-                    <!--   <ul class="sub">
-                          <li><a class="" href="/root/userlist">مشاهده و مدیریت کاربران</a></li>
-                          <li><a class="" href="{{route('roles.index')}}">مدیریت گروه های کاربری</a></li>
-                          <li><a class="" href="{{route('roles.create')}}">ایجاد گروه کاربری</a></li>
-                      </ul> -->
+                    <ul class="sub">
+                          <li><a class="" href="/root/paylist">پرداخت های انجام شده</a></li>
+                          <!--<li><a class="" href="{{route('roles.index')}}">مدیریت گروه های کاربری</a></li>
+                          <li><a class="" href="{{route('roles.create')}}">ایجاد گروه کاربری</a></li>-->
+                      </ul>
                   </li>
                   <li>
                       <a class="" href="/root/comments">

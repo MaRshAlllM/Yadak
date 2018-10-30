@@ -40,6 +40,8 @@ Route::group(['middleware' => ['auth','has_role']],function(){
     Route::delete('/root/comments/{id}/delete','CommentController@delete');
     Route::get('/root/comments/{id}/edit','CommentController@show');
     Route::put('/root/comments/{id}/edit','CommentController@edit')->name('edit_comment');
+    Route::get('/root/paylist','CartController@paylist');
+    Route::get('/root/paymentdetail/{id}','CartController@payment_detail_admin');
 });
 
 

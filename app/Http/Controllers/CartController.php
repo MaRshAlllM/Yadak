@@ -110,7 +110,7 @@ class CartController extends Controller
 
                 $refid = $result->RefID;
                 $rf = Cart::where('auth',$Authority);
-                $rf->update(['refid'=>$refid,'status'=>'پرداخت شده است.']);
+                $rf->update(['refid'=>$refid,'status'=>'پرداخت شده است.','sms'=>$smsresult]);
                 return redirect()->route('mypurchase')->with('message'," پرداخت با موفقیت انجام شد. شماره پرداخت: $result->RefID");
                 //echo 'Transation success. RefID:'.$result->RefID;
 
@@ -126,7 +126,25 @@ class CartController extends Controller
             $st = "پرداخت توسط کاربر لغو شد.";
             $rf = Cart::where('auth',$Authority);
             $rf->update(['status'=>$st]);
-            return redirect()->route('mypurchase')->with('message','پرداخت توسط کاربر لغو شد.');
+            /* sms */
+            $originator = "5000469814";
+            $destination = "09393904202";
+            $content = "پرداخت با موفقیت انجام شد";
+            $password = "6424230";
+            $username = "989148396400";
+            $url = "https://negar.armaghan.net/sms/url_send.html?originator=$originator&destination=$destination&content=$content&password=$password&username=$username";
+            $url = str_replace(' ','&#32;',$url);
+            $arrContextOptions=array(
+                "ssl"=>array(
+                    "verify_peer"=>false,
+                    "verify_peer_name"=>false,
+                ),
+            );
+            $smsresult = file_get_contents("$url", false, stream_context_create($arrContextOptions));
+            echo"$smsresult";
+            /* sms */
+            //return redirect()->route('mypurchase')->with('message','پرداخت توسط کاربر لغو شد.');
+
         }
 
 
@@ -151,5 +169,16 @@ class CartController extends Controller
         $pd = Cart::where('identifier',$id)->get();
         return view('payment_detail')->with('pd',$pd);
 
+    }
+
+    function paylist(){
+
+        $allfactor = DB::table('shoppingcart')->groupBy('identifier')->get();
+        return view('admin.list_pay')->with('allfactor',$allfactor);
+    }
+
+    function payment_detail_admin($id){
+        $p = Cart::where('identifier',$id)->get();
+        return view('admin.payment_detail_admin')->with('p',$p);
     }
 }

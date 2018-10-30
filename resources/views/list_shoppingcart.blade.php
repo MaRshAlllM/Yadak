@@ -91,7 +91,7 @@
                                 </tbody>
                             </table>
                             <a href="/pay" class="btn btn-success">پرداخت</a>
-                            مجموع: {{Cart::subtotal()}}
+                            مجموع: {{Cart::subtotal()}} تومان
 
                         </div>
 
