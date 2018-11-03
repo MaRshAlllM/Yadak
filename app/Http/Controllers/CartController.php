@@ -10,6 +10,13 @@ use Illuminate\Support\Facades\DB;
 class CartController extends Controller
 {
 
+
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index','add','remove_row']);
+
+    }
+
     public function index(){
 
         return view('list_shoppingcart');
@@ -109,6 +116,35 @@ class CartController extends Controller
             if ($result->Status == 100) {
 
                 $refid = $result->RefID;
+                /* sms */
+                $options = array(
+                    CURLOPT_RETURNTRANSFER => true,     // return web page
+                    CURLOPT_HEADER         => false,    // don't return headers
+                    CURLOPT_FOLLOWLOCATION => true,     // follow redirects
+                    CURLOPT_AUTOREFERER    => true,     // set referer on redirect
+                    CURLOPT_CONNECTTIMEOUT => 120,      // timeout on connect
+                    CURLOPT_TIMEOUT        => 120,      // timeout on response
+                    CURLOPT_MAXREDIRS      => 10,       // stop after 10 redirects
+                    CURLOPT_SSL_VERIFYPEER => false,     // Disabled SSL Cert checks
+                );
+
+// create a new cURL resource
+                $ch = curl_init();
+                curl_setopt_array( $ch, $options );
+
+                $username="989148396400";
+                $password="6424230";
+                $originator="5000469814";
+                $destination="09393904202";
+                $content="%D9%BE%D8%B1%D8%AF%D8%A7%D8%AE%D8%AA+%D8%A8%D8%A7+%D9%85%D9%88%D9%81%D9%82%DB%8C%D8%AA+%D8%A7%D9%86%D8%AC%D8%A7%D9%85+%D8%B4%D8%AF.+%D8%B4%D9%85%D8%A7%D8%B1%D9%87+%D9%BE%D8%B1%D8%AF%D8%A7%D8%AE%D8%AA%3A"."$refid";
+// set URL and other appropriate options
+                curl_setopt($ch, CURLOPT_URL, "https://negar.armaghan.net/sms/url_send.html?originator=$originator&destination=$destination&content=$content&password=$password&username=$username");
+// grab URL and pass it to the browser
+                $smsresult=curl_exec($ch);
+
+// close cURL resource, and free up system resources
+                curl_close($ch);
+                /* sms */
                 $rf = Cart::where('auth',$Authority);
                 $rf->update(['refid'=>$refid,'status'=>'پرداخت شده است.','sms'=>$smsresult]);
                 return redirect()->route('mypurchase')->with('message'," پرداخت با موفقیت انجام شد. شماره پرداخت: $result->RefID");
@@ -126,24 +162,8 @@ class CartController extends Controller
             $st = "پرداخت توسط کاربر لغو شد.";
             $rf = Cart::where('auth',$Authority);
             $rf->update(['status'=>$st]);
-            /* sms */
-            $originator = "5000469814";
-            $destination = "09393904202";
-            $content = "پرداخت با موفقیت انجام شد";
-            $password = "6424230";
-            $username = "989148396400";
-            $url = "https://negar.armaghan.net/sms/url_send.html?originator=$originator&destination=$destination&content=$content&password=$password&username=$username";
-            $url = str_replace(' ','&#32;',$url);
-            $arrContextOptions=array(
-                "ssl"=>array(
-                    "verify_peer"=>false,
-                    "verify_peer_name"=>false,
-                ),
-            );
-            $smsresult = file_get_contents("$url", false, stream_context_create($arrContextOptions));
-            echo"$smsresult";
-            /* sms */
-            //return redirect()->route('mypurchase')->with('message','پرداخت توسط کاربر لغو شد.');
+
+            return redirect()->route('mypurchase')->with('message','پرداخت توسط کاربر لغو شد.');
 
         }
 
