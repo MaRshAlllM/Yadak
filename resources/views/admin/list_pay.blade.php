@@ -23,7 +23,9 @@
                             <th scope="col">#</th>
                             <th scope="col">شناسه فاکتور</th>
                             <th scope="col">تاریخ</th>
+                            <th scope="col">مشتری</th>
                             <th scope="col">وضعیت</th>
+                            <th scope="col">سند دریافت پیامک</th>
                             <th scope="col">جزئیات</th>
                         </tr>
                         </thead>
@@ -37,8 +39,16 @@
                         <tr>
                             <th scope="row"><?php echo $i; ?></th>
                             <td><?php echo $row->identifier; ?></td>
+                            <td><?php echo $row->instance; ?></td>
                             <td><?php echo $row->updated_at ?></td>
                             <td><?php echo $row->status; ?></td>
+                            <td><?php
+                                if(empty($row->sms)){
+                                    echo "ندارد";
+                                }else{
+                                echo $row->sms;
+                                }
+                                ?></td>
                             <td><a href="/root/paymentdetail/<?php echo $row->identifier; ?>">مشاهده</a></td>
                         </tr>
                         <?php
