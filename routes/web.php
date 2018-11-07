@@ -42,6 +42,9 @@ Route::group(['middleware' => ['auth','has_role']],function(){
     Route::put('/root/comments/{id}/edit','CommentController@edit')->name('edit_comment');
     Route::get('/root/paylist','CartController@paylist');
     Route::get('/root/paymentdetail/{id}','CartController@payment_detail_admin');
+    Route::get('/root/slideshow','ImageController@slideshow');
+    Route::post('/root/slideshow_upload','ImageController@slideshow_upload');
+    Route::get('/root/delete_slideshow/{id}','ImageController@delete_slideshow');
 });
 
 Route::group(['middleware'=>'auth'],function(){

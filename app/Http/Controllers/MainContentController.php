@@ -6,14 +6,16 @@ use App\Category;
 use App\Image;
 use App\Comment;
 use Illuminate\Http\Request;
+use App\Slideshow;
 
 class MainContentController extends Controller
 {
     public function index(){
 
 	$products = Product::get();
+	$slideshow = Slideshow::get();
 
-    	return view('index',compact('products'));
+    	return view('index')->with(['products'=>$products,'slideshow'=>$slideshow]);
 
     }
     public function single($id){

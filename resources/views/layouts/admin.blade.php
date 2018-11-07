@@ -336,6 +336,13 @@
                           <li><a class="" href="{{route('roles.create')}}">ایجاد گروه کاربری</a></li>-->
                       </ul>
                   </li>
+
+                  <li class="sub-menu">
+                      <a href="/root/slideshow" class="">
+                          <i class="icon-picture"></i>
+                          <span>اسلاید شو</span>
+                      </a>
+                  </li>
                   <li>
                       <a class="" href="/root/comments">
                           <i class="icon-comment"></i>
@@ -343,18 +350,18 @@
                           <!--<span class="label label-danger pull-left mail-info">2</span>-->
                       </a>
                   </li>
-                  <li class="sub-menu">
+                  <!--<li class="sub-menu">
                       <a href="javascript:;" class="">
                           <i class="icon-cogs"></i>
                           <span>تنظیمات</span>
-                          <!-- <span class="arrow"></span> -->
+                          <!-- <span class="arrow"></span>
                       </a>
-                    <!--   <ul class="sub">
+                    <ul class="sub">
                           <li><a class="" href="/root/userlist">مشاهده و مدیریت کاربران</a></li>
                           <li><a class="" href="{{route('roles.index')}}">مدیریت گروه های کاربری</a></li>
                           <li><a class="" href="{{route('roles.create')}}">ایجاد گروه کاربری</a></li>
-                      </ul> -->
-                  </li>
+                      </ul>
+                  </li>-->
               </ul>
               <!-- sidebar menu end-->
           </div>

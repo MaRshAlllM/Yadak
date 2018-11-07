@@ -63,26 +63,28 @@
 
                 <div class="row">
 
-                    <div class="col-9">
+                    <div class="col-12">
                         
                        <div id="carouselExampleFade" class="carousel slide carousel-slide" data-ride="carousel">
 
                       <div class="carousel-inner">
-                        <div class="carousel-item active">
-                          <img class="d-block w-100" src="img/car.jpeg" alt="First slide">
+                          <?php
+                          $i = true;
+                          foreach($slideshow as $row){
+                          ?>
+                        <div class="carousel-item <?php if($i == true){echo"active";} ?>">
+                          <img class="d-block w-100" src="application/public/uploads/<?php echo $row->image; ?>" alt="First slide" style="max-height: 300px">
                           <div class="carousel-caption d-none d-md-block">
                             <!-- <h5>عنوان</h5> -->
                             <!-- <p>توضیحات اسلاید</p> -->
                             <!-- <a href="" class="btn btn-custom-red-wr">بیشتر</a> -->
                           </div>
                         </div>
-                        <div class="carousel-item">
-                          <img class="d-block w-100" src="img/car2.jpg" alt="Second slide">
-                          <div class="carousel-caption d-none d-md-block">
-                            <!-- <h5>عنوان</h5> -->
-                            <!-- <p>توضیحات اسلاید</p> -->
-                          </div>
-                        </div>
+                          <?php
+                            $i = false;
+                            }
+                          ?>
+
                       </div>
                       </div>
                       <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="prev">
@@ -94,13 +96,6 @@
                         <span class="sr-only">قبلی</span>
                       </a>
                     </div>
-
-                    <div class="col-3" id="special-offers">
-                        <img src="img/1.jpg" class="img-fluid">
-                        <img src="img/2.jpg" class="img-fluid">
-                        <img src="img/3.jpg" class="img-fluid">
-                    </div>
-
 
                     </div>
 
