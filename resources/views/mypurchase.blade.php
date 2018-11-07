@@ -14,9 +14,7 @@
                         @endif
 
                         <a href="/mypurchase" class="btn btn-secondary"><i class="fas fa-shopping-cart"></i>خرید های انجام شده</a>
-                        <a href="#" class="btn btn-secondary"><i class="fas fa-user"></i>
-
-                            ویرایش پروفایل</a>
+                        <a href="/profile" class="btn btn-secondary"><i class="fas fa-user"></i>ویرایش پروفایل</a>
 
                         @if(auth()->user()->roles()->get()->isNotEmpty())
                             <a href="{{URL('root')}}" class="btn btn-secondary"><i class="fas fa-star"></i>صفحه مدیریت</a>

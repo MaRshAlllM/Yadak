@@ -44,6 +44,12 @@ Route::group(['middleware' => ['auth','has_role']],function(){
     Route::get('/root/paymentdetail/{id}','CartController@payment_detail_admin');
 });
 
+Route::group(['middleware'=>'auth'],function(){
+
+    Route::get('/profile','ProfileController@index')->name('profile');
+    Route::post('/profile_edit','ProfileController@edit')->name('profile_edit');
+});
+
 
 Route::post('/addcart/{id}','CartController@add');
 Route::get('/pay','CartController@pay');
@@ -52,6 +58,8 @@ Route::get('/mypurchase','CartController@mypurchase')->name('mypurchase');
 Route::get('/verify','CartController@verify');
 Route::get('/remove_shop_row/{id}','CartController@remove_row');
 Route::get('/shoppingcart','CartController@index')->name('shoppingcart');
+
+
 Route::get('/aboutus','PageController@aboutus');
 Route::get('/contactus','PageController@contactus');
 Route::get('/addcompare/{id?}','CompareController@add');
