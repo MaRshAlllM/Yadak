@@ -188,3 +188,6 @@ blockquote {
 	margin-bottom: 0px;
 	padding-bottom: 0px;
 }
+.owl-theme .owl-nav{
+	display: none;
+}

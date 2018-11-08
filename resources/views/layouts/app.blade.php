@@ -13,18 +13,18 @@
 
 
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{asset('style.css')}}">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 	<link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
 	<link rel="stylesheet" href="{{asset('css/owl.theme.default.min.css')}}">
+	<link rel="stylesheet" href="{{asset('style.css')}}">
 	<link rel="stylesheet" href="{{asset('css/lightbox.css')}}">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </head>
 <body>
 
-	<!-- <div class="hiddens" style="width: 100%;height: 132px;display: none;"></div> -->
-	<header id="main-header" class="sticky-top">
+	<!-- <div class="hiddens" style="width: 100%;height: 132px;display: none;"></div> class="sticky-top" -->
+	<header id="main-header">
 		<div class="container">
 			<div class="row align-items-center">
 
@@ -118,7 +118,6 @@
 
 			<div class="container">
 				<div class="row py-3">
-					<h4>برند ها</h4>
 					<div class="w-100"></div>
  					<div class="owl-carousel owl-theme">
 					    <div class="item"><img src="{{asset('img/b1.png')}}" class="img-fluid"></div>
