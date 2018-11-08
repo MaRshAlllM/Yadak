@@ -17,7 +17,8 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 	<link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
 	<link rel="stylesheet" href="{{asset('css/owl.theme.default.min.css')}}">
-
+	<link rel="stylesheet" href="{{asset('css/lightbox.css')}}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </head>
 <body>
@@ -205,11 +206,11 @@
 
 	<!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <script src="{{asset('js/owl.carousel.min.js')}}"></script>
-    <script type="text/javascript">
+	<script type="text/javascript">
     	$('.owl-carousel').owlCarousel({
 		    rtl:true,
 		    loop:true,
@@ -265,5 +266,11 @@
 		// 	}
 		// });
     </script>
+	<script src="{{asset('js/lightbox.js')}}"></script>
+	<script>
+        lightbox.option({
+            'wrapAround': true,
+        })
+	</script>
 </body>
 </html>

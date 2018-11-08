@@ -38,11 +38,11 @@
                             <div class="row">
                                 
                             <div class="col-5">
-                                <a href="#"><img src="/application/public/uploads/{{$product->image}}" class="img-fluid"></a>
+                                <a href="/application/public/uploads/{{$product->image}}" data-lightbox="roadtrip"><img src="/application/public/uploads/{{$product->image}}" class="img-fluid"></a>
                                 <div class="row  py-1">
                                     @foreach($gallery as $g)
                                     <div class="col-3 my-1">
-                                        <a href="/application/public/uploads/{{$g->image_name}}" target="_blank"><img src="/application/public/uploads/{{$g->image_name}}" class="img-fluid"></a>
+                                        <a href="/application/public/uploads/{{$g->image_name}}"  data-lightbox="roadtrip"><img src="/application/public/uploads/{{$g->image_name}}"></a>
                                     </div>
                                     @endforeach
                                 </div>
