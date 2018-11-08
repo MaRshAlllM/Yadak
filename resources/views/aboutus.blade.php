@@ -14,32 +14,11 @@
                         دسته بندی های محصولات
                     </div>
                     <div class="body">
-                        <ul class="list-group list-group-flush">
+                        {{sortMyCatInHtmlMenu()}}
 
-                            <li class="list-group-item"><a href="#"><strong>تخفیف خورده</strong></a></li>
-                            <li class="list-group-item"><a href="#"><strong>ویژه این هفته</strong></a></li>
-                            <li class="list-group-item"><a href="#">قطعه ی تست</a></li>
-                            <li class="list-group-item"><a href="#"> قطعه ی دو</a></li>
-                            <li class="list-group-item"><a href="#"> ماشین یک</a></li>
-                            <li class="list-group-item"><a href="#"> حضرت راکیم</a></li>
-                            <li class="list-group-item"><a href="#"> امام جکسون <span class="badge"><i class="fas fa-angle-left"></i></span></a></li>
-                            <li class="list-group-item"><a href="#"> خدای رپ <span class="badge"><i class="fas fa-angle-left"></i></span></a></li>
-                            <li class="list-group-item"><a href="#"> تیلور سویفت <span class="badge"><i class="fas fa-angle-left"></i></span></a></li>
-
-
-                        </ul>
                     </div>
 
                 </div>
-
-                <div class="box">
-                    <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action">لینک های تستی</a>
-                    </div>
-
-                </div>
-
-
 
             </div>
 

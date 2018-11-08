@@ -178,14 +178,9 @@
                         @if(auth()->check())
                         <form action="{{route('insertcomment',$product->id)}}" method="post" class="py-3">
                             @csrf
-                            <div class="input-group">
-                              <div class="input-group-prepend">
-                                <span class="input-group-text">متن کامنت</span>
-                              </div>
-                              <textarea name="content" class="form-control" aria-label="With textarea"></textarea>
-                              <div class="input-group-prepend">                           <button class="btn btn-primary">ارسال</button>
-</div>
-                            </div>
+                                <div style="margin-bottom: 5px;">متن نظر: </div>
+                              <textarea name="content" class="form-control" rows="2"></textarea>
+                              <button class="btn btn-primary" style="margin-top: 5px;">ارسال</button>
                         </form>
                         @else
 
