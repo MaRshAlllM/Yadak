@@ -38,36 +38,44 @@
                                 </div>
                             @endif
 
-                            <table class="table table-striped">
+                            <table class="table table-striped table-responsive">
                                 <thead>
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">شناسه فاکتور</th>
                                     <th scope="col">تاریخ</th>
                                     <th scope="col">وضعیت</th>
+                                    <th scope="col">کد شروع پرداخت</th>
+                                    <th scope="col">شماره پرداخت</th>
                                     <th scope="col">جزئیات</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <?php
+                                 $i = 1;
                                 foreach($factor as $row){
                                 ?>
-
-
                                 <tr>
-                                    <th scope="row">1</th>
+                                    <th scope="row"><?php echo $i; ?></th>
                                     <td><?php echo $row->identifier; ?></td>
                                     <td><?php echo $row->updated_at ?></td>
                                     <td><?php echo $row->status; ?></td>
+                                    <td><?php echo $row->auth; ?></td>
+                                    <td><?php if(!empty($row->refid)){echo $row->refid;}else{echo"ندارد";}  ?></td>
                                     <td><a href="pdetail/<?php echo $row->identifier; ?>">مشاهده</a></td>
                                 </tr>
                                 <?php
+                                $i++;
                                 }
                                 ?>
 
                                 </tbody>
                             </table>
+                            <?php if($factor->count() == 0){
 
+                                echo"هیچ پرداختی یافت نشد";
+                            }
+                            ?>
 
 
 

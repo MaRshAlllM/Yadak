@@ -91,7 +91,7 @@
 					    <img src="{{asset('img/user.svg')}}">
 						  <a href="/login">ورود</a>
 						  /
-						  <a href="/register">عضویت</a>
+						  <a href="/register"><?php if(isset(auth()->user()->email)){echo"پنل کاربری";}else{echo"عضویت";} ?></a>
 						  </div>
 					  </li>
 		

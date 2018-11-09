@@ -17,4 +17,22 @@ class PageController extends Controller
         return view('contactus');
 
     }
+
+    function transport(){
+
+        return view('transport');
+
+    }
+
+    function discount(){
+
+        return view('discount');
+
+    }
+
+    function support(){
+
+        return view('support');
+
+    }
 }

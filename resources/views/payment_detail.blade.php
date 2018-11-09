@@ -52,18 +52,17 @@
                                 <th scope="col">شناسه فاکتور</th>
                                 <th scope="col">تاریخ</th>
                                 <th scope="col">وضعیت</th>
-                                <th scope="col">auth</th>
-                                <th scope="col">شماره پرداخت</th>
                             </tr>
                             </thead>
                             <tbody>
                             <?php
+                            $i = 1;
                             foreach($pd as $row){
                             ?>
 
 
                             <tr>
-                                <th scope="row">1</th>
+                                <th scope="row"><?php echo $i; ?></th>
                                 <td><?php echo $row->content; ?></td>
                                 <td><?php echo $row->qty; ?></td>
                                 <td><?php echo $row->price; ?></td>
@@ -72,10 +71,9 @@
                                 <td><?php echo $row->identifier; ?></td>
                                 <td><?php echo $row->updated_at ?></td>
                                 <td><?php echo $row->status; ?></td>
-                                <td><?php echo $row->auth; ?></td>
-                                <td><?php echo $row->refid; ?></td>
                             </tr>
                             <?php
+                            $i++;
                             }
                             ?>
 

@@ -17,7 +17,7 @@
                     جزئیات فاکتور
                 </header>
                 <div class="table-responsive">
-                    <table class="table table-striped">
+                    <table class="table table-striped table-responsive">
                         <thead>
                         <tr>
                             <th scope="col">#</th>

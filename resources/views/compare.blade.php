@@ -36,7 +36,7 @@
                                     <div class="row">
 
                                         <div class="col-5">
-                                            <a href="#"><img src="/uploads/{{$row->image}}" class="img-fluid"></a>
+                                            <a href="/application/public/uploads/{{$row->image}}" data-lightbox="image-1"><img src="/application/public/uploads/{{$row->image}}"></a>
 
                                         </div>
                                         <div class="col-7">
@@ -56,10 +56,10 @@
                                                         @foreach(unserialize($row->price) as $key=>$var)
                                                             <option value="<?php
                                                             if($row->discount == null){
-                                                                if(empty($key)){$key="ندارد";}
+                                                                if(empty($key)){$key="";}
                                                                 echo "$key"."-"."$var";
                                                             }else{
-                                                                if(empty($key)){$key="ندارد";}
+                                                                if(empty($key)){$key="";}
                                                                 $d = $row->discount;
                                                                 $dis = $var - ($var*$d/100);
                                                                 echo "$key"."-"."$dis" ;

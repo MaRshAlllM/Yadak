@@ -6,16 +6,22 @@
         <div class="row">
 
             <div class="col-lg-4 col-md-12">
+                <a href="/transport" style="color: rgba(21,13,15,0.86);text-decoration: none;">
                 <i class="fas fa-shuttle-van fa-2x"></i>
                 حمل و نقل محصولات بصورت رایگان
+                </a>
             </div>
             <div class="col-lg-4 col-md-12">
+                <a href="/discount" style="color: rgba(21,13,15,0.86);text-decoration: none;">
                 <i class="fas fa-users fa-2x"></i>
                 تخفیفات ویژه ی سایت
+                </a>
             </div>
             <div class="col-lg-4 col-md-12">
+                <a href="/support" style="color: rgba(21,13,15,0.86);text-decoration: none;">
                 <i class="fas fa-clock fa-2x"></i>
                 پشتیبانی 24 ساعته در 7 روز هفته
+                </a>
             </div>
             
         </div>
@@ -111,22 +117,25 @@
                                 <h4><a href="/single/{{$product->id}}">{{$product->title}}</a></h4>
                                 <span class="price">
 
-
+                                    <?php $first = true; ?>
                                     @foreach(unserialize($product->price) as $key=>$var)
                                         <?php
+                                        if($first == true){
 
-                                        if($product->discount == null){
+                                            if($product->discount == null){
 
-                                            echo "$key"." "."$var";
+                                                echo "$key"." "."$var";
 
-                                        }else{
+                                            }else{
 
-                                            $d = $product->discount;
+                                                $d = $product->discount;
 
-                                            $dis = $var - ($var*$d/100);
+                                                $dis = $var - ($var*$d/100);
 
-                                            echo "<strike>"."$key"." "."$var". "تومان"."</strike> " . "    $dis " ;
+                                                echo "<strike>"."$key"." "."$var". "تومان"."</strike> " . "    $dis " ;
 
+                                            }
+                                            $first = false;
                                         }
 
                                         ?> تومان

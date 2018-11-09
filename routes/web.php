@@ -68,4 +68,7 @@ Route::get('/contactus','PageController@contactus');
 Route::get('/addcompare/{id?}','CompareController@add');
 Route::get('/compare/','CompareController@index');
 Route::get('/delcompare/','CompareController@delete');
+Route::get('/transport','PageController@transport');
+Route::get('/discount','PageController@discount');
+Route::get('/support','PageController@support');
 

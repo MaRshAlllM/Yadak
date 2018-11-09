@@ -53,7 +53,6 @@ class ProductController extends Controller
             'feature'=>'required',
             'number'=>'required|numeric',
             'slug'=>'required',
-            'discount' => 'required|integer',
             'image'=>'required|image',
             'full_body'=>'required',
 
@@ -140,7 +139,6 @@ class ProductController extends Controller
             'feature'=>'required',
             'number'=>'required|numeric',
             'slug'=>'required',
-            'discount' => 'required|integer',
             'image'=>'image',
             'full_body'=>'required',
 
@@ -196,7 +194,7 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $product=Product::find($id);
-        unlink("uploads/{$product->image}");
+        unlink("application/public/uploads/{$product->image}");
         $product->delete();
         return redirect()->back()->with('message','حذف با موفقیت انجام شد');
     }

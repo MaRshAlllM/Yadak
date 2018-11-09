@@ -19,12 +19,6 @@
 
                 </div>
 
-            <div class="box">
-                <div class="list-group">
-                  <a href="#" class="list-group-item list-group-item-action">لینک های تستی</a>
-                </div>
-            </div>
-
             </div>
 
             <div class="col-9 left-col">
@@ -53,8 +47,8 @@
                                 <h1>{{$product->title}}</h1>
                                 <input type="hidden" name="title" value="{{$product->title}}">
                                 <div class="asimplerow add-comment py-1">
-                                    <span>یک نظر</span>
-                                    <a href="#" class="mx-3">نظر خود را اضافه کنید</a>
+                                    <!--<span>یک نظر</span>
+                                    <a href="#" class="mx-3">نظر خود را اضافه کنید</a>-->
                                 </div>
                                 <div class="asimplerow py-2 mojodi">
                                     <!-- <b>ناموجود</b> -->
@@ -62,16 +56,44 @@
                                             <span class="discount mx-3">5555تومان</span>
                                         </div>-->
 
-                                    <div class="variable py-2">قیمت</div>
+                                    <div class="variable py-2" style="color: #ff0012;"><?php if(!empty($product->discount)){echo "<i class=\"fas fa-plus\"></i> " . "قیمت با احتساب ". $product->discount . " درصد تخفیف"; ?> </div>
+
+                                    <div style="margin-bottom: 10px">
+                                    <strike>
+                                    <?php $first = true; ?>
+                                    @foreach(unserialize($product->price) as $key=>$var)
+
+                                            <?php
+                                            if($first = true){
+                                                if($product->discount == null){
+                                                    echo "";
+                                                }else{
+
+                                                    echo "$key"." "."$var";
+                                                }
+                                            $first = false;
+                                            }
+                                            ?> تومان
+                                    @endforeach
+                                    </strike>
+                                    </div>
+                                    <?php } ?>
+
+
+
+
+
+
+
                                         <select class="form-control" name="price">
 
                                             @foreach(unserialize($product->price) as $key=>$var)
                                                     <option value="<?php
                                                     if($product->discount == null){
-                                                        if(empty($key)){$key="ندارد";}
+                                                        if(empty($key)){$key="";}
                                                         echo "$key"."-"."$var";
                                                     }else{
-                                                        if(empty($key)){$key="ندارد";}
+                                                        if(empty($key)){$key="";}
                                                         $d = $product->discount;
                                                         $dis = $var - ($var*$d/100);
                                                         echo "$key"."-"."$dis" ;

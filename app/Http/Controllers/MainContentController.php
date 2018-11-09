@@ -55,12 +55,12 @@ class MainContentController extends Controller
     	// ]);
     	if($request->category != 'همه دسته ها'){
 			$category = Category::find($request->category);
-    		$datas = $category->products()->where('title','LIKE','%'.$request->keyword.'%')->orWhere('full_body','LIKE','%'.$request->keyword.'%')->orderBy('id','desc')->paginate(1);
+    		$datas = $category->products()->where('title','LIKE','%'.$request->keyword.'%')->orWhere('full_body','LIKE','%'.$request->keyword.'%')->orderBy('id','desc')->paginate(24);
             $datas->withPath("/search/?keyword={$request->keyword}&category={$request->category}");
 
     		return view('search',compact('datas'));
     	}
-    	$datas =  Product::where('title','LIKE','%'.$request->keyword.'%')->orWhere('full_body','LIKE','%'.$request->keyword.'%')->orderBy('id','desc')->paginate(1);
+    	$datas =  Product::where('title','LIKE','%'.$request->keyword.'%')->orWhere('full_body','LIKE','%'.$request->keyword.'%')->orderBy('id','desc')->paginate(24);
 
         $datas->withPath("/search/?keyword={$request->keyword}&category={$request->category}");
 

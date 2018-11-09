@@ -147,7 +147,7 @@ h1 {
 }
 #main-contents .right-col .box .body ul li:hover{
 
-	background-color: #f9f9f9;
+	background-color: rgba(243, 241, 239, 1);
 }
 #main-contents .right-col .box .body ul li:hover>a{
 	/*color: red;*/

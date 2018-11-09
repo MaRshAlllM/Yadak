@@ -64,7 +64,7 @@ class MainContentCategoriesController extends Controller
 			}
 
 		}
-        $per_page = 2;
+        $per_page = 24;
 		$pagingate = new LengthAwarePaginator($final->unique(),$final->unique()->count() ,$per_page);
 		$pagingate->withPath('/category/'.$slug);
 

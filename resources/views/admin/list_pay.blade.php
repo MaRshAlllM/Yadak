@@ -17,13 +17,13 @@
                     لیست تمامی فاکتورها
                 </header>
                 <div class="table-responsive">
-                    <table class="table table-striped">
+                    <table class="table table-striped table-responsive">
                         <thead>
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">شناسه فاکتور</th>
-                            <th scope="col">تاریخ</th>
                             <th scope="col">مشتری</th>
+                            <th scope="col">تاریخ</th>
                             <th scope="col">وضعیت</th>
                             <th scope="col">سند دریافت پیامک</th>
                             <th scope="col">جزئیات</th>
