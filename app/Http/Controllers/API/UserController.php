@@ -26,7 +26,7 @@ public $successStatus = 200;
 
     public function index() 
     { 
-        $products = Product::get("id","title","image","Aprice");
+        $products = Product::select("id","title","image","Aprice")->get();
 
 
         return response()->json(['success' => $products], $this->successStatus); 
