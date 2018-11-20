@@ -23,6 +23,20 @@ public $successStatus = 200;
             return response()->json(['error'=>'Unauthorised'], 401); 
         } 
     }
+
+    public function index() 
+    { 
+        $products = Product::get("id","title","image","Aprice");
+
+
+        return response()->json(['success' => $products], $this->successStatus); 
+
+
+
+        // return response()->json(['success' => $user], $this->successStatus); 
+    } 
+
+
 /** 
      * Register api 
      * 

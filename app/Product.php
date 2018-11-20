@@ -9,6 +9,8 @@ class Product extends Model
         'title','body','price','number','slug','image','discount','full_body'
     ];
 
+    protected $appends = ["aprice"];
+
     public function user(){
 
     	return $this->belongsTo('App\User');
@@ -24,5 +26,38 @@ class Product extends Model
     }
     public function comments(){
         return $this->hasMany(Comment::class);
+    }
+    public function getApriceAttribute(){
+
+        $value = "";
+        $first = true;
+        foreach(unserialize($this->price) as $key=>$var)){
+                                        
+            if($first == true){
+
+                if($this->discount == null){
+
+                    $value = "$key"." "."$var";
+                    return $value;
+
+                }else{
+
+                    $d = $this->discount;
+
+                    $dis = $var - ($var*$d/100);
+
+                    $value = "$key"." "."$var"."$dis " ;
+
+                    return $value;
+
+                }
+                $first = false;
+            }
+
+
+         }
+
+         return $value;
+        
     }
 }
