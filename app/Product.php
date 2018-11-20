@@ -9,7 +9,7 @@ class Product extends Model
         'title','body','price','number','slug','image','discount','full_body'
     ];
 
-    protected $appends = ["aprice"];
+    // protected $appends = ["aprice"];
 
     public function user(){
 
@@ -27,37 +27,37 @@ class Product extends Model
     public function comments(){
         return $this->hasMany(Comment::class);
     }
-    public function getApriceAttribute(){
+    // public function getApriceAttribute(){
 
-        $value = "";
-        $first = true;
-        foreach(unserialize($this->price) as $key=>$var){
+    //     $value = "";
+    //     $first = true;
+    //     foreach(unserialize($this->price) as $key=>$var){
                                         
-            if($first == true){
+    //         if($first == true){
 
-                if($this->discount == null){
+    //             if($this->discount == null){
 
-                    $value = "$var";
-                    return $value;
+    //                 $value = "$var";
+    //                 return $value;
 
-                }else{
+    //             }else{
 
-                    $d = $this->discount;
+    //                 $d = $this->discount;
 
-                    $dis = $var - ($var*$d/100);
+    //                 $dis = $var - ($var*$d/100);
 
-                    $value = "{$dis} با تخفیف {$d} %" ;
+    //                 $value = "{$dis} با تخفیف {$d} %" ;
 
-                    return $value;
+    //                 return $value;
 
-                }
-                $first = false;
-            }
+    //             }
+    //             $first = false;
+    //         }
 
 
-         }
+    //      }
 
-         return $value;
+    //      return $value;
         
-    }
+    // }
 }
