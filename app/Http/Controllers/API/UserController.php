@@ -27,10 +27,10 @@ public $successStatus = 200;
 
     public function index() 
     { 
-        $products = Product::all();
+        $products = Product::find(1);
 
 
-	return response()->json(['success' => 'hello'], $this->successStatus); 
+	return response()->json(['success' => $products], $this->successStatus); 
 
 
 
