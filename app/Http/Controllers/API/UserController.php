@@ -30,7 +30,7 @@ public $successStatus = 200;
 
 
     $products = Product::all();
-	return response()->json(['success' => $products], $this->successStatus); 
+	return response()->json([$products], $this->successStatus); 
 
 
 
