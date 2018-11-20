@@ -31,7 +31,7 @@ class Product extends Model
 
         $value = "";
         $first = true;
-        foreach(unserialize($this->price) as $key=>$var)){
+        foreach(unserialize($this->price) as $key=>$var){
                                         
             if($first == true){
 
