@@ -37,7 +37,7 @@ class Product extends Model
 
                 if($this->discount == null){
 
-                    $value = "$var";
+                    $value = "$var تومان";
                     return $value;
 
                 }else{
@@ -46,7 +46,7 @@ class Product extends Model
 
                     $dis = $var - ($var*$d/100);
 
-                    $value = "{$dis} با تخفیف {$d} %" ;
+                    $value = "{$dis} تومان با تخفیف {$d}%" ;
 
                     return $value;
 

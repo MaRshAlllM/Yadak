@@ -28,12 +28,9 @@ public $successStatus = 200;
     public function index() 
     { 
 
-    $products = Product::all();
-	return response()->json(['success' => $products], $this->successStatus); 
+       $products = Product::all();
+	   return response()->json(['success' => $products], $this->successStatus); 
 
-
-
-        // return response()->json(['success' => $user], $this->successStatus); 
     } 
 
 
