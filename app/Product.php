@@ -65,7 +65,7 @@ class Product extends Model
 
         $string = html_entity_decode(strip_tags($this->body));
 
-        $string = preg_replace("/\s/",'',$string);
+        $string = preg_replace("/ \s /",'',$string);
 
         return $string;
     }
@@ -73,7 +73,7 @@ class Product extends Model
 
           $string = html_entity_decode(strip_tags($this->full_body));
 
-          $string = preg_replace("/\s/",'',$string);
+          $string = preg_replace("/ \s /",'',$string);
 
         return $string;
     }
