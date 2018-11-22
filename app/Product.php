@@ -62,10 +62,10 @@ class Product extends Model
 
     public function getApiBodyAttribute(){
 
-        return strip_tags($this->body);
+        return str_replace("\xc2\xa0",' ',strip_tags($this->body));
     }
      public function getApiFullBodyAttribute(){
 
-        return strip_tags($this->full_body);
+        return str_replace("\xc2\xa0",' ',strip_tags($this->full_body));
     }
 }
