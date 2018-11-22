@@ -9,7 +9,7 @@ class Product extends Model
         'title','body','price','number','slug','image','discount','full_body'
     ];
 
-    protected $appends = ["aprice"];
+    protected $appends = ["aprice","apibody","apifullbody"];
 
     public function user(){
 
@@ -57,7 +57,15 @@ class Product extends Model
 
          }
 
-         return $value;
-        
+         return $value; 
+    }
+
+    public function getApiBodyAttribute(){
+
+        return strip_tags($this->body);
+    }
+     public function getApiFullBodyAttribute(){
+
+        return strip_tags($this->full_body);
     }
 }
