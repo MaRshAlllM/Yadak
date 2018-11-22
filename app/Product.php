@@ -61,11 +61,20 @@ class Product extends Model
     }
 
     public function getApiBodyAttribute(){
+        
 
-        return str_replace("\xc2\xa0",' ',strip_tags($this->body));
+        $string = html_entity_decode(strip_tags($this->body));
+
+        $string = preg_replace("/\s/",'',$string);
+
+        return $string;
     }
      public function getApiFullBodyAttribute(){
 
-        return str_replace("\xc2\xa0",' ',strip_tags($this->full_body));
+          $string = html_entity_decode(strip_tags($this->full_body));
+
+          $string = preg_replace("/\s/",'',$string);
+
+        return $string;
     }
 }
