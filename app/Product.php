@@ -9,7 +9,7 @@ class Product extends Model
         'title','body','price','number','slug','image','discount','full_body'
     ];
 
-    protected $appends = ["aprice","apibody","apifullbody"];
+    protected $appends = ["aprice","apirealprice","apibody","apifullbody"];
 
     public function user(){
 
@@ -60,6 +60,28 @@ class Product extends Model
          return $value; 
     }
 
+    public function getApiRealPriceAttribute(){
+
+         $value = [];
+        foreach(unserialize($this->price) as $key=>$var){
+                                        
+             if($key == ""){
+
+                return $var;
+
+             }else{
+
+                array_push($value, [$key => $var]);
+
+             }   
+
+         }
+
+         return $value; 
+
+
+
+    }
     public function getApiBodyAttribute(){
         
 
