@@ -77,4 +77,8 @@ class Product extends Model
 
         return $string;
     }
+    public function gallery(){
+
+        return $this->hasMany(Image::class,'prod_id');
+    }
 }

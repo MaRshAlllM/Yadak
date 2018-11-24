@@ -35,7 +35,7 @@ public $successStatus = 200;
 
     public function single(){
 
-        $product = Product::find(request('id'));
+        $product = Product::with('gallery')->find(request('id'));
 
         return response()->json(['success' => $product],$this->successStatus);
 
