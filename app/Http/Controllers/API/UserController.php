@@ -31,7 +31,7 @@ public $successStatus = 200;
 
        $products = Product::all();
        $slideshow = Slideshow::all();
-	   return response()->json(['success' => [$products,$slideshow], $this->successStatus); 
+	   return response()->json(['success' => [$products,$slideshow]], $this->successStatus); 
 
     } 
 
