@@ -6,6 +6,7 @@ use App\User;
 use App\Product;
 use Illuminate\Support\Facades\Auth; 
 use Validator;
+use App\Slideshow;
 class UserController extends Controller 
 {
 public $successStatus = 200;
@@ -29,7 +30,8 @@ public $successStatus = 200;
     { 
 
        $products = Product::all();
-	   return response()->json(['success' => $products], $this->successStatus); 
+       $slideshow = Slideshow::all();
+	   return response()->json(['success' => [$products,$slideshow], $this->successStatus); 
 
     } 
 
