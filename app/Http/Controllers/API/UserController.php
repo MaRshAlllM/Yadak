@@ -46,11 +46,11 @@ public $successStatus = 200;
 
     public function category(){
 
-        return Category::where("p_id","=","null")->get();
+        return Category::where("p_id","=",null)->get();
 
     }
 
-
+  
 /** 
      * Register api 
      * 
