@@ -17,7 +17,7 @@ use Illuminate\Http\Request;
 Route::post('login', 'API\UserController@login');
 Route::get('index','API\UserController@index');
 Route::get('single','API\UserController@single');
-Route::get('category','API\UserController@categoty')
+Route::get('category','API\UserController@categoty');
 Route::group(['middleware' => 'auth:api'], function(){
 Route::post('details', 'API\UserController@details');
 });
