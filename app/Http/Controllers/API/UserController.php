@@ -50,6 +50,14 @@ public $successStatus = 200;
 
     }
 
+    public function search(){
+
+        $datas =  Product::where('title','LIKE','%'.request('keyword').'%')->orWhere('full_body','LIKE','%'.request('keyword').'%')->orderBy('id','desc')->paginate(24);
+
+        return response()->json(['success' => $datas,$this->successStatus);
+        
+
+    }
 
 /** 
      * Register api 

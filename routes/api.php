@@ -18,6 +18,7 @@ Route::post('login', 'API\UserController@login');
 Route::get('index','API\UserController@index');
 Route::get('single','API\UserController@single');
 Route::get('category','API\UserController@category');
+Route::get('search','API\UserController@search');
 Route::group(['middleware' => 'auth:api'], function(){
 Route::post('details', 'API\UserController@details');
 });
