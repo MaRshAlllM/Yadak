@@ -75,10 +75,7 @@ function sortMyCatInHtmlMenu($p_id=null){
     $categories = App\Category::where('p_id','=',$p_id)->get();
     echo "<ul class=\"list-group list-group-flush\">";
         foreach ($categories as $category) { 
-
-
-            $url = findParents($category->p_id).'/'.$category->slug;
-          
+            $url = findParents($category->p_id).'/'.$category->slug;          
             echo "<li class=\"list-group-item\"><a href=\"".URL('category')."{$url}\">{$category->name}</a>";
             if(App\Category::where('p_id','=',$category->id)->get()->isNotEmpty()){
                  sortMyCatInHtmlMenu($category->id);
