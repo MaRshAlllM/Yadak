@@ -7,6 +7,7 @@ use App\Product;
 use Illuminate\Support\Facades\Auth; 
 use Validator;
 use App\Slideshow;
+use App\Category;
 class UserController extends Controller 
 {
 public $successStatus = 200;
@@ -40,6 +41,12 @@ public $successStatus = 200;
         $product = Product::with('gallery')->find(request('id'));
 
         return response()->json(['success' => $product],$this->successStatus);
+
+    }
+
+    public function category(){
+
+        return Category::where("p_id","=","null")->get();
 
     }
 
