@@ -31,42 +31,6 @@
 
     <div class="container" id="main-contents">
 
-
-        <div class="row">
-
-            <div class="col-lg-3 col-md-12 right-col">
-
-                <div class="box">
-                    <div class="title">
-                        دسته بندی های محصولات
-                    </div>
-                    <div class="body">
-                        <!-- <ul class="list-group list-group-flush">
-                        
-                            <li class="list-group-item"><a href="#"><strong>تخفیف خورده</strong></a></li>
-                            <li class="list-group-item"><a href="#"><strong>ویژه این هفته</strong></a></li>
-                            <li class="list-group-item"><a href="#">قطعه ی تست</a></li>
-                            <li class="list-group-item"><a href="#"> قطعه ی دو</a></li>
-                            <li class="list-group-item"><a href="#"> ماشین یک</a></li>
-                            <li class="list-group-item"><a href="#"> حضرت راکیم</a></li>
-                            <li class="list-group-item"><a href="#"> امام جکسون <span class="badge"><i class="fas fa-angle-left"></i></span></a></li>
-                            <li class="list-group-item"><a href="#"> خدای رپ <span class="badge"><i class="fas fa-angle-left"></i></span></a></li>
-                            <li class="list-group-item"><a href="#"> تیلور سویفت <span class="badge"><i class="fas fa-angle-left"></i></span></a></li>
-
-                    
-                        </ul> -->
-                        {{sortMyCatInHtmlMenu()}}
-                    </div>
-
-                </div>
-
-          
-
-
-            </div>
-
-            <div class="col-lg-9 col-md-12 left-col">
-
                 <div class="row">
 
                     <div class="col-12">
@@ -103,7 +67,44 @@
                       </a>
                     </div>
 
+                </div>
+
+        <div class="row">
+
+            <div class="col-lg-3 col-md-12 right-col py-3">
+
+                <div class="box">
+                    <div class="title">
+                        دسته بندی های محصولات
                     </div>
+                    <div class="body">
+                        <!-- <ul class="list-group list-group-flush">
+                        
+                            <li class="list-group-item"><a href="#"><strong>تخفیف خورده</strong></a></li>
+                            <li class="list-group-item"><a href="#"><strong>ویژه این هفته</strong></a></li>
+                            <li class="list-group-item"><a href="#">قطعه ی تست</a></li>
+                            <li class="list-group-item"><a href="#"> قطعه ی دو</a></li>
+                            <li class="list-group-item"><a href="#"> ماشین یک</a></li>
+                            <li class="list-group-item"><a href="#"> حضرت راکیم</a></li>
+                            <li class="list-group-item"><a href="#"> امام جکسون <span class="badge"><i class="fas fa-angle-left"></i></span></a></li>
+                            <li class="list-group-item"><a href="#"> خدای رپ <span class="badge"><i class="fas fa-angle-left"></i></span></a></li>
+                            <li class="list-group-item"><a href="#"> تیلور سویفت <span class="badge"><i class="fas fa-angle-left"></i></span></a></li>
+
+                    
+                        </ul> -->
+                        {{sortMyCatInHtmlMenu()}}
+                    </div>
+
+                </div>
+
+          
+
+
+        </div>
+
+            <div class="col-lg-9 col-md-12 left-col">
+
+
 
                 <div class="row py-3" id="main-content">
 
