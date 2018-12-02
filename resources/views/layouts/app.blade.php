@@ -28,8 +28,7 @@
 		<div class="container">
 			<div class="row align-items-center">
 
-				<div class="col-lg-6 col-md-12 d-none d-lg-block">بهترین محصولات با <span class="yellow">بالاترین تخفیفات</span> در پاساژ آنلاین</div>
-				<div class="col-lg-6 col-md-12 top-nav navbar navbar-expand-lg">
+				<div class="col-lg-6 col-md-12 d-none d-lg-block">بهترین محصولات با <span class="yellow">بالاترین تخفیفات</span> در یدک بازار</div>				<div class="col-lg-6 col-md-12 top-nav navbar navbar-expand-lg">
 					  <button class="navbar-toggler btn btn-light" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
 					    <span class="fas fa-align-justify"></span>
 					  </button>
