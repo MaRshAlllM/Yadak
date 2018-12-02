@@ -132,7 +132,7 @@
 
                                                 $dis = $var - ($var*$d/100);
 
-                                                echo "<strike>"."$key"." "."$var". "تومان"."</strike> " . "    $dis " ;
+                                                echo "<span style=\"color:red\">"."<strike>"."$key"." "."$var". "تومان"."</strike> " . "</span>" . "    $dis "  ;
 
                                             }
                                             $first = false;
