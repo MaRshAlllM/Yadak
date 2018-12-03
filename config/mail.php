@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => env('MAIL_HOST', 'mail.yadakbazzar.ir'),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'ifo@yadakbazzar.ir'),
+        'name' => env('MAIL_FROM_NAME', 'yadakbazzar.ir'),
     ],
 
     /*
@@ -84,9 +84,9 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME'),
+    'username' => env('ifo@yadakbazzar.ir'),
 
-    'password' => env('MAIL_PASSWORD'),
+    'password' => env('nq243QF4fl9'),
 
     /*
     |--------------------------------------------------------------------------
