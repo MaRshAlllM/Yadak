@@ -1,13 +1,13 @@
 <?php
 
 namespace App;
-use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Notifications\MailResetPasswordToken;
 
 class User extends Authenticatable
 {
-    use Notifiable,HasRoles,HasApiTokens;
+    use Notifiable,HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -34,5 +34,12 @@ class User extends Authenticatable
     }
     public function comment(){
         return $this->hasMany(Comment::class);
+    }
+    /**
+     * Send a password reset email to the user
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new MailResetPasswordToken($token));
     }
 }

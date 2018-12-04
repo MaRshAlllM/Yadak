@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://www.yadakbazzar.ir'),
+    'url' => env('APP_URL', 'http://www.yadakbazzar.ir/'),
 
     /*
     |--------------------------------------------------------------------------
@@ -147,7 +147,6 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Morilog\Jalali\JalaliServiceProvider::class,
-        Laravel\Passport\PassportServiceProvider::class,
 
 
         /*
