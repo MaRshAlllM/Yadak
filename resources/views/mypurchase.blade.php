@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center py-3">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">{{auth()->user()->name}} به پنل کاربری خوش آمدید.</div>
                     <div class="card-body">
@@ -58,7 +58,7 @@
                                 <tr>
                                     <th scope="row"><?php echo $i; ?></th>
                                     <td><?php echo $row->identifier; ?></td>
-                                    <td><?php echo $row->updated_at ?></td>
+                                    <td>{{jDate::forge($row->updated_at)->format('%d %B %Y - H:i')}}</td>
                                     <td><?php echo $row->status; ?></td>
                                     <td><?php echo $row->auth; ?></td>
                                     <td><?php if(!empty($row->refid)){echo $row->refid;}else{echo"ندارد";}  ?></td>

@@ -179,7 +179,7 @@ class CartController extends Controller
     }
 
     function mypurchase(){
-        $factor = DB::table('shoppingcart')->groupBy('identifier')->where('instance',auth()->user()->email)->get();
+        $factor = DB::table('shoppingcart')->groupBy('identifier')->where('instance',auth()->user()->email)->orderby('updated_at','DESC')->get();
         return view('mypurchase')->with('factor',$factor);
 
     }

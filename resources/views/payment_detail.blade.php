@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center py-3">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">{{auth()->user()->name}} به پنل کاربری خوش آمدید.</div>
                     <div class="card-body">
@@ -14,7 +14,7 @@
                         @endif
 
                         <a href="/mypurchase" class="btn btn-secondary"><i class="fas fa-shopping-cart"></i>خرید های انجام شده</a>
-                        <a href="#" class="btn btn-secondary"><i class="fas fa-user"></i>
+                        <a href="/profile" class="btn btn-secondary"><i class="fas fa-user"></i>
 
                             ویرایش پروفایل</a>
 
@@ -69,7 +69,7 @@
                                 <td><?php echo $row->subtotal; ?></td>
                                 <td><?php echo $row->feature; ?></td>
                                 <td><?php echo $row->identifier; ?></td>
-                                <td><?php echo $row->updated_at ?></td>
+                                <td>{{jDate::forge($row->updated_at)->format('%d %B %Y - H:i')}}</td>
                                 <td><?php echo $row->status; ?></td>
                             </tr>
                             <?php
