@@ -12,7 +12,7 @@ class MainContentController extends Controller
 {
     public function index(){
 
-	$products = Product::get();
+	$products = Product::orderby('created_at','DESC')->get();
 	$slideshow = Slideshow::get();
 
     	return view('index')->with(['products'=>$products,'slideshow'=>$slideshow]);

@@ -56,7 +56,7 @@ class MainContentCategoriesController extends Controller
 			$category =  Category::where('slug','=',$slug)->first();
 		}
 		$data = $this->CategoryOrganizer($category->id);
-		$final = $category->products()->get();
+		$final = $category->products()->orderby('created_at','DESC')->get();
 		foreach ($data as $value) {
 			
 			foreach ($value as $v) {
