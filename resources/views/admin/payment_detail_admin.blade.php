@@ -48,7 +48,7 @@
                             <td><?php echo $row->subtotal; ?></td>
                             <td><?php echo $row->feature; ?></td>
                             <td><?php echo $row->identifier; ?></td>
-                            <td><?php echo $row->updated_at ?></td>
+                            <td>{{jDate::forge($row->updated_at)->format('%d %B %Y - H:i')}}</td>
                             <td><?php echo $row->status; ?></td>
                             <td><?php echo $row->auth; ?></td>
                             <td><?php echo $row->refid; ?></td>
