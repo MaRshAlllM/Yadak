@@ -17,7 +17,7 @@ class ProductController extends Controller
     public function index(Product $product)
     {   
 
-        $p = $product->get();
+        $p = $product->orderby('created_at','DESC')->paginate(10);
         return view('admin.list_products')->with('products',$p);
     }
 

@@ -34,7 +34,7 @@
                             <tr>
                                 <td>{{$i}}</td>
                                 <td>{{$prod->title}}</td>
-                                <td><img src="{{URL::to('/')}}/uploads/{{$prod->image}}" width="150"></td>
+                                <td><img src="{{URL::to('/')}}/application/public/uploads/{{$prod->image}}" width="150"></td>
                                 <td><a class="btn btn-success" href="/root/image_gallery/{{$prod->id}}"><i class="icon-picture"></i></a></td>
                                   <td>
                                     <a class="btn btn-info"href="{{route('products.edit',$prod->id)}}"><i class="icon-edit"></i></a>
@@ -51,6 +51,7 @@
                         @endforeach
                         </tbody>
                     </table>
+                    {{$products->links()}}
                 </div>
             </section>
         </div>
