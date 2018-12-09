@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     public function index(User $user){
 
-        $users = $user->with('roles')->orderby('created_at','DESC')->get();
+        $users = $user->with('roles')->orderby('created_at','DESC')->paginate(10);
 
         return view('admin.users.index')->with('users',$users);
     }
