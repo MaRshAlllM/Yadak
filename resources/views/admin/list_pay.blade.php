@@ -57,6 +57,7 @@
                         ?>
                         </tbody>
                     </table>
+                    {{$allfactor->links()}}
                 </div>
             </section>
         </div>

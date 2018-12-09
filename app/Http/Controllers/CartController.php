@@ -193,7 +193,7 @@ class CartController extends Controller
 
     function paylist(){
 
-        $allfactor = DB::table('shoppingcart')->groupBy('identifier')->orderby('updated_at','DESC')->get();
+        $allfactor = DB::table('shoppingcart')->groupBy('identifier')->orderby('updated_at','DESC')->paginate(10);
         return view('admin.list_pay')->with('allfactor',$allfactor);
     }
 
