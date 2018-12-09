@@ -11,7 +11,7 @@ class CommentController extends Controller
     {
 
 
-      $comm = $comment->with(['user','product'])->get();
+      $comm = $comment->with(['user','product'])->orderby('created_at','DESC')->paginate(10);
 
 
         return view('admin.list_comments')->with('comments',$comm);

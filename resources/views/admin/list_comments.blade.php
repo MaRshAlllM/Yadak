@@ -63,6 +63,7 @@
                     @endforeach
                     </tbody>
                 </table>
+                {{$comments->links()}}
             </section>
         </div>
     @endif
