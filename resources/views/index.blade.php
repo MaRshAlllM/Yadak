@@ -184,7 +184,7 @@
                     </div> -->
 
                 </div>
-                
+                {{$products->links()}}
                 <div class="row" id="slide-products">
 
         <!--            <div class="slide-products owl-theme">
