@@ -54,6 +54,7 @@ class CartController extends Controller
             $cc['subtotal'] = $row->subtotal;
             $cc['feature'] = $row->options->feature;
             $cc['total'] = $tprice;
+            $cc['product_id'] = $row->id;
             Cart::insert($cc);
         }
 
