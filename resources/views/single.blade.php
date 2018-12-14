@@ -122,14 +122,28 @@
                                 </div>
 
                                 <div class="asimplerow py-2">
-                                    
+                                    <?php $n = $product->number; ?>
                                     <div class="input-group">
                                           <input type="number" name="number" class="form-control col-4" value="1" min="1" max="10">
                                           <div class="input-group-prepend">
                                               @csrf
-                                            <button type="submit" class="btn btn-custom-green">افزودن به سبد خرید</button>
+                                            <button type="submit" class="btn btn-custom-green" <?php if(!$n > 0 ){echo"disabled";} ?>>افزودن به سبد خرید</button>
                                         </div>
-                                    </div>  
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <i class="fas fa-shopping-cart"></i> وضعیت:
+                                     <?php
+                                       if($n > 0){
+                                           echo"<span style=\"color:green\">";
+                                           echo"موجود";
+                                           echo"</span>";
+                                       }else{
+                                           echo"<span style=\"color:red\">";
+                                           echo"اتمام موجودی";
+                                           echo"</span>";
+                                       }
+                                     ?>
+                                    </div>
                                             
                                 </div>  
 
