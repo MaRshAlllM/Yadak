@@ -215,4 +215,9 @@ class CartController extends Controller
         $p = Cart::where('identifier',$id)->get();
         return view('admin.payment_detail_admin')->with('p',$p);
     }
+
+    function most_purchases(){
+        $u = DB::table('users')->join('shoppingcart','users.email','=','shoppingcart.instance')->select('name as name','email as email','subscription as sub',DB::raw("count(shoppingcart.instance) as count"))->whereNotNull('shoppingcart.refid')->groupBy('shoppingcart.instance')->orderBy('count','DESC')->get();
+        return view('admin.most_purchases')->with('most',$u);
+    }
 }

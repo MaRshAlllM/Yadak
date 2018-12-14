@@ -332,6 +332,7 @@
                       </a>
                     <ul class="sub">
                           <li><a class="" href="/root/paylist">پرداخت های انجام شده</a></li>
+                          <li><a class="" href="/root/most_purchases">بیشترین خریدها</a></li>
                           <!--<li><a class="" href="{{route('roles.index')}}">مدیریت گروه های کاربری</a></li>
                           <li><a class="" href="{{route('roles.create')}}">ایجاد گروه کاربری</a></li>-->
                       </ul>

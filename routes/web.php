@@ -41,6 +41,7 @@ Route::group(['middleware' => ['auth','has_role']],function(){
     Route::get('/root/comments/{id}/edit','CommentController@show');
     Route::put('/root/comments/{id}/edit','CommentController@edit')->name('edit_comment');
     Route::get('/root/paylist','CartController@paylist');
+    Route::get('/root/most_purchases','CartController@most_purchases');
     Route::get('/root/paymentdetail/{id}','CartController@payment_detail_admin');
     Route::get('/root/slideshow','ImageController@slideshow');
     Route::post('/root/slideshow_upload','ImageController@slideshow_upload');
