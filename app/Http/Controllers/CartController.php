@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Cart;
 use SoapClient;
 use Illuminate\Support\Facades\DB;
+use App\Product;
 
 class CartController extends Controller
 {
@@ -148,6 +149,16 @@ class CartController extends Controller
                 /* sms */
                 $rf = Cart::where('auth',$Authority);
                 $rf->update(['refid'=>$refid,'status'=>'پرداخت شده است.','sms'=>$smsresult]);
+
+                /* decrement product number */
+                $rf2 = Cart::where('auth',$Authority)->get();
+                foreach($rf2 as $row){
+                    $pid2 = $row->product_id;
+                    $qty2 = $row->qty;
+                    Product::where('id',$pid2)->decrement('number',$qty2);
+                }
+                /* decrement product number */
+
                 return redirect()->route('mypurchase')->with('message'," پرداخت با موفقیت انجام شد. شماره پرداخت: $result->RefID");
                 //echo 'Transation success. RefID:'.$result->RefID;
 
@@ -160,11 +171,13 @@ class CartController extends Controller
 
             }
         } else {
+
             $st = "پرداخت توسط کاربر لغو شد.";
-            $rf = Cart::where('auth',$Authority);
-            $rf->update(['status'=>$st]);
+            $rff = Cart::where('auth',$Authority);
+            $rff->update(['status'=>$st]);
 
             return redirect()->route('mypurchase')->with('message','پرداخت توسط کاربر لغو شد.');
+
 
         }
 
