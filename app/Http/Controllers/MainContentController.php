@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 use App\Product;
 use App\Category;
@@ -7,6 +6,7 @@ use App\Image;
 use App\Comment;
 use Illuminate\Http\Request;
 use App\Slideshow;
+use Illuminate\Support\Facades\DB;
 
 class MainContentController extends Controller
 {
@@ -14,20 +14,19 @@ class MainContentController extends Controller
 
 	$products = Product::orderby('created_at','DESC')->paginate(24);
 	$slideshow = Slideshow::get();
+	$most = DB::table('products')->join('shoppingcart','products.id','=','shoppingcart.product_id')->select('title as title','image as image','product_id as id',DB::raw("count(shoppingcart.product_id) as count"))->WhereNotNull('refid')->groupBy('product_id')->orderBy('count','DESC')->limit(10)->get();
 
-    	return view('index')->with(['products'=>$products,'slideshow'=>$slideshow]);
+    return view('index')->with(['products'=>$products,'slideshow'=>$slideshow,'most'=>$most]);
 
     }
     public function single($id){
 
         $pr = Product::with(['comments' => function($query){
-
         	$query->where('status','=',1);
-
-
         },'features'])->find($id);
         $gallery = Image::where('prod_id',$id)->get();
-    	return view('single')->with(['product'=>$pr,'gallery'=>$gallery]);
+        $most = DB::table('products')->join('shoppingcart','products.id','=','shoppingcart.product_id')->select('title as title','image as image','product_id as id',DB::raw("count(shoppingcart.product_id) as count"))->WhereNotNull('refid')->groupBy('product_id')->orderBy('count','DESC')->limit(3)->get();
+    	return view('single')->with(['product'=>$pr,'gallery'=>$gallery,'most'=>$most]);
 
     }
     public function insertComment($id){

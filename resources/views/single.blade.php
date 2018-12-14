@@ -19,6 +19,22 @@
 
                 </div>
 
+                <div style="text-align: center; border-top: 1px solid #ddd;margin-top: 10px;padding-top: 5px;font-size: 12px;">
+                    پرفروش ترین محصولات
+                    <?php
+                    foreach($most as $row){
+                    ?>
+                    <div class="img-thumbnail" style="text-align: center; font-size: 12px;margin-bottom: 5px;margin-top: 5px">
+
+                        <a href="/single/{{$row->id}}"><img src="/application/public/uploads/<?php echo $row->image; ?>" class="img-fluid"></a>
+                        <div style="padding: 5px;"><a href="/single/{{$row->id}}">{{$row->title}}</a></div>
+                    </div>
+                    <?php
+                    }
+                    ?>
+                </div>
+
+
             </div>
 
             <div class="col-9 left-col">
