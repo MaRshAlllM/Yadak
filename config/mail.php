@@ -86,7 +86,7 @@ return [
 
     'username' => env('ifo@yadakbazzar.ir'),
 
-    'password' => env('nq243QF4fl9'),
+    'password' => env(''),
 
     /*
     |--------------------------------------------------------------------------
