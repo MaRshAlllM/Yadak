@@ -64,7 +64,7 @@
                             <label for="address" class="col-md-4 col-form-label text-md-right">آدرس</label>
 
                             <div class="col-md-6">
-                                <input id="address" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" name="address" required>
+                                <input id="address" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" name="address" value="{{ old('address') }}" required>
 
                                 @if ($errors->has('address'))
                                     <span class="invalid-feedback" role="alert">
@@ -77,7 +77,7 @@
                             <label for="job" class="col-md-4 col-form-label text-md-right">شغل</label>
 
                             <div class="col-md-6">
-                                <input id="job" type="text" class="form-control{{ $errors->has('job') ? ' is-invalid' : '' }}" name="job" required>
+                                <input id="job" type="text" class="form-control{{ $errors->has('job') ? ' is-invalid' : '' }}" name="job" value="{{ old('job') }}" required>
 
                                 @if ($errors->has('job'))
                                     <span class="invalid-feedback" role="alert">
@@ -90,7 +90,7 @@
                             <label for="phone" class="col-md-4 col-form-label text-md-right">تلفن</label>
 
                             <div class="col-md-6">
-                                <input id="phone" type="text" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" name="phone" required>
+                                <input id="phone" type="text" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" name="phone" value="{{ old('phone') }}" required>
 
                                 @if ($errors->has('phone'))
                                     <span class="invalid-feedback" role="alert">
@@ -103,7 +103,7 @@
                             <label for="cellphone" class="col-md-4 col-form-label text-md-right">تلفن همراه</label>
 
                             <div class="col-md-6">
-                                <input id="cellphone" type="text" class="form-control{{ $errors->has('cellphone') ? ' is-invalid' : '' }}" name="cellphone" required>
+                                <input id="cellphone" type="text" class="form-control{{ $errors->has('cellphone') ? ' is-invalid' : '' }}" name="cellphone" value="{{ old('cellphone') }}" required>
 
                                 @if ($errors->has('cellphone'))
                                     <span class="invalid-feedback" role="alert">

@@ -59,7 +59,13 @@
                                     <th scope="row"><?php echo $i; ?></th>
                                     <td><?php echo $row->identifier; ?></td>
                                     <td>{{jDate::forge($row->updated_at)->format('%d %B %Y - H:i')}}</td>
-                                    <td><?php echo $row->status; ?></td>
+                                    <td><?php if($row->status == "پرداخت حضوری"){
+                                            echo"<span style=\"color:red;\">";
+                                            echo $row->status;
+                                            echo"</span>";
+                                        }else{
+                                            echo $row->status;
+                                        } ?></td>
                                     <td><?php echo $row->auth; ?></td>
                                     <td><?php if(!empty($row->refid)){echo $row->refid;}else{echo"ندارد";}  ?></td>
                                     <td><a href="pdetail/<?php echo $row->identifier; ?>">مشاهده</a></td>

@@ -67,10 +67,16 @@
                                 <td><?php echo $row->qty; ?></td>
                                 <td><?php echo $row->price; ?></td>
                                 <td><?php echo $row->subtotal; ?></td>
-                                <td><?php echo $row->feature; ?></td>
+                                <td><?php if(empty($row->feature)){echo "ندارد";}else{echo $row->feature;} ?></td>
                                 <td><?php echo $row->identifier; ?></td>
                                 <td>{{jDate::forge($row->updated_at)->format('%d %B %Y - H:i')}}</td>
-                                <td><?php echo $row->status; ?></td>
+                                <td><?php if($row->status == "پرداخت حضوری"){
+                                        echo"<span style=\"color:red;\">";
+                                        echo $row->status;
+                                        echo"</span>";
+                                    }else{
+                                        echo $row->status;
+                                    } ?></td>
                             </tr>
                             <?php
                             $i++;

@@ -57,6 +57,7 @@ Route::group(['middleware'=>'auth'],function(){
 
 Route::post('/addcart/{id}','CartController@add');
 Route::get('/pay','CartController@pay');
+Route::get('/inperson','CartController@inperson');
 Route::get('/pdetail/{id}','CartController@pdetail');
 Route::get('/mypurchase','CartController@mypurchase')->name('mypurchase');
 Route::get('/verify','CartController@verify');

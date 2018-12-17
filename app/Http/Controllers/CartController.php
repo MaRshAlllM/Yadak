@@ -49,7 +49,6 @@ class CartController extends Controller
             $cc['identifier'] = $identifier;
             $cc['instance'] = auth()->user()->email;
             $cc['content'] = $row->name;
-            $cc['content'] = $row->name;
             $cc['qty'] = $row->qty;
             $cc['price'] = $row->price;
             $cc['subtotal'] = $row->subtotal;
@@ -219,5 +218,64 @@ class CartController extends Controller
     function most_purchases(){
         $u = DB::table('users')->join('shoppingcart','users.email','=','shoppingcart.instance')->select('name as name','email as email','subscription as sub',DB::raw("count(shoppingcart.instance) as count"))->whereNotNull('shoppingcart.refid')->groupBy('shoppingcart.instance')->orderBy('count','DESC')->get();
         return view('admin.most_purchases')->with('most',$u);
+    }
+
+    function inperson(){
+
+        /* sms */
+        $options = array(
+            CURLOPT_RETURNTRANSFER => true,     // return web page
+            CURLOPT_HEADER         => false,    // don't return headers
+            CURLOPT_FOLLOWLOCATION => true,     // follow redirects
+            CURLOPT_AUTOREFERER    => true,     // set referer on redirect
+            CURLOPT_CONNECTTIMEOUT => 120,      // timeout on connect
+            CURLOPT_TIMEOUT        => 120,      // timeout on response
+            CURLOPT_MAXREDIRS      => 10,       // stop after 10 redirects
+            CURLOPT_SSL_VERIFYPEER => false,     // Disabled SSL Cert checks
+        );
+
+// create a new cURL resource
+        $ch = curl_init();
+        curl_setopt_array( $ch, $options );
+
+        $username="989148396400";
+        $password="6424230";
+        $originator="5000469814";
+        $destination=auth()->user()->cellphone;
+        $content="%D8%B3%D9%81%D8%A7%D8%B1%D8%B4%20%D8%B4%D9%85%D8%A7%20%D8%A8%D8%A7%20%D9%85%D9%88%D9%81%D9%82%DB%8C%D8%AA%20%D8%AF%D8%B1%DB%8C%D8%A7%D9%81%D8%AA%20%D8%B4%D8%AF.%20%D8%A8%D9%87%20%D8%B2%D9%88%D8%AF%DB%8C%20%D8%A8%D8%A7%20%D8%B4%D9%85%D8%A7%20%D8%AA%D9%85%D8%A7%D8%B3%20%DA%AF%D8%B1%D9%81%D8%AA%D9%87%20%D8%AE%D9%88%D8%A7%D9%87%D8%AF%20%D8%B4%D8%AF.";
+// set URL and other appropriate options
+        curl_setopt($ch, CURLOPT_URL, "https://negar.armaghan.net/sms/url_send.html?originator=$originator&destination=$destination&content=$content&password=$password&username=$username");
+// grab URL and pass it to the browser
+        $smsresult=curl_exec($ch);
+
+// close cURL resource, and free up system resources
+        curl_close($ch);
+        /* sms */
+
+        $tprice = \Cart::subtotal();
+        $identifier = str_random(20);
+        //\Cart::instance(auth()->user()->email)->store($identifier);
+        $cc = array();
+        $i = 0;
+        foreach(\Cart::content() as $row){
+            $i++;
+            $cc['identifier'] = $identifier;
+            $cc['instance'] = auth()->user()->email;
+            $cc['content'] = $row->name;
+            $cc['updated_at'] = date('Y-m-d h:i:s',time());
+            $cc['auth'] = "--";
+            $cc['refid'] = "--";
+            $cc['status'] = "پرداخت حضوری";
+            $cc['qty'] = $row->qty;
+            $cc['price'] = $row->price;
+            $cc['subtotal'] = $row->subtotal;
+            $cc['feature'] = $row->options->feature;
+            $cc['total'] = $tprice;
+            $cc['sms'] = $smsresult;
+            $cc['product_id'] = $row->id;
+           Cart::insert($cc);
+        }
+
+        return redirect()->route('mypurchase')->with('message','سفارش شما با موفقیت ثبت شد. به زودی با شما تماس گرفته خواهد شد.');
     }
 }

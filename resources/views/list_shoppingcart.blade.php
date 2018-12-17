@@ -68,7 +68,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
-                            <a href="/pay" class="btn btn-success">پرداخت</a>
+                            <a href="/pay" class="btn btn-success">پرداخت</a>  <a href="/inperson" class="btn btn-info">خرید حضوری</a>
                             مجموع: {{Cart::subtotal()}} تومان
 
                         </div>
