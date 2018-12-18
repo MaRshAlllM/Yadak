@@ -54,7 +54,7 @@ class RegisterController extends Controller
             'password' => 'required|string|min:6|confirmed',
             'address' => 'required|string|min:5|max:255',
             'job' => 'required|string|min:3|max:100',
-            'phone' => 'required|digits:8',
+            'phone' => 'required|digits:11',
             'cellphone' => 'required|digits:11'
         ]);
     }

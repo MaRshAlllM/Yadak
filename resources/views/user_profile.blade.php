@@ -5,7 +5,7 @@
         <div class="row justify-content-center py-3">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{auth()->user()->name}} به پنل کاربری خوش آمدید.</div>
+                    <div class="card-header">{{auth()->user()->name}} به پنل کاربری خوش آمدید. (شماره عضویت: {{auth()->user()->subscription}}) </div>
                     <div class="card-body">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
