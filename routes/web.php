@@ -30,6 +30,7 @@ Route::group(['middleware' => ['auth','has_role']],function(){
 	Route::resource('/root/feature','FeatureController');
 	Route::resource('/root/roles','UserRolesController');
 	Route::get('/root/userlist','UserController@index');
+    Route::get('/root/single_user/{user}','UserController@single_user');
 	Route::get('/root/userlist/{id}','UserController@show');
 	Route::patch('/root/userlist/{id}','UserController@update')->name('userlist.update');
 	Route::get('/root/image_gallery/{id}','ImageController@index');

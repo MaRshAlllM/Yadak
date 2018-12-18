@@ -53,4 +53,9 @@ class UserController extends Controller
 
 
     }
+    function single_user($user){
+            $user = User::where('email',$user)->get();
+            return view('admin.users.single')->with('user',$user);
+
+    }
 }

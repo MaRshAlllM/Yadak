@@ -39,7 +39,7 @@
                         <tr>
                             <th scope="row"><?php echo $i; ?></th>
                             <td><?php echo $row->identifier; ?></td>
-                            <td><?php echo $row->instance; ?></td>
+                            <td><?php echo $row->instance; ?> <a href="/root/single_user/<?php echo $row->instance; ?>">(جزئیات)</a> </td>
                             <td>{{jDate::forge($row->updated_at)->format('%d %B %Y - H:i')}}</td>
                             <td><?php echo $row->status; ?></td>
                             <td><?php
