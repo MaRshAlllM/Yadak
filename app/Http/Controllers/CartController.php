@@ -157,7 +157,7 @@ class CartController extends Controller
                     Product::where('id',$pid2)->decrement('number',$qty2);
                 }
                 /* decrement product number */
-
+                \Cart::destroy();
                 return redirect()->route('mypurchase')->with('message'," پرداخت با موفقیت انجام شد. شماره پرداخت: $result->RefID");
                 //echo 'Transation success. RefID:'.$result->RefID;
 
@@ -275,7 +275,7 @@ class CartController extends Controller
             $cc['product_id'] = $row->id;
            Cart::insert($cc);
         }
-
+        \Cart::destroy();
         return redirect()->route('mypurchase')->with('message','سفارش شما با موفقیت ثبت شد. به زودی با شما تماس گرفته خواهد شد.');
     }
 }
